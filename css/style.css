@@ -14,7 +14,7 @@
   --fw-bold: 900;
 
   --clr-light: #fff;
-  --clr-dark: #2e3842;
+  --clr-dark: #232d36;
   --clr-accent: #16e0bd;
 
   --fs-h1: 3rem;
@@ -310,7 +310,7 @@ header {
   padding: auto;
   position: relative;
   top: 25vh;
-  color: black;
+  color: var(--clr-dark);
 }
 
 .chevron-wrapper {
@@ -320,7 +320,7 @@ header {
 }
 
 .intro i {
-  color: black;
+  color: var(--clr-dark);
   font-size: var(--fs-h2);
 }
 
@@ -379,6 +379,8 @@ header {
 
 .about-me__img {
   box-shadow: var(--bs);
+  border: 8px solid var(--clr-light);
+  border-bottom: 40px solid;
 }
 
 @media (min-width: 600px) {
@@ -424,7 +426,7 @@ header {
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
-  color: white;
+  color: var(--clr-light);
   padding: 40px 0px;
   max-width: 1000px;
   overflow: hidden;
@@ -472,16 +474,23 @@ header {
   color: var(--clr-accent);
 }
 
-.project-tech-r {
-  text-align: right;
-}
-
+.project-tech-r,
 .project-links-r {
   text-align: right;
 }
 
 .content i {
   padding: 0px 10px 0px 10px;
+}
+
+.content a {
+  text-decoration: none;
+  opacity: 0.5;
+  color: var(--clr-light);
+}
+
+.content a:hover {
+  opacity: 1;
 }
 
 /* tooltips */
@@ -541,9 +550,9 @@ header {
   z-index: 1000;
   padding: 8px;
   width: auto;
-  background-color: #000;
+  background-color: var(--clr-dark);
   background-color: hsla(0, 0%, 20%, 0.9);
-  color: #fff;
+  color: var(--clr-light);
   content: attr(data-tooltip);
   font-size: 14px;
   line-height: 1.2;
@@ -561,7 +570,7 @@ header {
   margin-bottom: 0;
   margin-left: -6px;
   border-top-color: transparent;
-  border-bottom-color: #000;
+  border-bottom-color: var(--clr-dark);
   border-bottom-color: hsla(0, 0%, 20%, 0.9);
 }
 
@@ -666,6 +675,10 @@ header {
     text-align: center;
     width: 100%;
   }
+  .project-tech-r,
+  .project-links-r {
+    text-align: center;
+  }
 }
 
 @media screen and (max-width: 736px) {
@@ -727,7 +740,7 @@ header {
 /* Footer */
 
 .footer {
-  background: #111;
+  background-color: var(--clr-light);
   color: var(--clr-accent);
   text-align: center;
   padding: 2.5em 0;
