@@ -307,10 +307,12 @@ header {
   max-width: 1000px;
   height: 100vh;
   margin: auto;
-  padding: auto;
+  padding-bottom: 25vh;
   position: relative;
-  top: 25vh;
   color: var(--clr-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .chevron-wrapper {
