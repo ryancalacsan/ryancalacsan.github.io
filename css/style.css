@@ -796,3 +796,50 @@ header {
   margin-left: auto;
   margin-right: auto;
 }
+
+/* theme buttons */
+
+#theme-options-wrapper {
+  display: flex;
+  z-index: 100;
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+}
+
+.theme-dot {
+  display: flex;
+  height: 30px;
+  width: 30px;
+  background-color: black;
+  border-radius: 50%;
+
+  margin: 5px;
+  border: 2px solid var(--themeDotBorder);
+
+  -webkit-box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.75);
+
+  cursor: pointer;
+}
+
+.theme-dot:hover {
+  border-width: 5px;
+}
+
+#light-mode {
+  background-color: #fff;
+}
+
+#purple-mode {
+  background-color: #b3baff;
+}
+
+#green-mode {
+  background-color: #618c56;
+}
+
+#pink-mode {
+  background-color: #daa99b;
+}
