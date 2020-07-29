@@ -419,6 +419,11 @@ header {
 }
 
 /* Projects */
+.section__title--work {
+  display: flex;
+  text-align: center;
+}
+
 .spotlight {
   -moz-align-items: center;
   -webkit-align-items: center;
