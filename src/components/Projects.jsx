@@ -10,7 +10,8 @@ const Projects = forwardRef((props, ref) => {
 
   return (
     <section className="projects wrapper" id="projects" ref={ref}>
-      <h2 className="projects__title">My Projects 👾</h2>
+      <h2 className="projects__title">Personal Projects</h2>
+      <p className="projects__subtitle">Learning and side projects</p>
       <p className="projects__text"></p>
       <div className="projects__container">
         {projectsData.map((project) => (

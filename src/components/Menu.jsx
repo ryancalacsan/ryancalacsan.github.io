@@ -17,13 +17,18 @@ export default function Menu() {
       </div>
       <ul className={`menu__list ${isOpen ? "menu__list--active" : ""}`}>
         <li className="menu__item">
+          <a onClick={toggleMenu} href="#experience" className="menu__link">
+            <span>Experience</span>
+          </a>
+        </li>
+        <li className="menu__item">
           <a onClick={toggleMenu} href="#projects" className="menu__link">
             <span>Projects</span>
           </a>
         </li>
         <li className="menu__item">
           <a onClick={toggleMenu} href="#about-me" className="menu__link">
-            <span>About Me</span>
+            <span>About</span>
           </a>
         </li>
         <li className="menu__item">

@@ -5,15 +5,34 @@
 .toolkit__title {
   font-size: 2rem;
   font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.toolkit__categories {
+  display: grid;
+  gap: 2rem;
+}
+
+.toolkit__category {
+  text-align: center;
+}
+
+.toolkit__category-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: $accent-color-2;
   margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .toolkit__skills {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 2rem 1rem;
-  row-gap: 2rem;
+  padding: 0.5rem 1rem;
+  row-gap: 1.5rem;
+  gap: 1rem;
 }
 
 .toolkit__skill {
@@ -27,7 +46,11 @@
 }
 
 @media (min-width: 768px) {
+  .toolkit__categories {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .toolkit__skill {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 }

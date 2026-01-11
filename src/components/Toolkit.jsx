@@ -1,71 +1,66 @@
-import { FaReact, FaCss3Alt, FaHtml5, FaSass } from "react-icons/fa"
+import { FaReact, FaCss3Alt, FaHtml5, FaDocker, FaNodeJs, FaGitAlt } from "react-icons/fa"
 import {
-  SiAdobecreativecloud,
-  SiReactrouter,
+  SiNextdotjs,
   SiJavascript,
   SiTailwindcss,
   SiTypescript,
-  SiFirebase,
-  SiDaisyui,
+  SiPostgresql,
+  SiSupabase,
 } from "react-icons/si"
-import { RxAccessibility } from "react-icons/rx"
+import { TbApi } from "react-icons/tb"
 import { IconContext } from "react-icons"
 
 export default function Toolkit() {
+  const skillCategories = [
+    {
+      name: "Frontend",
+      skills: [
+        { icon: <FaReact />, name: "React" },
+        { icon: <SiNextdotjs />, name: "Next.js" },
+        { icon: <SiTypescript />, name: "TypeScript" },
+        { icon: <SiJavascript />, name: "JavaScript" },
+        { icon: <SiTailwindcss />, name: "Tailwind CSS" },
+        { icon: <FaHtml5 />, name: "HTML5" },
+        { icon: <FaCss3Alt />, name: "CSS3" },
+      ],
+    },
+    {
+      name: "Backend",
+      skills: [
+        { icon: <FaNodeJs />, name: "Node.js" },
+        { icon: <SiPostgresql />, name: "PostgreSQL" },
+        { icon: <TbApi />, name: "REST APIs" },
+      ],
+    },
+    {
+      name: "Infrastructure",
+      skills: [
+        { icon: <FaDocker />, name: "Docker" },
+        { icon: <SiSupabase />, name: "Supabase" },
+        { icon: <FaGitAlt />, name: "Git" },
+      ],
+    },
+  ]
+
   return (
-    <section className="toolkit toolkit-section wrapper">
-      <h2 className="toolkit__title">My Toolkit 💻</h2>
+    <section className="toolkit toolkit-section wrapper" id="toolkit">
+      <h2 className="toolkit__title">My Toolkit</h2>
       <IconContext.Provider value={{ size: "2.0em", color: "#ff8811" }}>
-        <ul className="toolkit__skills">
-          <li className="toolkit__skill">
-            <RxAccessibility />
-            Accessibility
-          </li>
-          <li className="toolkit__skill">
-            <FaHtml5 />
-            HTML5
-          </li>
-          <li className="toolkit__skill">
-            <FaCss3Alt />
-            CSS3
-          </li>
-          <li className="toolkit__skill">
-            <SiTailwindcss />
-            Tailwind CSS
-          </li>
-          <li className="toolkit__skill">
-            <FaSass />
-            Sass
-          </li>
-          <li className="toolkit__skill">
-            <SiJavascript />
-            JavaScript
-          </li>
-          <li className="toolkit__skill">
-            <SiTypescript />
-            Typescript
-          </li>
-          <li className="toolkit__skill">
-            <FaReact size={30} />
-            React
-          </li>
-          <li className="toolkit__skill">
-            <SiReactrouter />
-            React Router
-          </li>
-          <li className="toolkit__skill">
-            <SiFirebase />
-            Firebase
-          </li>
-          <li className="toolkit__skill">
-            <SiAdobecreativecloud />
-            Adobe Creative Cloud
-          </li>
-          <li className="toolkit__skill">
-            <SiDaisyui />
-            DaisyUI
-          </li>
-        </ul>
+        <div className="toolkit__categories">
+          {skillCategories.map((category) => (
+            <div key={category.name} className="toolkit__category">
+              <h3 className="toolkit__category-name">{category.name}</h3>
+              <ul className="toolkit__skills">
+                {category.skills.map((skill) => (
+                  <li key={skill.name} className="toolkit__skill">
+                    {skill.icon}
+                    {skill.name}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </IconContext.Provider>
     </section>
   )

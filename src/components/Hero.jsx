@@ -6,23 +6,20 @@ export default function Hero({ scrollToSection }) {
       <div className="hero__main-container">
         <div className="hero__info">
           <h1>
-            Hello! <span className="hero__name">I'm Ryan. 👋</span>
+            <span className="hero__name">Full-Stack Engineer</span>
           </h1>
           <p className="hero__description">
-            A <span className="hero__highlight">developer</span> and{" "}
-            <span className="hero__highlight">photographer</span> with a passion
-            for creating engaging, accessible user experiences.
+            I build complex web applications. Most recently, I architected a{" "}
+            <span className="hero__highlight">200K+ line enterprise platform</span>{" "}
+            as Principal Engineer at PrintNinja.
           </p>
         </div>
         <img
           src="/profile.jpg"
-          alt="Ryan Calacsan smiling"
+          alt="Ryan Calacsan"
           className="hero__img"
         />
       </div>
-      <p className="hero__tagline">
-        Code, Creativity, and a Dash of Chicago Flair 🌆✨
-      </p>
       <div className="hero__down-arrow" onClick={scrollToSection}>
         <FaAngleDoubleDown size="2rem" />
       </div>

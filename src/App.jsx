@@ -1,6 +1,7 @@
 import React, { useRef } from "react"
 import Menu from "./components/Menu"
 import Hero from "./components/Hero"
+import Experience from "./components/Experience"
 import Projects from "./components/Projects"
 import AboutMe from "./components/AboutMe"
 import Toolkit from "./components/Toolkit"
@@ -11,7 +12,6 @@ function App() {
   const sectionRef = useRef(null)
 
   const scrollToSection = () => {
-    console.log("clicked")
     if (sectionRef.current) {
       sectionRef.current.scrollIntoView({
         behavior: "smooth",
@@ -24,7 +24,8 @@ function App() {
     <>
       <Menu />
       <Hero scrollToSection={scrollToSection} />
-      <Projects ref={sectionRef} />
+      <Experience ref={sectionRef} />
+      <Projects />
       <AboutMe />
       <Toolkit />
       <Contact />
