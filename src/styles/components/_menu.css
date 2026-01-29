@@ -1,0 +1,114 @@
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+  height: auto;
+}
+
+.menu__toggle {
+  top: 24px;
+  z-index: 2;
+  right: 30px;
+  width: 22px;
+  height: 20px;
+  padding: 8px 0;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.menu__toggle-icon {
+  height: 4px;
+  display: block;
+  overflow: hidden;
+  text-indent: 100%;
+  background: var(--dark-color);
+  border-radius: 2px;
+  white-space: nowrap;
+  transition: background 0.3s ease-in-out;
+}
+
+.menu__toggle::before,
+.menu__toggle::after {
+  left: 0;
+  content: "";
+  width: 22px;
+  height: 4px;
+  background: var(--dark-color);
+  border-radius: 2px;
+  position: absolute;
+  transform-origin: center center;
+  transition: width 0.2s ease-in-out, background 0.2s ease-in-out,
+    top 0.2s ease-in-out, bottom 0.2s ease-in-out, left 0.2s ease-in-out,
+    right 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.menu__toggle::before {
+  top: 0;
+}
+
+.menu__toggle::after {
+  bottom: 0;
+}
+
+.menu__toggle--open span {
+  background: var(--light-color);
+}
+
+.menu__toggle--open::before {
+  top: 8px;
+  transform: rotate(-45deg);
+}
+
+.menu__toggle--open::after {
+  bottom: 8px;
+  transform: rotate(45deg);
+}
+
+.menu__list {
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+  background: var(--light-color);
+  position: absolute;
+  transform: translateY(-100%);
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.menu__list--active {
+  transform: translateY(0);
+}
+
+.menu__item {
+  list-style: none;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.menu__link {
+  color: var(--dark-color);
+  margin: auto;
+  width: auto;
+  background: none;
+  font-size: 2.9rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.2s ease-in-out;
+}
+
+.menu__link:hover,
+.menu__link:focus,
+.menu__link:active {
+  color: var(--accent-color-3);
+}

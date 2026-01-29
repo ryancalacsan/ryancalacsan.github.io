@@ -20,7 +20,7 @@
 .toolkit__category-name {
   font-size: 1.25rem;
   font-weight: 600;
-  color: $accent-color-2;
+  color: var(--accent-color-2);
   margin-bottom: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;

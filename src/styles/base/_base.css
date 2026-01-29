@@ -1,8 +1,6 @@
-@import "../utils/variables";
-
 body {
   font-family: karla, sans-serif;
-  color: $dark-color;
+  color: var(--dark-color);
 }
 
 /* global text styling */
@@ -12,7 +10,7 @@ a {
 }
 
 h2 {
-  color: $dark-color;
+  color: var(--dark-color);
   position: relative;
   z-index: 2;
   font-size: 1.75rem;
@@ -23,9 +21,9 @@ h2 {
 h2::after {
   content: "";
   position: absolute;
-  background-color: $accent-color-2-highlight;
-  -webkit-box-shadow: 0 0 8px $accent-color-2-highlight;
-  box-shadow: 0 0 8px $accent-color-2-highlight;
+  background-color: var(--accent-color-2-highlight);
+  -webkit-box-shadow: 0 0 8px var(--accent-color-2-highlight);
+  box-shadow: 0 0 8px var(--accent-color-2-highlight);
   height: 18px;
   left: 5px;
   bottom: 0;

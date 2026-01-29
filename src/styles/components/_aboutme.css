@@ -1,0 +1,37 @@
+.about-me {
+  padding-block: 1em;
+  padding-top: 2em;
+}
+
+.about-me__title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.about-me__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+
+.about-me__content__text {
+  padding-top: 1em;
+}
+
+.about-me__content__image {
+  border-radius: 10px;
+  max-width: 24rem;
+}
+
+@media (min-width: 768px) {
+  .about-me__content {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .about-me__content__image {
+    max-width: 20em;
+  }
+}
