@@ -2,26 +2,48 @@
 
 Welcome to the repository for my developer portfolio website! This site showcases my skills, projects, and experience as a front-end developer with full-stack capabilities.
 
-## 🚀 Live Demo
+## Live Demo
 
-🔗 **[View Portfolio](https://ryancalacsan.github.io/)**
+[View Portfolio](https://ryancalacsan.github.io/)
 
-## 🛠 Tech Stack
+## Tech Stack
 
-- **Frontend:** HTML, SASS, JavaScript, React
+- **Frontend:** HTML, CSS, JavaScript, React
+- **Styling:** Modern CSS with custom properties (no preprocessor)
 - **Build Tools:** Vite
-- **Deployment:** GitHub Pages
+- **Linting:** ESLint
+- **Deployment:** GitHub Pages via `gh-pages`
 
-## 📂 Features
+## Features
 
-- **Interactive UI:** Built with React and styled with SASS for a modern and responsive experience.
-- **Project Showcase:** Highlights my work, including GoVan, CineList, and other projects.
+- **Interactive UI:** Built with React and styled with modern CSS custom properties for a responsive experience.
+- **Professional Experience:** Dedicated section highlighting work history and roles.
+- **Project Showcase:** Highlights selected work and side projects.
 - **About & Contact:** Information about me and ways to get in touch.
-- **Performance Optimized:** Fast-loading site powered by Vite and optimized assets.
+- **Performance Optimized:** Fast-loading site powered by Vite with no CSS preprocessor overhead.
 
-## 📖 Installation & Local Development
+## Project Structure
 
-If you'd like to run the project locally:
+```
+src/
+├── components/        # React components
+│   ├── AboutMe.jsx
+│   ├── Contact.jsx
+│   ├── Experience.jsx
+│   ├── Footer.jsx
+│   ├── Hero.jsx
+│   ├── Menu.jsx
+│   ├── Projects.jsx
+│   └── Toolkit.jsx
+├── styles/
+│   ├── base/          # Reset and base styles
+│   ├── components/    # Per-component CSS modules
+│   ├── utils/         # Variables (custom properties) and utility classes
+│   └── styles.css     # Main stylesheet (imports all partials)
+└── App.jsx
+```
+
+## Installation & Local Development
 
 1. Clone the repository:
    ```sh
@@ -41,12 +63,16 @@ If you'd like to run the project locally:
    ```
 5. Open your browser and visit `http://localhost:5173/` (or the port shown in the terminal).
 
-## 📌 To-Do / Future Enhancements
+## Available Scripts
 
-- [ ] Add blog section for technical articles
-- [ ] Improve accessibility and SEO optimizations
-- [ ] Integrate backend for dynamic content management
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start the Vite dev server |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint` | Run ESLint |
+| `npm run deploy` | Build and deploy to GitHub Pages |
 
-## 📜 License
+## License
 
 This project is open-source and available under the [GNU General Public License v3.0](LICENSE).
