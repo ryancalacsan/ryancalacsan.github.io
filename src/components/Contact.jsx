@@ -1,41 +1,48 @@
 import { FaLinkedinIn, FaGithub, FaEnvelope } from "react-icons/fa"
-import { FaXTwitter } from "react-icons/fa6"
 import { IconContext } from "react-icons"
+import useScrollReveal from "../hooks/useScrollReveal"
 
 export default function Contact() {
+  const revealRef = useScrollReveal()
   const emailAddress = "calacsancode@gmail.com"
-  const subject = "Hello!"
 
   return (
-    <section className="contact-section" id="contact">
-      <div className="contact-section__wrapper wrapper">
-        <h2 className="contact-section__title">Let's Connect ✉️</h2>
-        <p className="contact-section__text">
-          If you ever want to grab a cup of coffee virtually or just want to
-          have a quick chat - you can find me on social media or send me an
-          email!
+    <section className="contact section" id="contact" ref={revealRef}>
+      <div className="contact__wrapper wrapper">
+        <h2 className="section-heading">Get in Touch</h2>
+        <p className="contact__text">
+          I'm currently looking for full-stack or frontend engineering roles.
+          Feel free to reach out — I'd love to hear from you.
         </p>
-        <div className="contact-section__social-icons">
-          <IconContext.Provider value={{ size: "2.0em" }}>
-            <a href="https://www.linkedin.com/in/ryancalacsan/" target="_blank">
-              <FaLinkedinIn className="contact-section__icon" />
-            </a>
-            <a href="https://github.com/ryancalacsan" target="_blank">
-              <FaGithub className="contact-section__icon" />
-            </a>
-            <a href="https://x.com/ryancalacsan" target="_blank">
-              <FaXTwitter className="contact-section__icon" />
+        <IconContext.Provider value={{ size: "1.25em" }}>
+          <div className="contact__links">
+            <a
+              href={`mailto:${emailAddress}`}
+              className="contact__link"
+            >
+              <FaEnvelope />
+              <span>{emailAddress}</span>
             </a>
             <a
-              href={`mailto:${emailAddress}?subject=${encodeURIComponent(
-                subject
-              )}`}
-              className="contact-section__email-link"
+              href="https://www.linkedin.com/in/ryancalacsan/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact__link"
             >
-              <FaEnvelope className="contact-section__icon" />
+              <FaLinkedinIn />
+              <span>LinkedIn</span>
             </a>
-          </IconContext.Provider>
-        </div>
+            <a
+              href="https://github.com/ryancalacsan"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact__link"
+            >
+              <FaGithub />
+              <span>GitHub</span>
+            </a>
+          </div>
+        </IconContext.Provider>
       </div>
     </section>
   )

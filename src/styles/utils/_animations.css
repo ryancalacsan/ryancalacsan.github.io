@@ -1,0 +1,57 @@
+/* Scroll reveal animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-reveal {
+  opacity: 0;
+}
+
+.scroll-reveal--visible {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Staggered children */
+.scroll-reveal--stagger > * {
+  opacity: 0;
+}
+
+.scroll-reveal--stagger.scroll-reveal--visible > * {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.scroll-reveal--stagger.scroll-reveal--visible > *:nth-child(1) { animation-delay: 0ms; }
+.scroll-reveal--stagger.scroll-reveal--visible > *:nth-child(2) { animation-delay: 80ms; }
+.scroll-reveal--stagger.scroll-reveal--visible > *:nth-child(3) { animation-delay: 160ms; }
+.scroll-reveal--stagger.scroll-reveal--visible > *:nth-child(4) { animation-delay: 240ms; }
+.scroll-reveal--stagger.scroll-reveal--visible > *:nth-child(5) { animation-delay: 320ms; }
+.scroll-reveal--stagger.scroll-reveal--visible > *:nth-child(6) { animation-delay: 400ms; }
+.scroll-reveal--stagger.scroll-reveal--visible > *:nth-child(7) { animation-delay: 480ms; }
+.scroll-reveal--stagger.scroll-reveal--visible > *:nth-child(8) { animation-delay: 560ms; }
+.scroll-reveal--stagger.scroll-reveal--visible > *:nth-child(9) { animation-delay: 640ms; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1;
+  }
+
+  .scroll-reveal--visible {
+    animation: none;
+  }
+
+  .scroll-reveal--stagger > * {
+    opacity: 1;
+  }
+
+  .scroll-reveal--stagger.scroll-reveal--visible > * {
+    animation: none;
+  }
+}

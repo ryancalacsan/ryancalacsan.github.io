@@ -9,8 +9,11 @@ import {
 } from "react-icons/si"
 import { TbApi } from "react-icons/tb"
 import { IconContext } from "react-icons"
+import useScrollReveal from "../hooks/useScrollReveal"
 
 export default function Toolkit() {
+  const revealRef = useScrollReveal({ stagger: true })
+
   const skillCategories = [
     {
       name: "Frontend",
@@ -43,10 +46,10 @@ export default function Toolkit() {
   ]
 
   return (
-    <section className="toolkit toolkit-section wrapper" id="toolkit">
-      <h2 className="toolkit__title">My Toolkit</h2>
-      <IconContext.Provider value={{ size: "2.0em", color: "#ff8811" }}>
-        <div className="toolkit__categories">
+    <section className="toolkit section wrapper" id="toolkit">
+      <h2 className="section-heading">Technical Skills</h2>
+      <IconContext.Provider value={{ size: "1.2em", color: "var(--color-accent)" }}>
+        <div className="toolkit__categories" ref={revealRef}>
           {skillCategories.map((category) => (
             <div key={category.name} className="toolkit__category">
               <h3 className="toolkit__category-name">{category.name}</h3>

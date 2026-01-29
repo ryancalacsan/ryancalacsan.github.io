@@ -1,169 +1,103 @@
-.projects {
-  padding-top: 1em;
-}
-
-.projects__title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 0.25rem;
-}
-
 .projects__subtitle {
-  font-size: 1.1rem;
-  color: color-mix(in srgb, var(--dark-color) 70%, transparent);
-  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2xl);
 }
 
-.projects__text {
-  padding: 1em 0 0.5em 0;
-}
-
-/* Default text for smaller screens (touch devices) */
-.projects__text::before {
-  content: "click any project to learn more!";
-}
-
-@media (min-width: 768px) {
-  /* Text for larger screens with hover (non-touch devices) */
-  .projects__text::before {
-    content: "hover over any project to learn more!";
-  }
-}
-
-@media (pointer: coarse) and (max-width: 768px) {
-  /* Text for touch devices below 768px */
-  .projects__text::before {
-    content: "click any project to learn more!";
-  }
-}
-
-.projects__container {
+.projects__grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 30px;
-  justify-items: center;
+  gap: var(--space-2xl);
 }
 
-.projects__item {
-  display: flex;
+.projects__card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  width: 100%;
-  height: 350px;
-  max-width: 100%;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
-.projects__thumbnail-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
+.projects__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.projects__image-wrapper {
   overflow: hidden;
+  height: 220px;
 }
 
-.projects__thumbnail {
+.projects__image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: opacity 0.3s ease;
+  transition: transform 0.4s ease;
 }
 
-/* Overlay Styling */
-.projects__overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  text-align: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+.projects__card:hover .projects__image {
+  transform: scale(1.04);
 }
 
-.projects__overlay--active {
-  opacity: 1;
-  visibility: visible;
+.projects__body {
+  padding: var(--space-lg);
 }
 
-.projects__overlay-content {
-  position: relative;
-  max-width: 90%;
+.projects__card-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+  color: var(--color-text);
 }
 
-.projects__overlay-title {
-  font-size: 1.5em;
-  margin: 0;
-  font-weight: bold;
+.projects__card-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
 }
 
-.projects__overlay-description {
-  font-size: 1em;
-  margin-top: 10px;
-  opacity: 0.8;
-}
-
-.projects__links {
-  margin-top: 20px;
-}
-
-.projects__link {
-  color: var(--accent-color-2);
-  text-decoration: none;
-  margin-right: 10px;
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-.projects__link:hover {
-  text-decoration: underline;
-}
-
-/* Tags styling */
 .projects__tags {
-  margin-top: 15px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
 }
 
 .projects__tag {
-  background-color: #333;
-  color: white;
-  padding: 5px 10px;
-  margin: 5px;
-  border-radius: 20px;
-  font-size: 0.9em;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid var(--color-border);
 }
 
-/* Show overlay on hover or focus for large screens */
+.projects__links {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.projects__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+.projects__link:hover {
+  opacity: 0.75;
+}
+
 @media (min-width: 768px) {
-  .projects__item:hover .projects__overlay,
-  .projects__item:focus-within .projects__overlay {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .projects__container {
+  .projects__grid {
     grid-template-columns: 1fr 1fr;
-  }
-}
-
-/* Show overlay on click for small screens */
-@media (max-width: 768px) {
-  .projects__item .projects__overlay.projects__overlay--active {
-    opacity: 1;
-    visibility: visible;
   }
 }

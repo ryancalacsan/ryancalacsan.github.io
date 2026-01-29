@@ -1,6 +1,8 @@
-import { forwardRef } from "react"
+import useScrollReveal from "../hooks/useScrollReveal"
 
-const Experience = forwardRef((props, ref) => {
+export default function Experience() {
+  const revealRef = useScrollReveal()
+
   const techStack = [
     "Next.js 15",
     "React 19",
@@ -23,8 +25,8 @@ const Experience = forwardRef((props, ref) => {
   ]
 
   return (
-    <section className="experience wrapper" id="experience" ref={ref}>
-      <h2 className="experience__title">Professional Experience</h2>
+    <section className="experience section wrapper" id="experience" ref={revealRef}>
+      <h2 className="section-heading">Professional Experience</h2>
 
       <div className="experience__card">
         <div className="experience__header">
@@ -76,6 +78,4 @@ const Experience = forwardRef((props, ref) => {
       </div>
     </section>
   )
-})
-
-export default Experience
+}

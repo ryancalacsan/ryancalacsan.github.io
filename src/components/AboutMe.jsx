@@ -1,9 +1,13 @@
+import useScrollReveal from "../hooks/useScrollReveal"
+
 export default function AboutMe() {
+  const revealRef = useScrollReveal()
+
   return (
-    <section className="about-me wrapper" id="about-me">
-      <h2 className="about-me__title">About Me</h2>
-      <div className="about-me__content">
-        <div className="about-me__text">
+    <section className="about section wrapper" id="about-me" ref={revealRef}>
+      <h2 className="section-heading">About Me</h2>
+      <div className="about__content">
+        <div className="about__text">
           <p>
             I'm a full-stack engineer based in Chicago who builds web
             applications with a focus on clean architecture and delivering real
@@ -24,13 +28,12 @@ export default function AboutMe() {
             photography and studio management — experience that gave me strong
             project ownership skills and an eye for user experience.
           </p>
-          <p>
-            I'm currently open to full-stack or frontend roles, preferably
-            remote.
+          <p className="about__open-roles">
+            Currently open to full-stack or frontend roles, preferably remote.
           </p>
         </div>
         <img
-          className="about-me__content__image"
+          className="about__image"
           src="/adventure.jpg"
           alt="Ryan Calacsan Ice Climbing"
         />

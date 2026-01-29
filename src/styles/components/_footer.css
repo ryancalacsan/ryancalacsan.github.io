@@ -1,20 +1,17 @@
 .footer {
-  background-color: var(--dark-color);
-  color: var(--light-color);
-  padding: 1em;
+  background-color: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  padding: var(--space-xl) var(--space-md);
   text-align: center;
+  font-size: 0.875rem;
 }
 
 .footer__text {
   margin: 0;
+  margin-bottom: var(--space-xs);
 }
 
-.footer__link {
-  color: var(--accent-color-3);
-  text-decoration: none;
-  font-weight: 700;
-}
-
-.footer__link:hover {
-  text-decoration: underline;
+.footer__copyright {
+  margin: 0;
 }

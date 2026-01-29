@@ -1,76 +1,60 @@
-import { forwardRef, useState } from "react"
+import { FiExternalLink, FiGithub } from "react-icons/fi"
 import projectsData from "../projectData"
+import useScrollReveal from "../hooks/useScrollReveal"
 
-const Projects = forwardRef((props, ref) => {
-  const [activeProjectId, setActiveProjectId] = useState(null)
-
-  const handleClick = (projectId) => {
-    setActiveProjectId(activeProjectId === projectId ? null : projectId) // Toggle active project
-  }
+export default function Projects() {
+  const revealRef = useScrollReveal({ stagger: true })
 
   return (
-    <section className="projects wrapper" id="projects" ref={ref}>
-      <h2 className="projects__title">Personal Projects</h2>
+    <section className="projects section wrapper" id="projects">
+      <h2 className="section-heading">Personal Projects</h2>
       <p className="projects__subtitle">Learning and side projects</p>
-      <p className="projects__text"></p>
-      <div className="projects__container">
+      <div className="projects__grid" ref={revealRef}>
         {projectsData.map((project) => (
-          <div key={project.id} className="projects__item">
-            <div
-              className="projects__thumbnail-container"
-              onClick={() => handleClick(project.id)} // Only for small screens
-            >
+          <article key={project.id} className="projects__card">
+            <div className="projects__image-wrapper">
               <img
                 src={project.image}
                 alt={project.title}
-                className="projects__thumbnail"
+                className="projects__image"
               />
-              {/* Overlay content */}
-              <div
-                className={`projects__overlay ${
-                  activeProjectId === project.id
-                    ? "projects__overlay--active"
-                    : ""
-                }`}
-              >
-                <div className="projects__overlay-content">
-                  <h3 className="projects__overlay-title">{project.title}</h3>
-                  <p className="projects__overlay-description">
-                    {project.description}
-                  </p>
-                  <div className="projects__tags">
-                    {project.tags.map((tag, index) => (
-                      <span key={index} className="projects__tag">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="projects__links">
-                    <a
-                      href={project.livePreviewLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="projects__link"
-                    >
-                      View Live
-                    </a>
-                    <a
-                      href={project.githubLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="projects__link"
-                    >
-                      GitHub
-                    </a>
-                  </div>
-                </div>
+            </div>
+            <div className="projects__body">
+              <h3 className="projects__card-title">{project.title}</h3>
+              <p className="projects__card-description">
+                {project.description}
+              </p>
+              <div className="projects__tags">
+                {project.tags.map((tag, index) => (
+                  <span key={index} className="projects__tag">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <div className="projects__links">
+                <a
+                  href={project.livePreviewLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="projects__link"
+                >
+                  <FiExternalLink />
+                  Live Demo
+                </a>
+                <a
+                  href={project.githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="projects__link"
+                >
+                  <FiGithub />
+                  GitHub
+                </a>
               </div>
             </div>
-          </div>
+          </article>
         ))}
       </div>
     </section>
   )
-})
-
-export default Projects
+}

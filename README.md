@@ -1,6 +1,6 @@
 # Ryan Calacsan - Developer Portfolio
 
-Welcome to the repository for my developer portfolio website! This site showcases my skills, projects, and experience as a front-end developer with full-stack capabilities.
+Welcome to the repository for my developer portfolio website! This site showcases my skills, projects, and experience as a full-stack engineer.
 
 ## Live Demo
 
@@ -20,6 +20,8 @@ Welcome to the repository for my developer portfolio website! This site showcase
 - **Professional Experience:** Dedicated section highlighting work history and roles.
 - **Project Showcase:** Highlights selected work and side projects.
 - **About & Contact:** Information about me and ways to get in touch.
+- **Scroll Reveal Animations:** Intersection Observer-based entrance animations with stagger support.
+- **Accessibility:** Focus-visible styles, reduced motion support, semantic HTML, and keyboard-navigable mobile menu.
 - **Performance Optimized:** Fast-loading site powered by Vite with no CSS preprocessor overhead.
 
 ## Project Structure
@@ -35,10 +37,12 @@ src/
 │   ├── Menu.jsx
 │   ├── Projects.jsx
 │   └── Toolkit.jsx
+├── hooks/             # Custom React hooks
+│   └── useScrollReveal.js
 ├── styles/
 │   ├── base/          # Reset and base styles
-│   ├── components/    # Per-component CSS modules
-│   ├── utils/         # Variables (custom properties) and utility classes
+│   ├── components/    # Per-component CSS
+│   ├── utils/         # Variables, utilities, and animations
 │   └── styles.css     # Main stylesheet (imports all partials)
 └── App.jsx
 ```

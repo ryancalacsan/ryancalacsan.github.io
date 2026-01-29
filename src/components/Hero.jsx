@@ -1,27 +1,51 @@
-import { FaAngleDoubleDown } from "react-icons/fa"
+import { useEffect, useRef } from "react"
 
 export default function Hero({ scrollToSection }) {
+  const heroRef = useRef(null)
+
+  useEffect(() => {
+    const el = heroRef.current
+    if (!el) return
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches
+
+    if (prefersReducedMotion) {
+      el.classList.add("hero--visible")
+      return
+    }
+
+    requestAnimationFrame(() => {
+      el.classList.add("hero--visible")
+    })
+  }, [])
+
   return (
-    <section className="hero wrapper">
-      <div className="hero__main-container">
-        <div className="hero__info">
-          <h1>
-            <span className="hero__name">Full-Stack Engineer</span>
-          </h1>
-          <p className="hero__description">
-            I build complex web applications. Most recently, I architected a{" "}
-            <span className="hero__highlight">200K+ line enterprise platform</span>{" "}
-            as Principal Engineer at PrintNinja.
-          </p>
+    <section className="hero" ref={heroRef}>
+      <div className="hero__content wrapper">
+        <p className="hero__eyebrow">Full-Stack Engineer / Chicago</p>
+        <h1 className="hero__name">Ryan Calacsan</h1>
+        <p className="hero__description">
+          I built a 200,000+ line enterprise platform from scratch as the sole
+          engineer — from real-time pricing engines to payment processing and
+          CRM integration.
+        </p>
+        <div className="hero__ctas">
+          <a
+            href="/ryan-calacsan-resume.pdf"
+            download
+            className="hero__btn hero__btn--primary"
+          >
+            Download Resume
+          </a>
+          <button
+            onClick={() => scrollToSection("experience")}
+            className="hero__btn hero__btn--secondary"
+          >
+            View My Work
+          </button>
         </div>
-        <img
-          src="/profile.jpg"
-          alt="Ryan Calacsan"
-          className="hero__img"
-        />
-      </div>
-      <div className="hero__down-arrow" onClick={scrollToSection}>
-        <FaAngleDoubleDown size="2rem" />
       </div>
     </section>
   )

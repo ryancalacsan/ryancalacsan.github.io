@@ -1,4 +1,3 @@
-import React, { useRef } from "react"
 import Menu from "./components/Menu"
 import Hero from "./components/Hero"
 import Experience from "./components/Experience"
@@ -9,14 +8,10 @@ import Contact from "./components/Contact"
 import Footer from "./components/Footer"
 
 function App() {
-  const sectionRef = useRef(null)
-
-  const scrollToSection = () => {
-    if (sectionRef.current) {
-      sectionRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      })
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id)
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" })
     }
   }
 
@@ -24,7 +19,7 @@ function App() {
     <>
       <Menu />
       <Hero scrollToSection={scrollToSection} />
-      <Experience ref={sectionRef} />
+      <Experience />
       <Projects />
       <AboutMe />
       <Toolkit />

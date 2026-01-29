@@ -3,3 +3,35 @@
   margin: 0 auto;
   max-width: 1080px;
 }
+
+.section {
+  padding: var(--section-padding);
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: var(--section-padding-lg);
+  }
+}
+
+/* Section heading with teal underline */
+.section-heading {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-2xl);
+  display: inline-block;
+  position: relative;
+}
+
+.section-heading::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: var(--color-accent);
+  border-radius: 2px;
+}
