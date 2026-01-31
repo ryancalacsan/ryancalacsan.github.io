@@ -6,8 +6,15 @@ import {
   SiTypescript,
   SiPostgresql,
   SiSupabase,
+  SiDrizzle,
+  SiNginx,
+  SiGithubactions,
+  SiStripe,
+  SiSalesforce,
+  SiClerk,
 } from "react-icons/si"
-import { TbApi } from "react-icons/tb"
+import { TbApi, TbServer } from "react-icons/tb"
+import { GoGear } from "react-icons/go"
 import { IconContext } from "react-icons"
 import useScrollReveal from "../hooks/useScrollReveal"
 
@@ -33,6 +40,8 @@ export default function Toolkit() {
         { icon: <FaNodeJs />, name: "Node.js" },
         { icon: <SiPostgresql />, name: "PostgreSQL" },
         { icon: <TbApi />, name: "REST APIs" },
+        { icon: <SiDrizzle />, name: "Drizzle ORM" },
+        { icon: <TbServer />, name: "Server Actions" },
       ],
     },
     {
@@ -40,7 +49,18 @@ export default function Toolkit() {
       skills: [
         { icon: <FaDocker />, name: "Docker" },
         { icon: <SiSupabase />, name: "Supabase" },
+        { icon: <SiNginx />, name: "Nginx" },
         { icon: <FaGitAlt />, name: "Git" },
+        { icon: <SiGithubactions />, name: "GitHub Actions" },
+        { icon: <GoGear />, name: "CI/CD" },
+      ],
+    },
+    {
+      name: "Integrations",
+      skills: [
+        { icon: <SiStripe />, name: "Stripe" },
+        { icon: <SiSalesforce />, name: "Salesforce" },
+        { icon: <SiClerk />, name: "Clerk Auth" },
       ],
     },
   ]
