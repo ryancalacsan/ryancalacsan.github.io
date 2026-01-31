@@ -51,11 +51,11 @@ src/
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/ryancalacsan/dev-portfolio.git
+   git clone https://github.com/ryancalacsan/ryancalacsan.github.io.git
    ```
 2. Navigate to the project folder:
    ```sh
-   cd dev-portfolio
+   cd ryancalacsan.github.io
    ```
 3. Install dependencies:
    ```sh
