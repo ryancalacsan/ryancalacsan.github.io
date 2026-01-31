@@ -70,7 +70,8 @@ export default function Menu() {
           <li>
             <a
               href="/ryan-calacsan-resume.pdf"
-              download
+              target="_blank"
+              rel="noopener noreferrer"
               className="nav__resume-btn"
             >
               Resume
@@ -108,7 +109,8 @@ export default function Menu() {
           <li>
             <a
               href="/ryan-calacsan-resume.pdf"
-              download
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={closeMenu}
               className="nav__mobile-link"
             >

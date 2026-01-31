@@ -34,10 +34,11 @@ export default function Hero({ scrollToSection }) {
         <div className="hero__ctas">
           <a
             href="/ryan-calacsan-resume.pdf"
-            download
+            target="_blank"
+            rel="noopener noreferrer"
             className="hero__btn hero__btn--primary"
           >
-            Download Resume
+            View Resume
           </a>
           <button
             onClick={() => scrollToSection("experience")}
