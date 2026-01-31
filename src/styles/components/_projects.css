@@ -96,8 +96,61 @@
   opacity: 0.75;
 }
 
+/* Featured card */
+.projects__card--featured {
+  border-color: var(--color-accent);
+  border-width: 2px;
+}
+
+.projects__card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.projects__card-header .projects__card-title {
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.projects__title-icon {
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.projects__badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  background: var(--color-accent-light);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
+
 @media (min-width: 768px) {
   .projects__grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .projects__card--featured {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .projects__card--featured .projects__image-wrapper {
+    height: auto;
+    border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+  }
+
+  .projects__card--featured .projects__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }

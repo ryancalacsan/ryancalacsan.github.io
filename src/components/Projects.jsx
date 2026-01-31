@@ -1,4 +1,4 @@
-import { FiExternalLink, FiGithub } from "react-icons/fi"
+import { FiExternalLink, FiGithub, FiPackage, FiTerminal } from "react-icons/fi"
 import projectsData from "../projectData"
 import useScrollReveal from "../hooks/useScrollReveal"
 
@@ -11,7 +11,10 @@ export default function Projects() {
       <p className="projects__subtitle">Learning and side projects</p>
       <div className="projects__grid" ref={revealRef}>
         {projectsData.map((project) => (
-          <article key={project.id} className="projects__card">
+          <article
+            key={project.id}
+            className={`projects__card${project.featured ? " projects__card--featured" : ""}`}
+          >
             <div className="projects__image-wrapper">
               <img
                 src={project.image}
@@ -20,7 +23,17 @@ export default function Projects() {
               />
             </div>
             <div className="projects__body">
-              <h3 className="projects__card-title">{project.title}</h3>
+              <div className="projects__card-header">
+                <h3 className="projects__card-title">
+                  {project.featured && (
+                    <FiTerminal className="projects__title-icon" />
+                  )}
+                  {project.title}
+                </h3>
+                {project.featured && (
+                  <span className="projects__badge">Published on npm</span>
+                )}
+              </div>
               <p className="projects__card-description">
                 {project.description}
               </p>
@@ -32,15 +45,28 @@ export default function Projects() {
                 ))}
               </div>
               <div className="projects__links">
-                <a
-                  href={project.livePreviewLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="projects__link"
-                >
-                  <FiExternalLink />
-                  Live Demo
-                </a>
+                {project.npmLink && (
+                  <a
+                    href={project.npmLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="projects__link"
+                  >
+                    <FiPackage />
+                    npm
+                  </a>
+                )}
+                {project.livePreviewLink && (
+                  <a
+                    href={project.livePreviewLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="projects__link"
+                  >
+                    <FiExternalLink />
+                    Live Demo
+                  </a>
+                )}
                 <a
                   href={project.githubLink}
                   target="_blank"

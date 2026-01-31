@@ -1,5 +1,16 @@
 const projectsData = [
   {
+    id: 0,
+    title: "print-check",
+    featured: true,
+    image: "print-check.gif",
+    description:
+      "CLI tool that validates print-ready PDF files for prepress requirements. Runs 8 automated checks (bleed, fonts, color space, resolution, ink coverage, transparency, PDF/X compliance, page size). Features built-in profiles, config file support, and JSON output for CI pipelines. Published to npm.",
+    githubLink: "https://github.com/ryancalacsan/print-check-cli",
+    npmLink: "https://www.npmjs.com/package/print-check-cli",
+    tags: ["Node.js", "TypeScript", "Commander.js", "mupdf", "Vitest"],
+  },
+  {
     id: 1,
     title: "GoVan",
     image: "GoVan-mockup.gif",
