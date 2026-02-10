@@ -1,8 +1,20 @@
 const projectsData = [
   {
     id: 0,
-    title: "print-check",
+    title: "QuoteCraft",
     featured: true,
+    badge: "Live Demo",
+    image: "QuoteCraft-dashboard.png",
+    description:
+      "Quote builder for freelancers and contractors. Create quotes with real-time pricing, share via unique links, accept Stripe payments, and track revenue from a dashboard with analytics. Features PDF export, quote templates, drag-and-drop, and dark mode.",
+    githubLink: "https://github.com/ryancalacsan/quotecraft",
+    livePreviewLink: "https://quotecraft-taupe.vercel.app",
+    tags: ["Next.js", "TypeScript", "Supabase", "Drizzle", "Stripe", "Clerk"],
+  },
+  {
+    id: 1,
+    title: "print-check",
+    badge: "Published on npm",
     image: "print-check.gif",
     description:
       "CLI tool that validates print-ready PDF files for prepress requirements. Runs 8 automated checks (bleed, fonts, color space, resolution, ink coverage, transparency, PDF/X compliance, page size). Features built-in profiles, config file support, and JSON output for CI pipelines. Published to npm.",
@@ -11,7 +23,7 @@ const projectsData = [
     tags: ["Node.js", "TypeScript", "Commander.js", "mupdf", "Vitest"],
   },
   {
-    id: 1,
+    id: 2,
     title: "GoVan",
     image: "GoVan-mockup.gif",
     description:
@@ -21,7 +33,7 @@ const projectsData = [
     tags: ["React", "TailwindCSS", "TypeScript", "Firebase"],
   },
   {
-    id: 2,
+    id: 3,
     title: "AI Chef",
     image: "AIChef-mockup.gif",
     description:
@@ -31,7 +43,7 @@ const projectsData = [
     tags: ["HTML", "TailwindCSS", "TypeScript", "Mistral AI"],
   },
   {
-    id: 3,
+    id: 4,
     title: "CineList",
     image: "CineList-mockup.gif",
     description:
@@ -41,7 +53,7 @@ const projectsData = [
     tags: ["HTML", "TailwindCSS", "TypeScript", "OMDB API"],
   },
   {
-    id: 4,
+    id: 5,
     title: "Color Scheme Generator",
     image: "ColorGen-mockup.gif",
     description:

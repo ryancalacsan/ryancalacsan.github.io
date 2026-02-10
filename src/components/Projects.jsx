@@ -1,4 +1,4 @@
-import { FiExternalLink, FiGithub, FiPackage, FiTerminal } from "react-icons/fi"
+import { FiExternalLink, FiGithub, FiPackage } from "react-icons/fi"
 import projectsData from "../projectData"
 import useScrollReveal from "../hooks/useScrollReveal"
 
@@ -25,13 +25,10 @@ export default function Projects() {
             <div className="projects__body">
               <div className="projects__card-header">
                 <h3 className="projects__card-title">
-                  {project.featured && (
-                    <FiTerminal className="projects__title-icon" />
-                  )}
                   {project.title}
                 </h3>
-                {project.featured && (
-                  <span className="projects__badge">Published on npm</span>
+                {project.badge && (
+                  <span className="projects__badge">{project.badge}</span>
                 )}
               </div>
               <p className="projects__card-description">
