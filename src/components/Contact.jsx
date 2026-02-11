@@ -1,4 +1,4 @@
-import { FaLinkedinIn, FaGithub, FaEnvelope } from "react-icons/fa"
+import { FaLinkedinIn, FaGithub, FaEnvelope, FaArrowRight } from "react-icons/fa"
 import { IconContext } from "react-icons"
 import MotionSection from "./MotionSection"
 
@@ -17,32 +17,33 @@ export default function Contact() {
           I'm currently looking for full-stack or frontend engineering roles.
           Feel free to reach out — I'd love to hear from you.
         </p>
+        <a
+          href={`mailto:${emailAddress}`}
+          className="contact__cta"
+        >
+          <FaEnvelope />
+          <span>{emailAddress}</span>
+          <FaArrowRight size="0.85em" />
+        </a>
         <IconContext.Provider value={{ size: "1.25em" }}>
-          <div className="contact__links">
-            <a
-              href={`mailto:${emailAddress}`}
-              className="contact__link"
-            >
-              <FaEnvelope />
-              <span>{emailAddress}</span>
-            </a>
+          <div className="contact__socials">
             <a
               href="https://www.linkedin.com/in/ryancalacsan/"
               target="_blank"
               rel="noopener noreferrer"
-              className="contact__link"
+              className="contact__social-btn"
+              aria-label="LinkedIn"
             >
               <FaLinkedinIn />
-              <span>LinkedIn</span>
             </a>
             <a
               href="https://github.com/ryancalacsan"
               target="_blank"
               rel="noopener noreferrer"
-              className="contact__link"
+              className="contact__social-btn"
+              aria-label="GitHub"
             >
               <FaGithub />
-              <span>GitHub</span>
             </a>
           </div>
         </IconContext.Provider>

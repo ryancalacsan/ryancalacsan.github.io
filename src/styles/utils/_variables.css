@@ -27,7 +27,7 @@
 
   /* Section padding */
   --section-padding: var(--space-3xl) 0;
-  --section-padding-lg: var(--space-5xl) 0;
+  --section-padding-lg: var(--space-4xl) 0;
 
   /* Transitions */
   --transition-fast: 0.2s ease;

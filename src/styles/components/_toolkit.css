@@ -5,6 +5,7 @@
 
 .toolkit__category {
   border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-accent);
   border-radius: var(--radius-lg);
   padding: var(--space-xl);
 }
@@ -17,8 +18,6 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: var(--space-lg);
-  padding-bottom: var(--space-sm);
-  border-bottom: 2px solid var(--color-accent);
   display: inline-block;
 }
 
@@ -51,6 +50,6 @@
 
 @media (min-width: 768px) {
   .toolkit__categories {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
