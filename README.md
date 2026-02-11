@@ -4,25 +4,26 @@ Welcome to the repository for my developer portfolio website! This site showcase
 
 ## Live Demo
 
-[View Portfolio](https://ryancalacsan.github.io/)
+[View Portfolio](https://ryancalacsan.dev)
 
 ## Tech Stack
 
-- **Frontend:** HTML, CSS, JavaScript, React
-- **Styling:** Modern CSS with custom properties (no preprocessor)
+- **Frontend:** React 18, JavaScript
+- **Styling:** Modern CSS with custom properties and BEM naming (no preprocessor)
+- **Animations:** Framer Motion (scroll-triggered, staggered, parallax)
 - **Build Tools:** Vite
 - **Linting:** ESLint
-- **Deployment:** GitHub Pages via `gh-pages`
+- **Deployment:** Vercel
 
 ## Features
 
-- **Interactive UI:** Built with React and styled with modern CSS custom properties for a responsive experience.
-- **Professional Experience:** Dedicated section highlighting work history and roles.
-- **Project Showcase:** Highlights selected work and side projects.
-- **About & Contact:** Information about me and ways to get in touch.
-- **Scroll Reveal Animations:** Intersection Observer-based entrance animations with stagger support.
-- **Accessibility:** Focus-visible styles, reduced motion support, semantic HTML, and keyboard-navigable mobile menu.
-- **Performance Optimized:** Fast-loading site powered by Vite with no CSS preprocessor overhead.
+- **Dark Mode:** Theme toggle with `prefers-color-scheme` fallback, localStorage persistence, and FOUC prevention
+- **Scroll Animations:** Per-section Framer Motion animations (fadeUp, slideLeft, scaleUp, stagger)
+- **Hero Effects:** Animated gradient mesh background, clip-path name reveal, magnetic buttons
+- **Navigation:** Active section indicator with smooth sliding, hover underlines, glass-effect backdrop
+- **Featured Projects:** Curated showcase of QuoteCraft and print-check
+- **Accessibility:** Focus-visible styles, reduced motion support, semantic HTML, keyboard-navigable mobile menu
+- **Performance Optimized:** Fast-loading site powered by Vite with no CSS preprocessor overhead
 
 ## Project Structure
 
@@ -35,14 +36,17 @@ src/
 │   ├── Footer.jsx
 │   ├── Hero.jsx
 │   ├── Menu.jsx
+│   ├── MotionSection.jsx
 │   ├── Projects.jsx
 │   └── Toolkit.jsx
 ├── hooks/             # Custom React hooks
-│   └── useScrollReveal.js
+│   ├── useActiveSection.js
+│   ├── useMagneticEffect.js
+│   └── useTheme.js
 ├── styles/
 │   ├── base/          # Reset and base styles
 │   ├── components/    # Per-component CSS
-│   ├── utils/         # Variables, utilities, and animations
+│   ├── utils/         # Variables, dark mode, utilities, and animations
 │   └── styles.css     # Main stylesheet (imports all partials)
 └── App.jsx
 ```
@@ -52,20 +56,17 @@ src/
 1. Clone the repository:
    ```sh
    git clone https://github.com/ryancalacsan/ryancalacsan.github.io.git
-   ```
-2. Navigate to the project folder:
-   ```sh
    cd ryancalacsan.github.io
    ```
-3. Install dependencies:
+2. Install dependencies:
    ```sh
    npm install
    ```
-4. Start the development server:
+3. Start the development server:
    ```sh
    npm run dev
    ```
-5. Open your browser and visit `http://localhost:5173/` (or the port shown in the terminal).
+4. Open your browser and visit `http://localhost:5173/` (or the port shown in the terminal).
 
 ## Available Scripts
 
@@ -75,7 +76,7 @@ src/
 | `npm run build` | Build for production |
 | `npm run preview` | Preview the production build locally |
 | `npm run lint` | Run ESLint |
-| `npm run deploy` | Build and deploy to GitHub Pages |
+| `npm run deploy` | Build and deploy to Vercel |
 
 ## License
 
