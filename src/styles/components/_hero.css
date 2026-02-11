@@ -1,4 +1,6 @@
 .hero {
+  position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
   min-height: 100vh;
@@ -11,12 +13,18 @@
 
 /* Entrance animation */
 .hero__eyebrow,
-.hero__name,
 .hero__description,
 .hero__ctas {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.hero__name {
+  opacity: 0;
+  transform: translateY(20px);
+  clip-path: inset(0 100% 0 0);
+  transition: opacity 0.6s ease, transform 0.6s ease, clip-path 0.8s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .hero--visible .hero__eyebrow {
@@ -28,6 +36,7 @@
 .hero--visible .hero__name {
   opacity: 1;
   transform: translateY(0);
+  clip-path: none;
   transition-delay: 0.12s;
 }
 
@@ -83,17 +92,14 @@
   border-radius: var(--radius-pill);
   text-decoration: none;
   cursor: pointer;
-  transition: opacity var(--transition-fast), transform var(--transition-fast);
   border: none;
-}
-
-.hero__btn:hover {
-  transform: translateY(-1px);
+  display: inline-block;
 }
 
 .hero__btn--primary {
   background-color: var(--color-accent);
   color: var(--color-bg);
+  transition: opacity var(--transition-fast);
 }
 
 .hero__btn--primary:hover {
@@ -104,6 +110,7 @@
   background-color: transparent;
   color: var(--color-text);
   border: 2px solid var(--color-border);
+  transition: border-color var(--transition-fast), color var(--transition-fast);
 }
 
 .hero__btn--secondary:hover {
@@ -118,6 +125,7 @@
   .hero__ctas {
     opacity: 1;
     transform: none;
+    clip-path: none;
     transition: none;
   }
 }

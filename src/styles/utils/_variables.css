@@ -8,6 +8,7 @@
   --color-surface: #f4f1eb;
   --color-border: #e2ded6;
   --color-text-muted: #5a5a6e;
+  --color-bg-alpha: rgba(253, 251, 247, 0.85);
 
   /* Typography */
   --font-heading: "Playfair Display", Georgia, serif;
@@ -36,6 +37,12 @@
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.1);
+
+  /* Gradient mesh */
+  --mesh-color-1: rgba(42, 157, 143, 0.18);
+  --mesh-color-2: rgba(42, 157, 143, 0.12);
+  --mesh-color-3: rgba(233, 196, 106, 0.1);
+  --mesh-color-4: rgba(42, 157, 143, 0.08);
 
   /* Border radius */
   --radius-sm: 4px;

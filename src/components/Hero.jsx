@@ -1,4 +1,19 @@
 import { useEffect, useRef } from "react"
+import useMagneticEffect from "../hooks/useMagneticEffect"
+
+function MagneticButton({ children, ...props }) {
+  const { ref, onMouseLeave } = useMagneticEffect({ strength: 0.3, radius: 120 })
+
+  return (
+    <div ref={ref} onMouseLeave={onMouseLeave} style={{ display: "inline-block" }}>
+      {props.href ? (
+        <a {...props}>{children}</a>
+      ) : (
+        <button {...props}>{children}</button>
+      )}
+    </div>
+  )
+}
 
 export default function Hero({ scrollToSection }) {
   const heroRef = useRef(null)
@@ -32,20 +47,20 @@ export default function Hero({ scrollToSection }) {
           CRM integration.
         </p>
         <div className="hero__ctas">
-          <a
+          <MagneticButton
             href="/ryan-calacsan-resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="hero__btn hero__btn--primary"
           >
             View Resume
-          </a>
-          <button
+          </MagneticButton>
+          <MagneticButton
             onClick={() => scrollToSection("experience")}
             className="hero__btn hero__btn--secondary"
           >
             View My Work
-          </button>
+          </MagneticButton>
         </div>
       </div>
     </section>

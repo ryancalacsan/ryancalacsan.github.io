@@ -1,8 +1,15 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef, useCallback } from "react"
+import { FiMoon, FiSun } from "react-icons/fi"
+import useActiveSection from "../hooks/useActiveSection"
+import useTheme from "../hooks/useTheme"
 
 export default function Menu() {
   const [isOpen, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const activeId = useActiveSection()
+  const { theme, toggleTheme } = useTheme()
+  const indicatorRef = useRef(null)
+  const navLinksRef = useRef(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,6 +39,33 @@ export default function Menu() {
     return () => document.removeEventListener("keydown", handleKeyDown)
   }, [isOpen])
 
+  const updateIndicator = useCallback(() => {
+    const container = navLinksRef.current
+    const indicator = indicatorRef.current
+    if (!container || !indicator || !activeId) {
+      if (indicator) indicator.style.opacity = "0"
+      return
+    }
+
+    const activeLink = container.querySelector(`a[href="#${activeId}"]`)
+    if (!activeLink) {
+      indicator.style.opacity = "0"
+      return
+    }
+
+    const containerRect = container.getBoundingClientRect()
+    const linkRect = activeLink.getBoundingClientRect()
+
+    indicator.style.left = `${linkRect.left - containerRect.left}px`
+    indicator.style.width = `${linkRect.width}px`
+    indicator.style.top = `${linkRect.bottom - containerRect.top + 2}px`
+    indicator.style.opacity = "1"
+  }, [activeId])
+
+  useEffect(() => {
+    updateIndicator()
+  }, [updateIndicator])
+
   const toggleMenu = () => {
     setOpen((prev) => !prev)
   }
@@ -59,14 +93,26 @@ export default function Menu() {
         </a>
 
         {/* Desktop links */}
-        <ul className="nav__desktop-links">
+        <ul className="nav__desktop-links" ref={navLinksRef}>
           {navLinks.map((link) => (
             <li key={link.href}>
-              <a href={link.href} className="nav__desktop-link">
+              <a
+                href={link.href}
+                className={`nav__desktop-link${activeId && `#${activeId}` === link.href ? " nav__desktop-link--active" : ""}`}
+              >
                 {link.label}
               </a>
             </li>
           ))}
+          <li>
+            <button
+              onClick={toggleTheme}
+              className="nav__theme-toggle"
+              aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+            >
+              {theme === "dark" ? <FiSun size={16} /> : <FiMoon size={16} />}
+            </button>
+          </li>
           <li>
             <a
               href="/ryan-calacsan-resume.pdf"
@@ -77,19 +123,29 @@ export default function Menu() {
               Resume
             </a>
           </li>
+          <span className="nav__indicator" ref={indicatorRef} />
         </ul>
 
-        {/* Mobile toggle */}
-        <button
-          onClick={toggleMenu}
-          className={`nav__toggle ${isOpen ? "nav__toggle--open" : ""}`}
-          aria-label="Toggle menu"
-          aria-expanded={isOpen}
-        >
-          <span className="nav__toggle-line" />
-          <span className="nav__toggle-line" />
-          <span className="nav__toggle-line" />
-        </button>
+        {/* Mobile toggle + theme */}
+        <div className="nav__mobile-actions">
+          <button
+            onClick={toggleTheme}
+            className="nav__theme-toggle"
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+          >
+            {theme === "dark" ? <FiSun size={16} /> : <FiMoon size={16} />}
+          </button>
+          <button
+            onClick={toggleMenu}
+            className={`nav__toggle ${isOpen ? "nav__toggle--open" : ""}`}
+            aria-label="Toggle menu"
+            aria-expanded={isOpen}
+          >
+            <span className="nav__toggle-line" />
+            <span className="nav__toggle-line" />
+            <span className="nav__toggle-line" />
+          </button>
+        </div>
       </div>
 
       {/* Mobile overlay */}

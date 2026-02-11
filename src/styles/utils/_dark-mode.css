@@ -1,0 +1,20 @@
+[data-theme="dark"] {
+  --color-bg: #0f0f1a;
+  --color-text: #e8e6e1;
+  --color-accent: #3bb8a8;
+  --color-accent-light: rgba(59, 184, 168, 0.15);
+  --color-highlight: #e9c46a;
+  --color-surface: #1a1a2e;
+  --color-border: #2a2a3e;
+  --color-text-muted: #9a9ab0;
+  --color-bg-alpha: rgba(15, 15, 26, 0.85);
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.35);
+
+  --mesh-color-1: rgba(59, 184, 168, 0.12);
+  --mesh-color-2: rgba(59, 184, 168, 0.08);
+  --mesh-color-3: rgba(233, 196, 106, 0.06);
+  --mesh-color-4: rgba(59, 184, 168, 0.05);
+}

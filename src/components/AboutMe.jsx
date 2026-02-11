@@ -1,10 +1,12 @@
-import useScrollReveal from "../hooks/useScrollReveal"
+import MotionSection from "./MotionSection"
 
 export default function AboutMe() {
-  const revealRef = useScrollReveal()
-
   return (
-    <section className="about section wrapper" id="about-me" ref={revealRef}>
+    <MotionSection
+      animation="fadeUp"
+      className="about section wrapper"
+      id="about-me"
+    >
       <h2 className="section-heading">About Me</h2>
       <div className="about__content">
         <div className="about__text">
@@ -32,12 +34,14 @@ export default function AboutMe() {
             Currently open to full-stack or frontend roles, preferably remote.
           </p>
         </div>
-        <img
-          className="about__image"
-          src="/adventure.jpg"
-          alt="Ryan Calacsan Ice Climbing"
-        />
+        <div className="about__image-wrapper">
+          <img
+            className="about__image"
+            src="/profile.jpg"
+            alt="Ryan Calacsan"
+          />
+        </div>
       </div>
-    </section>
+    </MotionSection>
   )
 }

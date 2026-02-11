@@ -20,9 +20,19 @@
       content="Full-stack engineer based in Chicago. Built a 200K+ line enterprise platform as Principal Engineer. React, Next.js, TypeScript, PostgreSQL."
     />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ryancalacsan.dev" />
+    <link rel="canonical" href="https://ryancalacsan.dev" />
     <title>Ryan Calacsan | Full-Stack Engineer</title>
+    <script>
+      (function() {
+        var t = localStorage.getItem('theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = t;
+        document.body && document.body.classList.add('no-transition');
+      })();
+    </script>
   </head>
-  <body>
+  <body class="no-transition">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

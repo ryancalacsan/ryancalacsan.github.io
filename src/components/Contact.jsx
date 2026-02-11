@@ -1,13 +1,16 @@
 import { FaLinkedinIn, FaGithub, FaEnvelope } from "react-icons/fa"
 import { IconContext } from "react-icons"
-import useScrollReveal from "../hooks/useScrollReveal"
+import MotionSection from "./MotionSection"
 
 export default function Contact() {
-  const revealRef = useScrollReveal()
   const emailAddress = "calacsancode@gmail.com"
 
   return (
-    <section className="contact section" id="contact" ref={revealRef}>
+    <MotionSection
+      animation="fadeIn"
+      className="contact section"
+      id="contact"
+    >
       <div className="contact__wrapper wrapper">
         <h2 className="section-heading">Get in Touch</h2>
         <p className="contact__text">
@@ -44,6 +47,6 @@ export default function Contact() {
           </div>
         </IconContext.Provider>
       </div>
-    </section>
+    </MotionSection>
   )
 }

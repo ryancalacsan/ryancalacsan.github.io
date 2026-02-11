@@ -1,8 +1,6 @@
-import useScrollReveal from "../hooks/useScrollReveal"
+import MotionSection from "./MotionSection"
 
 export default function Experience() {
-  const revealRef = useScrollReveal()
-
   const techStack = [
     "Next.js 15",
     "React 19",
@@ -25,7 +23,11 @@ export default function Experience() {
   ]
 
   return (
-    <section className="experience section wrapper" id="experience" ref={revealRef}>
+    <MotionSection
+      animation="slideLeft"
+      className="experience section wrapper"
+      id="experience"
+    >
       <h2 className="section-heading">Professional Experience</h2>
 
       <div className="experience__card">
@@ -76,6 +78,6 @@ export default function Experience() {
           </div>
         </div>
       </div>
-    </section>
+    </MotionSection>
   )
 }

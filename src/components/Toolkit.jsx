@@ -1,3 +1,4 @@
+import { motion } from "framer-motion"
 import { FaReact, FaCss3Alt, FaHtml5, FaDocker, FaNodeJs, FaGitAlt } from "react-icons/fa"
 import {
   SiNextdotjs,
@@ -16,11 +17,26 @@ import {
 import { TbApi, TbServer } from "react-icons/tb"
 import { GoGear } from "react-icons/go"
 import { IconContext } from "react-icons"
-import useScrollReveal from "../hooks/useScrollReveal"
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.04,
+    },
+  },
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: "easeOut" },
+  },
+}
 
 export default function Toolkit() {
-  const revealRef = useScrollReveal({ stagger: true })
-
   const skillCategories = [
     {
       name: "Frontend",
@@ -69,9 +85,19 @@ export default function Toolkit() {
     <section className="toolkit section wrapper" id="toolkit">
       <h2 className="section-heading">Technical Skills</h2>
       <IconContext.Provider value={{ size: "1.2em", color: "var(--color-accent)" }}>
-        <div className="toolkit__categories" ref={revealRef}>
+        <motion.div
+          className="toolkit__categories"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+        >
           {skillCategories.map((category) => (
-            <div key={category.name} className="toolkit__category">
+            <motion.div
+              key={category.name}
+              className="toolkit__category"
+              variants={itemVariants}
+            >
               <h3 className="toolkit__category-name">{category.name}</h3>
               <ul className="toolkit__skills">
                 {category.skills.map((skill) => (
@@ -81,9 +107,9 @@ export default function Toolkit() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </IconContext.Provider>
     </section>
   )

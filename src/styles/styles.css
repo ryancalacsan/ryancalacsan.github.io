@@ -1,5 +1,6 @@
 /* utils */
 @import "./utils/_variables.css";
+@import "./utils/_dark-mode.css";
 @import "./utils/_utils.css";
 @import "./utils/_animations.css";
 
@@ -10,6 +11,7 @@
 /* components */
 @import "./components/_menu.css";
 @import "./components/_hero.css";
+@import "./components/_hero-mesh.css";
 @import "./components/_experience.css";
 @import "./components/_projects.css";
 @import "./components/_aboutme.css";
