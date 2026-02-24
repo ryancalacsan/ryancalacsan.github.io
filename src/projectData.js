@@ -13,6 +13,19 @@ const projectsData = [
   },
   {
     id: 1,
+    title: "Minimal Motion Gallery",
+    subtitle: "FRONTEND SHOWCASE",
+    featured: true,
+    badge: "Frontend Showcase",
+    image: "minimal-motion.jpg",
+    description:
+      "A typography-focused single-page experience with sophisticated micro-interactions. Demonstrates restraint, taste, and CSS mastery through variable font animations, magnetic hover effects, and smooth scroll-triggered reveals.",
+    githubLink: "https://github.com/ryancalacsan/minimal-motion",
+    livePreviewLink: "https://minimal-motion-gray.vercel.app/",
+    tags: ["Next.js 15", "TypeScript", "Framer Motion", "Lenis", "Tailwind CSS", "Variable Fonts"],
+  },
+  {
+    id: 2,
     title: "print-check",
     featured: true,
     badge: "Published on npm",
