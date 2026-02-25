@@ -1,14 +1,8 @@
 import Link from 'next/link'
 import { ThemeToggle } from './theme-toggle'
 import { HeaderNav } from './header-nav'
-
-const navLinks = [
-  { label: 'Experience', href: '#experience' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Contact', href: '#contact' },
-]
+import { MobileMenu } from './mobile-menu'
+import { navLinks } from './nav-links'
 
 export function Header() {
   return (
@@ -47,6 +41,7 @@ export function Header() {
 
           <div className="flex items-center gap-2 md:hidden">
             <ThemeToggle />
+            <MobileMenu />
           </div>
         </div>
       </HeaderNav>

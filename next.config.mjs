@@ -9,6 +9,10 @@ const nextConfig = {
         hostname: 'ryancalacsan.dev',
       },
       {
+        protocol: 'https',
+        hostname: '*.public.blob.vercel-storage.com',
+      },
+      {
         protocol: 'http',
         hostname: 'localhost',
       },
