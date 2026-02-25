@@ -51,7 +51,7 @@ export function MobileMenu() {
       {/* Drawer */}
       <div
         id="mobile-nav-drawer"
-        inert={!open ? ('' as unknown as boolean) : undefined}
+        inert={!open || undefined}
         className={`fixed inset-x-0 top-16 z-50 border-b border-border bg-bg transition-all duration-normal ${
           open
             ? 'translate-y-0 opacity-100'
