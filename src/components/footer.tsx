@@ -38,9 +38,12 @@ export function Footer() {
           ))}
         </div>
 
-        <p className="text-sm text-text-secondary">
-          Designed and built by Ryan Calacsan
-        </p>
+        <div className="text-center text-sm text-text-secondary">
+          <p>&copy; {new Date().getFullYear()} Ryan Calacsan</p>
+          <p className="mt-1 text-xs text-text-secondary/60">
+            Built with Next.js &amp; Payload CMS
+          </p>
+        </div>
 
         <BackToTop>
           <ArrowUp className="h-4 w-4" />

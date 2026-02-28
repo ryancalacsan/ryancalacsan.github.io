@@ -19,7 +19,7 @@ export async function Projects() {
       id="projects"
     >
       <div className="wrapper">
-        <h2 className="font-display text-[length:var(--text-h2)] font-semibold tracking-tight">
+        <h2 className="font-display text-[length:var(--text-h2)] font-medium tracking-tight">
           Featured Projects
         </h2>
 

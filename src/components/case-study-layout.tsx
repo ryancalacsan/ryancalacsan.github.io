@@ -51,7 +51,7 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
         {/* Outcome */}
         {project.outcome && (
           <MotionSection animation="fadeUp" className="mt-8 max-w-3xl" delay={0.1}>
-            <div className="rounded-xl border border-accent/20 bg-accent/5 p-6">
+            <div className="rounded-xl border border-accent/20 border-l-4 border-l-accent bg-accent/5 p-6">
               <h2 className="text-sm font-semibold uppercase tracking-wider text-accent">
                 Key Outcome
               </h2>
@@ -68,9 +68,10 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
                 src={featuredImage.url}
                 alt={featuredImage.alt || project.title}
                 fill
-                className="object-cover"
+                className={featuredImage.mimeType === 'image/svg+xml' ? 'object-contain' : `object-cover ${featuredImage.filename?.includes('minimal-motion') ? 'object-center' : 'object-top'}`}
                 sizes="(max-width: 1152px) 100vw, 1152px"
                 priority
+                {...(featuredImage.mimeType === 'image/svg+xml' && { unoptimized: true })}
               />
             </div>
           </MotionSection>
@@ -80,7 +81,7 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
         <div className="mt-12 max-w-3xl">
           {/* Challenge */}
           {project.challenge && (
-            <MotionSection animation="fadeUp" className="mt-10">
+            <MotionSection animation="fadeUp" className="mt-14">
               <h2 className="font-display text-[length:var(--text-h3)] font-semibold tracking-tight">
                 The Challenge
               </h2>
@@ -93,78 +94,87 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
 
           {/* What I Built */}
           {project.whatIBuilt && (
-            <MotionSection animation="fadeUp" className="mt-10">
-              <h2 className="font-display text-[length:var(--text-h3)] font-semibold tracking-tight">
-                What I Built
-              </h2>
-              <RichText
-                data={project.whatIBuilt as unknown as Record<string, unknown>}
-                className="mt-4 prose-custom"
-              />
-            </MotionSection>
+            <>
+              <hr className="mt-14 border-border" />
+              <MotionSection animation="fadeUp" className="mt-14">
+                <h2 className="font-display text-[length:var(--text-h3)] font-semibold tracking-tight">
+                  What I Built
+                </h2>
+                <RichText
+                  data={project.whatIBuilt as unknown as Record<string, unknown>}
+                  className="mt-4 prose-custom"
+                />
+              </MotionSection>
+            </>
           )}
 
           {/* Tech Stack */}
           {project.techStack && project.techStack.length > 0 && (
-            <MotionSection animation="fadeUp" className="mt-10">
-              <h2 className="font-display text-[length:var(--text-h3)] font-semibold tracking-tight">
-                Tech Stack
-              </h2>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {project.techStack.map((item) => (
-                  <span
-                    key={item.id}
-                    className="rounded-md bg-bg-secondary px-3 py-1.5 text-sm text-text-secondary"
-                  >
-                    {item.technology}
-                  </span>
-                ))}
-              </div>
-            </MotionSection>
+            <>
+              <hr className="mt-14 border-border" />
+              <MotionSection animation="fadeUp" className="mt-14">
+                <h2 className="font-display text-[length:var(--text-h3)] font-semibold tracking-tight">
+                  Tech Stack
+                </h2>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {project.techStack.map((item) => (
+                    <span
+                      key={item.id}
+                      className="rounded-md bg-bg-secondary px-3 py-1.5 text-sm text-text-secondary"
+                    >
+                      {item.technology}
+                    </span>
+                  ))}
+                </div>
+              </MotionSection>
+            </>
           )}
 
           {/* Links */}
           {(project.liveUrl || project.githubUrl || project.npmUrl) && (
-            <MotionSection animation="fadeUp" className="mt-10">
-              <h2 className="font-display text-[length:var(--text-h3)] font-semibold tracking-tight">
-                Links
-              </h2>
-              <div className="mt-4 flex flex-wrap gap-3">
-                {project.liveUrl && (
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-medium text-text no-underline transition-colors duration-normal hover:bg-bg-secondary"
-                  >
-                    <ExternalLink className="h-4 w-4" />
-                    Live Demo
-                  </a>
-                )}
-                {project.githubUrl && (
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-medium text-text no-underline transition-colors duration-normal hover:bg-bg-secondary"
-                  >
-                    <Github className="h-4 w-4" />
-                    Source Code
-                  </a>
-                )}
-                {project.npmUrl && (
-                  <a
-                    href={project.npmUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-medium text-text no-underline transition-colors duration-normal hover:bg-bg-secondary"
-                  >
-                    <Package className="h-4 w-4" />
-                    npm Package
-                  </a>
-                )}
-              </div>
-            </MotionSection>
+            <>
+              <hr className="mt-14 border-border" />
+              <MotionSection animation="fadeUp" className="mt-14">
+                <h2 className="font-display text-[length:var(--text-h3)] font-semibold tracking-tight">
+                  Links
+                </h2>
+                <div className="mt-4 flex flex-wrap gap-3">
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-medium text-text no-underline transition-colors duration-normal hover:bg-bg-secondary"
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                      Live Demo
+                    </a>
+                  )}
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-medium text-text no-underline transition-colors duration-normal hover:bg-bg-secondary"
+                    >
+                      <Github className="h-4 w-4" />
+                      Source Code
+                    </a>
+                  )}
+                  {project.npmUrl && (
+                    <a
+                      href={project.npmUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-medium text-text no-underline transition-colors duration-normal hover:bg-bg-secondary"
+                    >
+                      <Package className="h-4 w-4" />
+                      npm Package
+                    </a>
+                  )}
+                </div>
+              </MotionSection>
+            </>
           )}
         </div>
 

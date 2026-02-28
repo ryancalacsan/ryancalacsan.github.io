@@ -112,7 +112,7 @@ const projectsData = [
     description:
       "Built the company's entire modern technology stack from scratch as the sole engineer. PrintNinja is a custom printing company serving self-publishers and game makers.",
     outcome:
-      'Built a 200,000+ line Configure-Price-Quote platform from scratch as the sole engineer, replacing manual quoting processes and legacy PHP systems.',
+      'Built a 230,000+ line Configure-Price-Quote platform from scratch as the sole engineer, replacing manual quoting processes and legacy PHP systems.',
     challenge: richText([
       paragraph(
         'Inherited an environment with no version control, fragmented contractor code, and significant technical debt. Needed to build a Configure-Price-Quote (CPQ) platform to replace manual quoting processes while migrating critical business logic from legacy PHP systems.',
@@ -126,12 +126,12 @@ const projectsData = [
         'As the sole engineer, I designed, built, and deployed the entire platform from the ground up:',
       ),
       bulletList([
-        '200K+ line full-stack platform using Next.js, React, TypeScript, and PostgreSQL',
-        'Real-time pricing engine handling 500+ variables across 4 product lines',
+        '230,000+ line full-stack platform using Next.js, React, TypeScript, and PostgreSQL',
+        'Real-time pricing engine handling 500+ variables across 4 product lines with LRU caching',
         'Stripe payment integration with webhook processing',
-        'Salesforce CRM sync with 60+ field mappings',
-        'Component-based file upload system with PDF validation and version control',
-        'Docker-based deployment infrastructure with automated backups and rollback capability',
+        'Salesforce CRM sync with 80+ custom field mappings across 10 modules',
+        'Multi-carrier shipping integration (ShipStation, UPS, TForce Freight)',
+        'Self-hosted Docker infrastructure with blue-green deployment and automated backups',
       ]),
     ]),
     techStack: [
@@ -139,16 +139,18 @@ const projectsData = [
       'React 19',
       'TypeScript',
       'PostgreSQL',
+      'Drizzle ORM',
       'Supabase',
       'Docker',
       'Stripe',
       'Salesforce',
       'Clerk Auth',
+      'Turborepo',
     ],
     liveUrl: undefined,
     githubUrl: undefined,
     npmUrl: undefined,
-    image: undefined,
+    image: { filename: 'printninja-architecture.svg', alt: 'PrintNinja system architecture diagram' },
   },
   {
     title: 'QuoteCraft',

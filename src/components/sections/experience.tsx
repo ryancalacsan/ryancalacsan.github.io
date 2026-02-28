@@ -6,31 +6,38 @@ const techStack = [
   'React 19',
   'TypeScript',
   'PostgreSQL',
+  'Drizzle ORM',
   'Supabase',
   'Docker',
   'Stripe',
   'Salesforce',
   'Clerk Auth',
+  'Turborepo',
 ]
 
 const achievements = [
-  '200K+ line full-stack platform using Next.js, React, TypeScript, and PostgreSQL',
-  'Real-time pricing engine handling 500+ variables across 4 product lines',
+  '230,000+ line full-stack platform using Next.js, React, TypeScript, and PostgreSQL',
+  'Real-time pricing engine handling 500+ variables across 4 product lines with LRU caching',
   'Stripe payment integration with webhook processing',
-  'Salesforce CRM sync with 60+ field mappings',
-  'Component-based file upload system with PDF validation and version control',
-  'Docker-based deployment infrastructure with automated backups and rollback capability',
+  'Salesforce CRM sync with 80+ custom field mappings across 10 modules',
+  'Multi-carrier shipping integration (ShipStation, UPS, TForce Freight)',
+  'Self-hosted Docker infrastructure with blue-green deployment and automated backups',
 ]
 
 export function Experience() {
   return (
     <MotionSection
       animation="slideLeft"
-      className="py-[length:var(--spacing-section)]"
+      className="relative py-[length:var(--spacing-section)]"
       id="experience"
     >
-      <div className="wrapper">
-        <h2 className="font-display text-[length:var(--text-h2)] font-semibold tracking-tight">
+      {/* Ambient gradient */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -left-1/4 top-1/4 h-[60vh] w-[50vw] rounded-full bg-accent/[0.06] blur-[100px] dark:bg-accent/[0.02]" />
+      </div>
+
+      <div className="wrapper relative">
+        <h2 className="font-display text-[length:var(--text-h2)] font-medium tracking-tight">
           Professional Experience
         </h2>
 
@@ -54,7 +61,7 @@ export function Experience() {
           </p>
 
           <div className="mt-8">
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-text-secondary">
+            <h4 className="text-sm font-medium uppercase tracking-wider text-text-secondary">
               The Challenge
             </h4>
             <p className="mt-2 text-text-secondary">
@@ -67,7 +74,7 @@ export function Experience() {
           </div>
 
           <div className="mt-8">
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-text-secondary">
+            <h4 className="text-sm font-medium uppercase tracking-wider text-text-secondary">
               What I Built
             </h4>
             <StaggerContainer className="mt-3 space-y-2">
@@ -83,7 +90,7 @@ export function Experience() {
           </div>
 
           <div className="mt-8">
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-text-secondary">
+            <h4 className="text-sm font-medium uppercase tracking-wider text-text-secondary">
               Tech Stack
             </h4>
             <div className="mt-3 flex flex-wrap gap-2">

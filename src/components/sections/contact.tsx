@@ -20,11 +20,16 @@ export function Contact() {
   return (
     <MotionSection
       animation="fadeIn"
-      className="py-[length:var(--spacing-section)]"
+      className="relative py-[length:var(--spacing-section)]"
       id="contact"
     >
-      <div className="wrapper text-center">
-        <h2 className="font-display text-[length:var(--text-h2)] font-semibold tracking-tight">
+      {/* Ambient gradient */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-1/2 top-0 h-[40vh] w-[60vw] -translate-x-1/2 rounded-full bg-accent/[0.06] blur-[120px] dark:bg-accent/[0.03]" />
+      </div>
+
+      <div className="wrapper relative text-center">
+        <h2 className="font-display text-[length:var(--text-h1)] font-medium tracking-tight">
           Get in Touch
         </h2>
         <p className="mx-auto mt-4 max-w-md text-text-secondary">
@@ -41,17 +46,17 @@ export function Contact() {
           <ArrowRight className="h-4 w-4" />
         </a>
 
-        <div className="mt-8 flex items-center justify-center gap-4">
+        <div className="mt-8 flex items-center justify-center gap-3">
           {socialLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-md text-text-secondary no-underline transition-colors duration-normal hover:text-text hover:bg-bg-secondary"
-              aria-label={link.label}
+              className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-medium text-text no-underline transition-colors duration-normal hover:bg-bg-secondary"
             >
-              <link.icon className="h-5 w-5" />
+              <link.icon className="h-4 w-4" />
+              {link.label}
             </a>
           ))}
         </div>
