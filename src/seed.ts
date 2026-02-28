@@ -201,6 +201,54 @@ const projectsData = [
     image: { filename: 'QuoteCraft-dashboard.png', alt: 'QuoteCraft dashboard showing quote builder and analytics' },
   },
   {
+    title: 'Chicago Current',
+    slug: 'chicago-current',
+    type: 'frontend' as const,
+    badge: 'Photo Essay',
+    role: 'Solo Developer',
+    year: 2026,
+    featured: true,
+    order: 3,
+    description:
+      'An immersive, scroll-driven photo essay documenting a 9-mile kayak journey down the Chicago River. Originally published in Mountain Gazette (2024), reimagined as an interactive web experience.',
+    outcome:
+      'Immersive scroll-driven photo essay that transforms a print editorial into an engaging digital experience with parallax animations and optimized image loading.',
+    challenge: richText([
+      paragraph(
+        'Transform a print editorial originally published in Mountain Gazette into an engaging digital experience that showcases both photography and frontend craft.',
+      ),
+      paragraph(
+        'Needed to create smooth scroll-driven animations while maintaining performance despite heavy imagery, and tell a compelling story that keeps viewers scrolling through the entire 9-mile journey from River Park to downtown Chicago.',
+      ),
+    ]),
+    whatIBuilt: richText([
+      paragraph(
+        'An immersive scroll-driven photo essay with modern frontend techniques:',
+      ),
+      bulletList([
+        'Immersive scroll-driven photo essay with 6 narrative sections',
+        'Parallax image reveals and scroll-triggered animations using Framer Motion',
+        'Smooth scrolling with Lenis for a premium, natural feel',
+        'Optimized image loading with blur-up placeholders and lazy loading',
+        'Responsive design adapting from desktop parallax to mobile-optimized layouts',
+        'Reduced motion support for accessibility (prefers-reduced-motion)',
+        'Performance optimized — Lighthouse 90+ despite image-heavy content',
+      ]),
+    ]),
+    techStack: [
+      'Next.js 15',
+      'TypeScript',
+      'Framer Motion',
+      'Lenis',
+      'Tailwind CSS',
+      'Next/Image',
+    ],
+    liveUrl: 'https://chicago-current.vercel.app',
+    githubUrl: 'https://github.com/ryancalacsan/chicago-current',
+    npmUrl: undefined,
+    image: { filename: 'chicago-current.png', alt: 'Chicago Current — scroll-driven photo essay of a kayak journey down the Chicago River' },
+  },
+  {
     title: 'Minimal Motion Gallery',
     slug: 'minimal-motion-gallery',
     type: 'frontend' as const,
@@ -208,7 +256,7 @@ const projectsData = [
     role: 'Solo Developer',
     year: 2025,
     featured: true,
-    order: 3,
+    order: 4,
     description:
       'A typography-focused single-page experience with sophisticated micro-interactions. Demonstrates restraint, taste, and CSS mastery through variable font animations, magnetic hover effects, and smooth scroll-triggered reveals.',
     outcome:
@@ -255,7 +303,7 @@ const projectsData = [
     role: 'Solo Developer',
     year: 2025,
     featured: true,
-    order: 4,
+    order: 5,
     description:
       'CLI tool that validates print-ready PDF files for prepress requirements. Runs 8 automated checks including bleed, fonts, color space, resolution, and PDF/X compliance. Published to npm.',
     outcome:
