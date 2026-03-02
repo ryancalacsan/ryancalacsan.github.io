@@ -12,7 +12,9 @@
     "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
     "seed": "node --no-deprecation --env-file=.env.local --import tsx/esm src/seed.ts",
-    "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
+    "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
+    "test:visual": "npx playwright test",
+    "test:visual:update": "npx playwright test --update-snapshots"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "3.77.0",
@@ -35,6 +37,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
+    "@playwright/test": "^1.58.2",
     "@tailwindcss/postcss": "^4.2.1",
     "@types/node": "22.19.9",
     "@types/react": "19.2.9",
