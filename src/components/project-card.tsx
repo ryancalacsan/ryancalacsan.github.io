@@ -30,7 +30,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               alt={image.alt || project.title}
               fill
               className={`${image.mimeType === 'image/svg+xml' ? 'object-contain' : image.filename?.includes('minimal-motion') ? 'object-cover object-center' : 'object-cover object-top'} transition-transform duration-slow group-hover:scale-[1.03]`}
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 50vw"
               {...(image.mimeType === 'image/svg+xml' && { unoptimized: true })}
             />
             {/* Subtle gradient overlay on hover */}

@@ -59,6 +59,7 @@
 
 /* Base styles */
 html {
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 

@@ -27,6 +27,7 @@ export function About() {
                 src="/profile.jpg"
                 alt="Ryan Calacsan"
                 fill
+                priority
                 className="object-cover object-[center_70%]"
                 sizes="320px"
               />
