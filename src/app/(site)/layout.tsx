@@ -24,7 +24,13 @@ const clashGrotesk = localFont({
   weight: '200 700',
 })
 
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ryancalacsan.dev'),
