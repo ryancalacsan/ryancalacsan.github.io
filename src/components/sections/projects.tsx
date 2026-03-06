@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { getPayload } from 'payload'
 import config from '@payload-config'
-import { MotionSection } from '../motion-section'
+import { RevealSection } from '../reveal-section'
 import { ProjectCard } from '../project-card'
 
 export async function Projects() {
@@ -13,7 +13,7 @@ export async function Projects() {
   })
 
   return (
-    <MotionSection
+    <RevealSection
       animation="fadeUp"
       className="py-[length:var(--spacing-section)]"
       id="projects"
@@ -39,6 +39,6 @@ export async function Projects() {
           )}
         </div>
       </div>
-    </MotionSection>
+    </RevealSection>
   )
 }

@@ -1,9 +1,9 @@
 import Image from 'next/image'
-import { MotionSection } from '../motion-section'
+import { RevealSection } from '../reveal-section'
 
 export function About() {
   return (
-    <MotionSection
+    <RevealSection
       animation="fadeUp"
       className="py-[length:var(--spacing-section)]"
       id="about"
@@ -27,7 +27,6 @@ export function About() {
                 src="/profile.jpg"
                 alt="Ryan Calacsan"
                 fill
-                priority
                 className="object-cover object-[center_70%]"
                 sizes="320px"
               />
@@ -65,6 +64,6 @@ export function About() {
           </div>
         </div>
       </div>
-    </MotionSection>
+    </RevealSection>
   )
 }

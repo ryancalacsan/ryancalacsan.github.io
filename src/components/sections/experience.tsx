@@ -1,5 +1,5 @@
-import { MotionSection } from '../motion-section'
-import { StaggerContainer, StaggerItem } from '../stagger-children'
+import { RevealSection } from '../reveal-section'
+import { RevealStagger, RevealStaggerItem } from '../reveal-stagger'
 
 const techStack = [
   'Next.js 15',
@@ -26,7 +26,7 @@ const achievements = [
 
 export function Experience() {
   return (
-    <MotionSection
+    <RevealSection
       animation="slideLeft"
       className="relative py-[length:var(--spacing-section)]"
       id="experience"
@@ -77,16 +77,16 @@ export function Experience() {
             <h4 className="text-sm font-medium uppercase tracking-wider text-text-secondary">
               What I Built
             </h4>
-            <StaggerContainer className="mt-3 space-y-2">
+            <RevealStagger className="mt-3 space-y-2">
               {achievements.map((achievement, index) => (
-                <StaggerItem key={index}>
+                <RevealStaggerItem key={index}>
                   <div className="flex gap-3 text-text-secondary">
                     <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                     <span>{achievement}</span>
                   </div>
-                </StaggerItem>
+                </RevealStaggerItem>
               ))}
-            </StaggerContainer>
+            </RevealStagger>
           </div>
 
           <div className="mt-8">
@@ -106,6 +106,6 @@ export function Experience() {
           </div>
         </div>
       </div>
-    </MotionSection>
+    </RevealSection>
   )
 }

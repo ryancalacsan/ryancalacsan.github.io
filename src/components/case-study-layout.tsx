@@ -3,7 +3,7 @@ import { ExternalLink, Github, Package } from 'lucide-react'
 import type { Project, Media } from '@/payload-types'
 import { RichText } from './rich-text'
 import { ProjectNav } from './project-nav'
-import { MotionSection } from './motion-section'
+import { RevealSection } from './reveal-section'
 
 const typeLabels: Record<string, string> = {
   fullstack: 'Full-Stack Application',
@@ -28,7 +28,7 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
     <article className="pt-24 pb-16">
       <div className="wrapper">
         {/* Hero */}
-        <MotionSection animation="fadeUp" className="max-w-3xl">
+        <RevealSection animation="fadeUp" className="max-w-3xl">
           <div className="flex flex-wrap items-center gap-3">
             <span className="rounded-md bg-accent/10 px-3 py-1 text-sm font-medium text-accent">
               {typeLabels[project.type] || project.type}
@@ -46,23 +46,23 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
           {project.badge && (
             <p className="mt-2 text-sm font-medium text-accent">{project.badge}</p>
           )}
-        </MotionSection>
+        </RevealSection>
 
         {/* Outcome */}
         {project.outcome && (
-          <MotionSection animation="fadeUp" className="mt-8 max-w-3xl" delay={0.1}>
+          <RevealSection animation="fadeUp" className="mt-8 max-w-3xl" delay={0.1}>
             <div className="rounded-xl border border-accent/20 border-l-4 border-l-accent bg-accent/5 p-6">
               <h2 className="text-sm font-semibold uppercase tracking-wider text-accent">
                 Key Outcome
               </h2>
               <p className="mt-2 text-lg text-text">{project.outcome}</p>
             </div>
-          </MotionSection>
+          </RevealSection>
         )}
 
         {/* Featured Image */}
         {featuredImage && featuredImage.url && (
-          <MotionSection animation="fadeUp" className="mt-10" delay={0.15}>
+          <RevealSection animation="fadeUp" className="mt-10" delay={0.15}>
             <div className="relative aspect-video overflow-hidden rounded-xl bg-bg-secondary">
               <Image
                 src={featuredImage.url}
@@ -74,14 +74,14 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
                 {...(featuredImage.mimeType === 'image/svg+xml' && { unoptimized: true })}
               />
             </div>
-          </MotionSection>
+          </RevealSection>
         )}
 
         {/* Content */}
         <div className="mt-12 max-w-3xl">
           {/* Challenge */}
           {project.challenge && (
-            <MotionSection animation="fadeUp" className="mt-14">
+            <RevealSection animation="fadeUp" className="mt-14">
               <h2 className="font-display text-[length:var(--text-h3)] font-semibold tracking-tight">
                 The Challenge
               </h2>
@@ -89,14 +89,14 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
                 data={project.challenge as unknown as Record<string, unknown>}
                 className="mt-4 prose-custom"
               />
-            </MotionSection>
+            </RevealSection>
           )}
 
           {/* What I Built */}
           {project.whatIBuilt && (
             <>
               <hr className="mt-14 border-border" />
-              <MotionSection animation="fadeUp" className="mt-14">
+              <RevealSection animation="fadeUp" className="mt-14">
                 <h2 className="font-display text-[length:var(--text-h3)] font-semibold tracking-tight">
                   What I Built
                 </h2>
@@ -104,7 +104,7 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
                   data={project.whatIBuilt as unknown as Record<string, unknown>}
                   className="mt-4 prose-custom"
                 />
-              </MotionSection>
+              </RevealSection>
             </>
           )}
 
@@ -112,7 +112,7 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
           {project.techStack && project.techStack.length > 0 && (
             <>
               <hr className="mt-14 border-border" />
-              <MotionSection animation="fadeUp" className="mt-14">
+              <RevealSection animation="fadeUp" className="mt-14">
                 <h2 className="font-display text-[length:var(--text-h3)] font-semibold tracking-tight">
                   Tech Stack
                 </h2>
@@ -126,7 +126,7 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
                     </span>
                   ))}
                 </div>
-              </MotionSection>
+              </RevealSection>
             </>
           )}
 
@@ -134,7 +134,7 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
           {(project.liveUrl || project.githubUrl || project.npmUrl) && (
             <>
               <hr className="mt-14 border-border" />
-              <MotionSection animation="fadeUp" className="mt-14">
+              <RevealSection animation="fadeUp" className="mt-14">
                 <h2 className="font-display text-[length:var(--text-h3)] font-semibold tracking-tight">
                   Links
                 </h2>
@@ -173,14 +173,14 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
                     </a>
                   )}
                 </div>
-              </MotionSection>
+              </RevealSection>
             </>
           )}
         </div>
 
         {/* Gallery */}
         {project.galleryImages && project.galleryImages.length > 0 && (
-          <MotionSection animation="fadeUp" className="mt-12">
+          <RevealSection animation="fadeUp" className="mt-12">
             <div className="grid gap-6 sm:grid-cols-2">
               {project.galleryImages.map((item) => {
                 const img =
@@ -208,7 +208,7 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
                 )
               })}
             </div>
-          </MotionSection>
+          </RevealSection>
         )}
 
         {/* Navigation */}

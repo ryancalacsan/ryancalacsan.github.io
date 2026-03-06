@@ -1,5 +1,5 @@
-import { MotionSection } from '../motion-section'
-import { StaggerContainer, StaggerItem } from '../stagger-children'
+import { RevealSection } from '../reveal-section'
+import { RevealStagger, RevealStaggerItem } from '../reveal-stagger'
 
 const skillCategories = [
   {
@@ -22,7 +22,7 @@ const skillCategories = [
 
 export function Skills() {
   return (
-    <MotionSection
+    <RevealSection
       animation="fadeUp"
       className="relative py-[length:var(--spacing-section)]"
       id="skills"
@@ -36,9 +36,9 @@ export function Skills() {
           Technical Skills
         </h2>
 
-        <StaggerContainer className="mt-10 grid gap-4 sm:grid-cols-2">
+        <RevealStagger className="mt-10 grid gap-4 sm:grid-cols-2">
           {skillCategories.map((category) => (
-            <StaggerItem key={category.name}>
+            <RevealStaggerItem key={category.name}>
               <div className="h-full rounded-xl border border-border bg-surface p-6">
                 <h3 className="font-display text-sm font-medium uppercase tracking-wider text-accent">
                   {category.name}
@@ -54,10 +54,10 @@ export function Skills() {
                   ))}
                 </div>
               </div>
-            </StaggerItem>
+            </RevealStaggerItem>
           ))}
-        </StaggerContainer>
+        </RevealStagger>
       </div>
-    </MotionSection>
+    </RevealSection>
   )
 }

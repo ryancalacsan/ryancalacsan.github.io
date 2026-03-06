@@ -1,18 +1,20 @@
 'use client'
 
-import { ReactLenis } from 'lenis/react'
+import { useEffect } from 'react'
 
 export function LenisProvider({ children }: { children: React.ReactNode }) {
-  return (
-    <ReactLenis
-      root
-      options={{
-        lerp: 0.1,
-        duration: 1.2,
-        smoothWheel: true,
-      }}
-    >
-      {children}
-    </ReactLenis>
-  )
+  useEffect(() => {
+    let lenis: any
+    import('lenis').then(({ default: Lenis }) => {
+      lenis = new Lenis({ lerp: 0.1, duration: 1.2, smoothWheel: true })
+      function raf(time: number) {
+        lenis.raf(time)
+        requestAnimationFrame(raf)
+      }
+      requestAnimationFrame(raf)
+    })
+    return () => lenis?.destroy()
+  }, [])
+
+  return <>{children}</>
 }

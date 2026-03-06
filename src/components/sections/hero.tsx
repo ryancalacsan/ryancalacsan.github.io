@@ -1,5 +1,3 @@
-import { HeroStagger, HeroNameLine } from '../hero-animation'
-
 export function Hero() {
   return (
     <section className="relative flex min-h-svh items-center pt-16">
@@ -10,26 +8,30 @@ export function Hero() {
       </div>
 
       <div className="wrapper relative w-full">
-        <HeroStagger delay={0.2} y={15}>
+        <div className="hero-fade-up" style={{ animationDelay: '0.2s' }}>
           <p className="mb-6 font-display text-sm font-light uppercase tracking-[0.25em] text-text-secondary">
             Full-Stack Engineer / Chicago
           </p>
-        </HeroStagger>
+        </div>
 
         <h1 className="font-display text-[length:var(--text-display)] font-bold leading-[0.9] tracking-[-0.04em] text-text">
-          <HeroNameLine delay={0.35}>Ryan</HeroNameLine>
-          <HeroNameLine delay={0.45}>Calacsan</HeroNameLine>
+          <span className="block overflow-hidden">
+            <span className="hero-name-reveal block" style={{ animationDelay: '0.35s' }}>Ryan</span>
+          </span>
+          <span className="block overflow-hidden">
+            <span className="hero-name-reveal block" style={{ animationDelay: '0.45s' }}>Calacsan</span>
+          </span>
         </h1>
 
-        <HeroStagger delay={0.7} y={20}>
+        <div className="hero-fade-up" style={{ animationDelay: '0.7s' }}>
           <p className="mt-8 max-w-lg text-[length:var(--text-body)] leading-relaxed text-text-secondary">
             I built a 230,000+ line enterprise platform from scratch as the sole
             engineer — from real-time pricing engines to payment processing and
             CRM integration.
           </p>
-        </HeroStagger>
+        </div>
 
-        <HeroStagger delay={0.9} y={20}>
+        <div className="hero-fade-up" style={{ animationDelay: '0.9s' }}>
           <div className="mt-10 flex flex-wrap gap-4">
             <a
               href="/ryan-calacsan-resume.pdf"
@@ -47,7 +49,7 @@ export function Hero() {
               View My Work
             </a>
           </div>
-        </HeroStagger>
+        </div>
       </div>
     </section>
   )

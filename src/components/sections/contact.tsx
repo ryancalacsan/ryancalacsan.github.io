@@ -1,5 +1,5 @@
 import { Mail, ArrowRight, Github, Linkedin } from 'lucide-react'
-import { MotionSection } from '../motion-section'
+import { RevealSection } from '../reveal-section'
 
 const emailAddress = 'calacsancode@gmail.com'
 
@@ -18,7 +18,7 @@ const socialLinks = [
 
 export function Contact() {
   return (
-    <MotionSection
+    <RevealSection
       animation="fadeIn"
       className="relative py-[length:var(--spacing-section)]"
       id="contact"
@@ -61,6 +61,6 @@ export function Contact() {
           ))}
         </div>
       </div>
-    </MotionSection>
+    </RevealSection>
   )
 }
