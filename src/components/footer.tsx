@@ -40,7 +40,7 @@ export function Footer() {
 
         <div className="text-center text-sm text-text-secondary">
           <p>&copy; {new Date().getFullYear()} Ryan Calacsan</p>
-          <p className="mt-1 text-xs text-text-secondary/60">
+          <p className="mt-1 text-xs text-text-secondary">
             Built with Next.js &amp; Payload CMS
           </p>
         </div>
