@@ -4,7 +4,7 @@ import { RevealStagger, RevealStaggerItem } from '../reveal-stagger'
 const skillCategories = [
   {
     name: 'Frontend',
-    skills: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Framer Motion', 'HTML5', 'CSS3'],
+    skills: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'CSS Animations', 'HTML5', 'CSS3'],
   },
   {
     name: 'Backend',

@@ -27,7 +27,7 @@ export function RevealSection({ children, animation = 'fadeUp', className, id, d
       ref={ref}
       id={id}
       className={`reveal-section ${animation} ${visible ? 'revealed' : ''} ${className ?? ''}`}
-      style={delay ? { animationDelay: `${delay}s` } : undefined}
+      style={delay ? { transitionDelay: `${delay}s` } : undefined}
     >
       {children}
     </section>

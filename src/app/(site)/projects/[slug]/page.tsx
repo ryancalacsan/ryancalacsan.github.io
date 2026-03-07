@@ -45,26 +45,16 @@ export default async function ProjectPage({ params }: Args) {
   const { slug } = await params
   const payload = await getPayload({ config })
 
-  const { docs } = await payload.find({
-    collection: 'projects',
-    where: { slug: { equals: slug } },
-    limit: 1,
-  })
-
-  const project = docs[0]
-
-  if (!project) {
-    notFound()
-  }
-
-  // Get all projects for prev/next navigation
   const { docs: allProjects } = await payload.find({
     collection: 'projects',
     sort: 'order',
     limit: 100,
   })
 
-  const currentIndex = allProjects.findIndex((p) => p.id === project.id)
+  const currentIndex = allProjects.findIndex((p) => p.slug === slug)
+  if (currentIndex === -1) notFound()
+
+  const project = allProjects[currentIndex]
   const previous = currentIndex > 0 ? allProjects[currentIndex - 1] : null
   const next = currentIndex < allProjects.length - 1 ? allProjects[currentIndex + 1] : null
 
