@@ -17,8 +17,8 @@
   --color-surface: oklch(1 0 0);
   --color-text: oklch(0.13 0 0);
   --color-text-secondary: oklch(0.45 0 0);
-  --color-accent: oklch(0.55 0.16 250);
-  --color-accent-hover: oklch(0.48 0.18 250);
+  --color-accent: oklch(0.5 0.16 250);
+  --color-accent-hover: oklch(0.43 0.18 250);
   --color-border: oklch(0.91 0 0);
 
   /* Typography scale — fluid clamp */
