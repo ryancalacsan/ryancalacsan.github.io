@@ -10,6 +10,8 @@
 
 @theme {
   --color-*: initial;
+  --color-white: #fff;
+  --color-black: #000;
 
   /* Semantic tokens — light mode defaults (Deep Navy + Electric Blue) */
   --color-bg: oklch(0.99 0 0);
@@ -17,8 +19,8 @@
   --color-surface: oklch(1 0 0);
   --color-text: oklch(0.13 0 0);
   --color-text-secondary: oklch(0.45 0 0);
-  --color-accent: oklch(0.5 0.16 250);
-  --color-accent-hover: oklch(0.43 0.18 250);
+  --color-accent: oklch(0.47 0.16 250);
+  --color-accent-hover: oklch(0.40 0.18 250);
   --color-border: oklch(0.91 0 0);
 
   /* Typography scale — fluid clamp */

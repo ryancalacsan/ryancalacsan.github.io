@@ -39,7 +39,7 @@ export function Contact() {
 
         <a
           href={`mailto:${emailAddress}`}
-          className="mt-8 inline-flex items-center gap-3 rounded-lg bg-accent px-6 py-3 text-sm font-medium text-white no-underline transition-colors duration-normal hover:bg-accent-hover"
+          className="mt-8 inline-flex items-center gap-3 rounded-lg bg-accent px-6 py-3 text-sm font-medium text-white dark:text-black no-underline transition-colors duration-normal hover:bg-accent-hover"
         >
           <Mail className="h-4 w-4" />
           <span>{emailAddress}</span>

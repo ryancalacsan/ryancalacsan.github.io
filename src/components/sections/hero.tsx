@@ -37,7 +37,7 @@ export function Hero() {
               href="/ryan-calacsan-resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-white no-underline transition-all duration-normal hover:bg-accent-hover hover:gap-3"
+              className="group inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-white dark:text-black no-underline transition-all duration-normal hover:bg-accent-hover hover:gap-3"
             >
               View Resume
               <span className="transition-transform duration-normal group-hover:translate-x-0.5">&rarr;</span>
