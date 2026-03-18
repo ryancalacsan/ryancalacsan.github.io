@@ -153,6 +153,63 @@ const projectsData = [
     image: { filename: 'printninja-architecture.svg', alt: 'PrintNinja system architecture diagram' },
   },
   {
+    title: 'OutreachAI',
+    slug: 'outreachai',
+    type: 'fullstack' as const,
+    badge: 'Live Demo',
+    role: 'Solo Developer',
+    year: 2026,
+    featured: true,
+    order: 2,
+    description:
+      'AI-powered patient outreach message generator for maternal and women\'s healthcare. Care coordinators select a patient, configure outreach parameters, and generate personalized messages across SMS, email, and in-app channels — with multiple variants, engagement predictions, and clinical reasoning.',
+    outcome:
+      'Built a full-stack AI application with dual backends (Next.js + FastAPI), live LLM streaming from Claude and Gemini, and Docker containerization — generating personalized patient outreach across SMS, email, and in-app channels with engagement predictions.',
+    challenge: richText([
+      paragraph(
+        'Care coordinators in maternal and women\'s healthcare need to send personalized outreach messages to patients across multiple channels. Messages must account for clinical context, risk factors, care team information, and lifecycle stage. Manual message crafting is time-intensive and inconsistent.',
+      ),
+      paragraph(
+        'I wanted to build an application that leverages LLMs to generate channel-appropriate messages with multiple variants, engagement scoring, and clinical reasoning — while supporting multiple AI providers and backend implementations.',
+      ),
+    ]),
+    whatIBuilt: richText([
+      paragraph(
+        'A full-stack application with two independent backend implementations — a Next.js API route (TypeScript) and a FastAPI service (Python) — both providing the same streaming endpoint:',
+      ),
+      bulletList([
+        'Patient-aware generation with 4 realistic profiles including clinical context, risk factors, and interaction history',
+        'Multi-channel output (SMS, email, in-app) with A/B/C variant generation and channel-appropriate formatting',
+        'Engagement scoring with predicted likelihood (high/medium/low) and clinical reasoning for each variant',
+        'Live LLM streaming via Server-Sent Events from both Next.js ReadableStream and FastAPI sse-starlette',
+        'Dual backend architecture — Next.js TypeScript API route and FastAPI Python service with identical behavior',
+        'Docker Compose containerization running both services together',
+        'Demo mode with smart fallback (exact match → goal-match → tone-match → generic) — fully functional without API keys',
+        'Rate limiting, access code gating, input validation, and response validation at the API boundary',
+        'Responsive design with desktop sidebar layout and mobile bottom sheet drawer',
+        '135 Next.js tests (Vitest) + 56 Python tests (pytest) with CI via GitHub Actions',
+      ]),
+    ]),
+    techStack: [
+      'Next.js 16',
+      'React 19',
+      'TypeScript',
+      'FastAPI',
+      'Python',
+      'Tailwind CSS v4',
+      'shadcn/ui',
+      'Claude API',
+      'Gemini API',
+      'Docker',
+      'Vitest',
+      'Vercel',
+    ],
+    liveUrl: 'https://outreachai.ryancalacsan.dev',
+    githubUrl: 'https://github.com/ryancalacsan/outreachai',
+    npmUrl: undefined,
+    image: undefined,
+  },
+  {
     title: 'QuoteCraft',
     slug: 'quotecraft',
     type: 'fullstack' as const,
