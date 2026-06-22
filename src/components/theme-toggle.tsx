@@ -8,6 +8,9 @@ export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
+  // Intentional mount guard: defer theme-dependent UI until after hydration to
+  // avoid a server/client mismatch (resolvedTheme is unknown during SSR).
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setMounted(true), [])
 
   if (!mounted) {
