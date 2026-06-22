@@ -14,13 +14,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const projectUrls: MetadataRoute.Sitemap = projects
     .filter((project) => Boolean(project.slug))
     .map((project) => ({
-      url: `https://ryancalacsan.dev/projects/${project.slug}`,
+      url: `https://www.ryancalacsan.dev/projects/${project.slug}`,
       lastModified: project.updatedAt,
     }))
 
   return [
     {
-      url: 'https://ryancalacsan.dev',
+      url: 'https://www.ryancalacsan.dev',
       lastModified: new Date(),
     },
     ...projectUrls,

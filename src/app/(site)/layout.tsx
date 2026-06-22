@@ -33,21 +33,30 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://ryancalacsan.dev'),
+  metadataBase: new URL('https://www.ryancalacsan.dev'),
   title: {
     default: 'Ryan Calacsan',
     template: '%s | Ryan Calacsan',
   },
   description:
     'Full-Stack Engineer based in Chicago. Building enterprise platforms with Next.js, TypeScript, and PostgreSQL.',
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: 'Ryan Calacsan',
     description:
       'Full-Stack Engineer based in Chicago. Building enterprise platforms with Next.js, TypeScript, and PostgreSQL.',
-    url: 'https://ryancalacsan.dev',
+    url: 'https://www.ryancalacsan.dev',
     siteName: 'Ryan Calacsan',
     locale: 'en_US',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Ryan Calacsan',
+    description:
+      'Full-Stack Engineer based in Chicago. Building enterprise platforms with Next.js, TypeScript, and PostgreSQL.',
   },
   robots: {
     index: true,
