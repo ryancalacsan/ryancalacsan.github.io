@@ -1,0 +1,30 @@
+@use '../mixins' as *;
+
+.projects {
+  padding-block: var(--spacing-section);
+
+  &__heading {
+    font-family: var(--font-display);
+    font-size: var(--text-h2);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+  }
+
+  &__grid {
+    margin-top: 2.5rem;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  &__empty {
+    color: var(--color-text-secondary);
+  }
+
+  &__empty-link {
+    color: var(--color-accent);
+
+    &:hover {
+      color: var(--color-accent-hover);
+    }
+  }
+}

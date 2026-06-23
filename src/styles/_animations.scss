@@ -1,0 +1,110 @@
+// ---------------------------------------------------------------------------
+// Motion system — hero intro, scroll reveals, staggered lists, reduced motion
+//
+// These are intentionally global state/utility classes (.reveal-section,
+// .fadeUp, .revealed, .hero-fade-up, …) rather than BEM blocks: they are a
+// cross-cutting motion layer applied by RevealSection/RevealStagger/Hero and
+// coupled to the `animation` prop values in those components.
+// ---------------------------------------------------------------------------
+
+$ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+$stagger-count: 10; // headroom beyond current list lengths
+$stagger-step: 0.06s;
+
+// Hero animations
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-name-reveal {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.hero-fade-up {
+  opacity: 0;
+  animation: hero-fade-up 0.8s $ease-expo forwards;
+}
+
+.hero-name-reveal {
+  transform: translateY(100%);
+  animation: hero-name-reveal 0.8s $ease-expo forwards;
+}
+
+// Reveal animations for scroll sections
+.reveal-section {
+  opacity: 0;
+  transition: opacity 0.5s $ease-expo, transform 0.5s $ease-expo;
+
+  &.fadeUp {
+    transform: translateY(40px);
+  }
+  &.fadeIn {
+    transform: none;
+  }
+  &.slideLeft {
+    transform: translateX(-40px);
+  }
+  &.scaleUp {
+    transform: scale(0.95);
+  }
+  &.revealed {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.reveal-stagger-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s $ease-expo, transform 0.4s $ease-expo;
+}
+
+.reveal-stagger.revealed {
+  .reveal-stagger-item {
+    opacity: 1;
+    transform: none;
+  }
+
+  @for $i from 1 through $stagger-count {
+    .reveal-stagger-item:nth-child(#{$i}) {
+      transition-delay: #{($i - 1) * $stagger-step};
+    }
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .hero-fade-up,
+  .hero-name-reveal {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .reveal-section,
+  .reveal-stagger-item {
+    opacity: 1;
+    transform: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

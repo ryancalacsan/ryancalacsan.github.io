@@ -1,0 +1,5 @@
+@use '../mixins' as *;
+
+.back-to-top {
+  @include icon-button;
+}

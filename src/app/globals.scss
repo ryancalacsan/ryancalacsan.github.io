@@ -1,0 +1,35 @@
+// ===========================================================================
+// Global stylesheet entry — hand-written SCSS design system (no utility framework)
+//
+// Foundation (tokens, reset, base, prose, motion) loads first, then one partial
+// per component. Each partial owns a single BEM block.
+// ===========================================================================
+
+// Foundation
+@use '../styles/tokens';
+@use '../styles/reset';
+@use '../styles/base';
+@use '../styles/prose';
+@use '../styles/animations';
+
+// Components — site chrome
+@use '../styles/components/header';
+@use '../styles/components/header-nav';
+@use '../styles/components/mobile-menu';
+@use '../styles/components/theme-toggle';
+@use '../styles/components/back-to-top';
+@use '../styles/components/footer';
+
+// Components — home sections
+@use '../styles/components/hero';
+@use '../styles/components/experience';
+@use '../styles/components/projects';
+@use '../styles/components/project-card';
+@use '../styles/components/about';
+@use '../styles/components/skills';
+@use '../styles/components/contact';
+
+// Components — project case studies
+@use '../styles/components/case-study';
+@use '../styles/components/project-nav';
+@use '../styles/components/not-found';

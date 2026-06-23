@@ -1,0 +1,84 @@
+@use '../mixins' as *;
+
+.contact {
+  position: relative;
+  padding-block: var(--spacing-section);
+
+  &__glow {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+  }
+
+  &__glow-blob {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    height: 40vh;
+    width: 60vw;
+    transform: translateX(-50%);
+    border-radius: var(--radius-full);
+    background-color: color-mix(in oklab, var(--color-accent) 6%, transparent);
+    filter: blur(120px);
+
+    @include dark {
+      background-color: color-mix(in oklab, var(--color-accent) 3%, transparent);
+    }
+  }
+
+  &__inner {
+    position: relative;
+    text-align: center;
+  }
+
+  &__heading {
+    font-family: var(--font-display);
+    font-size: var(--text-h1);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+  }
+
+  &__lead {
+    margin-inline: auto;
+    margin-top: 1rem;
+    max-width: 28rem;
+    color: var(--color-text-secondary);
+  }
+
+  &__email {
+    @include button-base;
+    @include button-accent;
+    margin-top: 2rem;
+    gap: 0.75rem;
+    padding-inline: 1.5rem;
+    padding-block: 0.75rem;
+    @include font-size(sm);
+  }
+
+  &__socials {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  &__social {
+    @include button-base;
+    gap: 0.5rem;
+    border: 1px solid var(--color-border);
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+    @include font-size(sm);
+    color: var(--color-text);
+
+    &:hover {
+      background-color: var(--color-bg-secondary);
+    }
+  }
+
+  &__icon {
+    height: 1rem;
+    width: 1rem;
+  }
+}

@@ -1,0 +1,81 @@
+// ---------------------------------------------------------------------------
+// Base — document-level styles, focus, selection, layout wrapper, a11y helpers
+// ---------------------------------------------------------------------------
+
+@use 'mixins' as *;
+
+html {
+  overflow-x: hidden;
+  // Keep anchored and focused targets clear of the fixed header (WCAG 2.4.11)
+  scroll-padding-top: 5rem;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--duration-normal) var(--ease-out-expo),
+    color var(--duration-normal) var(--ease-out-expo);
+}
+
+::selection {
+  background-color: oklch(0.6 0.16 250 / 0.2);
+}
+
+.dark ::selection {
+  background-color: oklch(0.7 0.16 250 / 0.3);
+}
+
+// Focus styles
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+// The skip-link target is focusable but should not draw a focus ring
+main:focus {
+  outline: none;
+}
+
+// Centered content column
+.wrapper {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2rem);
+}
+
+// Visually hidden, but available to assistive tech
+.sr-only {
+  @include visually-hidden;
+}
+
+// Skip-to-content link: hidden until focused
+.skip-link {
+  @include visually-hidden;
+
+  &:focus {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 100;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    background-color: var(--color-accent);
+    color: var(--color-on-accent);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,57 @@
+@use '../mixins' as *;
+
+.project-nav {
+  margin-top: 4rem;
+  border-top: 1px solid var(--color-border);
+  padding-top: 2rem;
+
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    @include font-size(sm);
+    transition: color var(--duration-normal) var(--ease);
+
+    &:hover {
+      color: var(--color-text);
+    }
+  }
+
+  &__arrow {
+    width: 1rem;
+    height: 1rem;
+    transition: transform var(--duration-normal) var(--ease);
+  }
+
+  &__link--prev:hover &__arrow--prev {
+    transform: translateX(-0.25rem);
+  }
+
+  &__link--next:hover &__arrow--next {
+    transform: translateX(0.25rem);
+  }
+
+  &__back {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+
+  &__back-link {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    @include font-size(sm);
+    transition: color var(--duration-normal) var(--ease);
+
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
+}
