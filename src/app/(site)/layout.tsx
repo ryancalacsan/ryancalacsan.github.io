@@ -5,7 +5,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { LenisProvider } from '@/components/lenis-provider'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
-import '../globals.css'
+import '../globals.scss'
 
 const geistSans = Geist({
   subsets: ['latin'],
@@ -71,7 +71,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       className={`${geistSans.variable} ${geistMono.variable} ${clashGrotesk.variable}`}
       suppressHydrationWarning
     >
-      <body className="font-sans antialiased">
+      <body>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -79,8 +79,13 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
           disableTransitionOnChange
         >
           <LenisProvider>
+            <a href="#main-content" className="skip-link">
+              Skip to content
+            </a>
             <Header />
-            <main>{children}</main>
+            <main id="main-content" tabIndex={-1}>
+              {children}
+            </main>
             <Footer />
           </LenisProvider>
         </ThemeProvider>

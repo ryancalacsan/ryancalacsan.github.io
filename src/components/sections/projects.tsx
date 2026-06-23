@@ -15,23 +15,23 @@ export async function Projects() {
   return (
     <RevealSection
       animation="fadeUp"
-      className="py-[length:var(--spacing-section)]"
+      className="projects"
       id="projects"
     >
       <div className="wrapper">
-        <h2 className="font-display text-[length:var(--text-h2)] font-medium tracking-tight">
+        <h2 className="projects__heading">
           Featured Projects
         </h2>
 
-        <div className="mt-10 grid gap-6">
+        <div className="projects__grid">
           {projects.length > 0 ? (
             projects.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))
           ) : (
-            <p className="text-text-secondary">
+            <p className="projects__empty">
               Projects coming soon. Add them via the{' '}
-              <Link href="/admin" className="text-accent hover:text-accent-hover">
+              <Link href="/admin" className="projects__empty-link">
                 admin panel
               </Link>
               .

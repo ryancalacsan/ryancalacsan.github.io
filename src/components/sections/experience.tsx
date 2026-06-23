@@ -16,55 +16,55 @@ const techStack = [
 ]
 
 const achievements = [
-  '230,000+ line full-stack platform using Next.js, React, TypeScript, and PostgreSQL',
+  '200,000+ line full-stack platform using Next.js, React, TypeScript, and PostgreSQL',
   'Real-time pricing engine handling 500+ variables across 4 product lines with LRU caching',
   'Stripe payment integration with webhook processing',
   'Salesforce CRM sync with 80+ custom field mappings across 10 modules',
   'Multi-carrier shipping integration (ShipStation, UPS, TForce Freight)',
-  'Self-hosted Docker infrastructure with blue-green deployment and automated backups',
+  'Self-hosted Docker infrastructure with zero-downtime releases with scripted rollback and automated backups',
 ]
 
 export function Experience() {
   return (
     <RevealSection
       animation="slideLeft"
-      className="relative py-[length:var(--spacing-section)]"
+      className="experience"
       id="experience"
     >
       {/* Ambient gradient */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -left-1/4 top-1/4 h-[60vh] w-[50vw] rounded-full bg-accent/[0.06] blur-[100px] dark:bg-accent/[0.02]" />
+      <div className="experience__glow">
+        <div className="experience__glow-blob" />
       </div>
 
-      <div className="wrapper relative">
-        <h2 className="font-display text-[length:var(--text-h2)] font-medium tracking-tight">
+      <div className="wrapper experience__inner">
+        <h2 className="experience__heading">
           Professional Experience
         </h2>
 
-        <div className="mt-10 rounded-xl border border-border bg-surface p-6 sm:p-8">
-          <div className="flex flex-wrap items-start justify-between gap-4">
+        <div className="experience__card">
+          <div className="experience__card-header">
             <div>
-              <h3 className="font-display text-[length:var(--text-h3)] font-semibold">
+              <h3 className="experience__role">
                 PrintNinja
               </h3>
-              <p className="text-text-secondary">Principal Engineer</p>
+              <p className="experience__subtitle">Principal Engineer</p>
             </div>
-            <span className="rounded-md bg-bg-secondary px-3 py-1 text-sm font-medium text-text-secondary">
+            <span className="experience__year">
               2025
             </span>
           </div>
 
-          <p className="mt-6 text-text-secondary">
+          <p className="experience__intro">
             Built the company&apos;s entire modern technology stack from scratch as the
             sole engineer. PrintNinja is a custom printing company serving
             self-publishers and game makers.
           </p>
 
-          <div className="mt-8">
-            <h4 className="text-sm font-medium uppercase tracking-wider text-text-secondary">
+          <div className="experience__group">
+            <h4 className="experience__group-title">
               The Challenge
             </h4>
-            <p className="mt-2 text-text-secondary">
+            <p className="experience__group-text">
               Inherited an environment with no version control, fragmented
               contractor code, and significant technical debt. Needed to build a
               Configure-Price-Quote (CPQ) platform to replace manual quoting
@@ -73,15 +73,15 @@ export function Experience() {
             </p>
           </div>
 
-          <div className="mt-8">
-            <h4 className="text-sm font-medium uppercase tracking-wider text-text-secondary">
+          <div className="experience__group">
+            <h4 className="experience__group-title">
               What I Built
             </h4>
-            <RevealStagger className="mt-3 space-y-2">
+            <RevealStagger className="experience__achievements">
               {achievements.map((achievement, index) => (
                 <RevealStaggerItem key={index}>
-                  <div className="flex gap-3 text-text-secondary">
-                    <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                  <div className="experience__achievement">
+                    <span className="experience__dot" />
                     <span>{achievement}</span>
                   </div>
                 </RevealStaggerItem>
@@ -89,15 +89,15 @@ export function Experience() {
             </RevealStagger>
           </div>
 
-          <div className="mt-8">
-            <h4 className="text-sm font-medium uppercase tracking-wider text-text-secondary">
+          <div className="experience__group">
+            <h4 className="experience__group-title">
               Tech Stack
             </h4>
-            <div className="mt-3 flex flex-wrap gap-2">
+            <div className="experience__tags">
               {techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="rounded-md bg-bg-secondary px-3 py-1 text-sm text-text-secondary"
+                  className="experience__tag"
                 >
                   {tech}
                 </span>

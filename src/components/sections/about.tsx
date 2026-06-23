@@ -5,16 +5,16 @@ export function About() {
   return (
     <RevealSection
       animation="fadeUp"
-      className="py-[length:var(--spacing-section)]"
+      className="about"
       id="about"
     >
       <div className="wrapper">
-        <h2 className="font-display text-[length:var(--text-h2)] font-medium tracking-tight">
+        <h2 className="about__heading">
           About Me
         </h2>
 
-        <div className="mt-10 grid items-start gap-10 lg:grid-cols-[1fr_280px] lg:gap-16">
-          <div className="space-y-4 text-text-secondary">
+        <div className="about__grid">
+          <div className="about__text">
             <p>
               I&apos;m a full-stack engineer based in Chicago who builds web
               applications with a focus on clean architecture and delivering real
@@ -22,19 +22,19 @@ export function About() {
             </p>
 
             {/* Photo inline on mobile only */}
-            <div className="relative mx-auto aspect-[3/4] w-full max-w-xs overflow-hidden rounded-xl lg:hidden">
+            <div className="about__photo about__photo--mobile">
               <Image
                 src="/profile.jpg"
                 alt="Ryan Calacsan"
                 fill
-                className="object-cover object-[center_70%]"
+                className="about__image"
                 sizes="320px"
               />
             </div>
 
             <p>
               Most recently, I served as Principal Engineer at PrintNinja, where I
-              built a 230,000+ line Configure-Price-Quote platform from scratch as
+              built a 200,000+ line Configure-Price-Quote platform from scratch as
               the sole engineer. I joined as their first in-house engineer,
               inheriting an environment with no version control and significant
               technical debt from previous contractors. I introduced modern
@@ -47,18 +47,22 @@ export function About() {
               photography and studio management — experience that gave me strong
               project ownership skills and an eye for user experience.
             </p>
-            <p className="font-medium text-text">
+            <p>
+              This site is hand-built. The styles are hand-written SCSS with
+              BEM naming, not a utility framework.
+            </p>
+            <p className="about__cta">
               Currently open to full-stack or frontend roles, preferably remote.
             </p>
           </div>
 
           {/* Photo on desktop only */}
-          <div className="relative hidden aspect-[3/4] overflow-hidden rounded-xl lg:block">
+          <div className="about__photo about__photo--desktop">
             <Image
               src="/profile.jpg"
               alt="Ryan Calacsan"
               fill
-              className="object-cover object-[center_70%]"
+              className="about__image"
               sizes="280px"
             />
           </div>

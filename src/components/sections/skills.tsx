@@ -4,7 +4,7 @@ import { RevealStagger, RevealStaggerItem } from '../reveal-stagger'
 const skillCategories = [
   {
     name: 'Frontend',
-    skills: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'CSS Animations', 'HTML5', 'CSS3'],
+    skills: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'SCSS', 'BEM', 'CSS Animations', 'HTML5', 'CSS3', 'Accessibility (WCAG 2.2 AA)'],
   },
   {
     name: 'Backend',
@@ -24,30 +24,30 @@ export function Skills() {
   return (
     <RevealSection
       animation="fadeUp"
-      className="relative py-[length:var(--spacing-section)]"
+      className="skills"
       id="skills"
     >
       {/* Ambient gradient */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -right-1/4 bottom-0 h-[50vh] w-[50vw] rounded-full bg-accent/[0.06] blur-[100px] dark:bg-accent/[0.02]" />
+      <div className="skills__glow">
+        <div className="skills__glow-blob" />
       </div>
-      <div className="wrapper relative">
-        <h2 className="font-display text-[length:var(--text-h2)] font-medium tracking-tight">
+      <div className="wrapper skills__inner">
+        <h2 className="skills__heading">
           Technical Skills
         </h2>
 
-        <RevealStagger className="mt-10 grid gap-4 sm:grid-cols-2">
+        <RevealStagger className="skills__grid">
           {skillCategories.map((category) => (
             <RevealStaggerItem key={category.name}>
-              <div className="h-full rounded-xl border border-border bg-surface p-6">
-                <h3 className="font-display text-sm font-medium uppercase tracking-wider text-accent">
+              <div className="skills__card">
+                <h3 className="skills__category">
                   {category.name}
                 </h3>
-                <div className="mt-4 flex flex-wrap gap-2">
+                <div className="skills__pills">
                   {category.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="rounded-md bg-bg-secondary px-3 py-1.5 text-sm text-text-secondary"
+                      className="skills__pill"
                     >
                       {skill}
                     </span>

@@ -25,50 +25,50 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
       : null
 
   return (
-    <article className="pt-24 pb-16">
+    <article className="case-study">
       <div className="wrapper">
         {/* Hero */}
-        <RevealSection animation="fadeUp" className="max-w-3xl">
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="rounded-md bg-accent/10 px-3 py-1 text-sm font-medium text-accent">
+        <RevealSection animation="fadeUp" className="case-study__hero">
+          <div className="case-study__meta">
+            <span className="case-study__type">
               {typeLabels[project.type] || project.type}
             </span>
             {project.role && (
-              <span className="text-sm text-text-secondary">{project.role}</span>
+              <span className="case-study__meta-text">{project.role}</span>
             )}
-            <span className="text-sm text-text-secondary">{project.year}</span>
+            <span className="case-study__meta-text">{project.year}</span>
           </div>
 
-          <h1 className="mt-4 font-display text-[length:var(--text-h1)] font-semibold tracking-tight">
+          <h1 className="case-study__title">
             {project.title}
           </h1>
 
           {project.badge && (
-            <p className="mt-2 text-sm font-medium text-accent">{project.badge}</p>
+            <p className="case-study__badge">{project.badge}</p>
           )}
         </RevealSection>
 
         {/* Outcome */}
         {project.outcome && (
-          <RevealSection animation="fadeUp" className="mt-8 max-w-3xl" delay={0.1}>
-            <div className="rounded-xl border border-accent/20 border-l-4 border-l-accent bg-accent/5 p-6">
-              <h2 className="text-sm font-semibold uppercase tracking-wider text-accent">
+          <RevealSection animation="fadeUp" className="case-study__outcome" delay={0.1}>
+            <div className="case-study__outcome-box">
+              <h2 className="case-study__outcome-label">
                 Key Outcome
               </h2>
-              <p className="mt-2 text-lg text-text">{project.outcome}</p>
+              <p className="case-study__outcome-text">{project.outcome}</p>
             </div>
           </RevealSection>
         )}
 
         {/* Featured Image */}
         {featuredImage && featuredImage.url && (
-          <RevealSection animation="fadeUp" className="mt-10" delay={0.15}>
-            <div className="relative aspect-video overflow-hidden rounded-xl bg-bg-secondary">
+          <RevealSection animation="fadeUp" className="case-study__featured" delay={0.15}>
+            <div className="case-study__featured-frame">
               <Image
                 src={featuredImage.url}
                 alt={featuredImage.alt || project.title}
                 fill
-                className={featuredImage.mimeType === 'image/svg+xml' ? 'object-contain' : `object-cover ${featuredImage.filename?.includes('minimal-motion') ? 'object-center' : 'object-top'}`}
+                className={featuredImage.mimeType === 'image/svg+xml' ? 'case-study__featured-img case-study__featured-img--contain' : `case-study__featured-img case-study__featured-img--cover ${featuredImage.filename?.includes('minimal-motion') ? 'case-study__featured-img--center' : 'case-study__featured-img--top'}`}
                 sizes="(max-width: 1152px) 100vw, 1152px"
                 priority
                 {...(featuredImage.mimeType === 'image/svg+xml' && { unoptimized: true })}
@@ -78,16 +78,16 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
         )}
 
         {/* Content */}
-        <div className="mt-12 max-w-3xl">
+        <div className="case-study__content">
           {/* Challenge */}
           {project.challenge && (
-            <RevealSection animation="fadeUp" className="mt-14">
-              <h2 className="font-display text-[length:var(--text-h3)] font-semibold tracking-tight">
+            <RevealSection animation="fadeUp" className="case-study__section">
+              <h2 className="case-study__section-heading">
                 The Challenge
               </h2>
               <RichText
                 data={project.challenge as unknown as Record<string, unknown>}
-                className="mt-4 prose-custom"
+                className="case-study__prose prose-custom"
               />
             </RevealSection>
           )}
@@ -95,14 +95,14 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
           {/* What I Built */}
           {project.whatIBuilt && (
             <>
-              <hr className="mt-14 border-border" />
-              <RevealSection animation="fadeUp" className="mt-14">
-                <h2 className="font-display text-[length:var(--text-h3)] font-semibold tracking-tight">
+              <hr className="case-study__divider" />
+              <RevealSection animation="fadeUp" className="case-study__section">
+                <h2 className="case-study__section-heading">
                   What I Built
                 </h2>
                 <RichText
                   data={project.whatIBuilt as unknown as Record<string, unknown>}
-                  className="mt-4 prose-custom"
+                  className="case-study__prose prose-custom"
                 />
               </RevealSection>
             </>
@@ -111,17 +111,14 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
           {/* Tech Stack */}
           {project.techStack && project.techStack.length > 0 && (
             <>
-              <hr className="mt-14 border-border" />
-              <RevealSection animation="fadeUp" className="mt-14">
-                <h2 className="font-display text-[length:var(--text-h3)] font-semibold tracking-tight">
+              <hr className="case-study__divider" />
+              <RevealSection animation="fadeUp" className="case-study__section">
+                <h2 className="case-study__section-heading">
                   Tech Stack
                 </h2>
-                <div className="mt-4 flex flex-wrap gap-2">
+                <div className="case-study__tags">
                   {project.techStack.map((item) => (
-                    <span
-                      key={item.id}
-                      className="rounded-md bg-bg-secondary px-3 py-1.5 text-sm text-text-secondary"
-                    >
+                    <span key={item.id} className="case-study__tag">
                       {item.technology}
                     </span>
                   ))}
@@ -133,20 +130,20 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
           {/* Links */}
           {(project.liveUrl || project.githubUrl || project.npmUrl) && (
             <>
-              <hr className="mt-14 border-border" />
-              <RevealSection animation="fadeUp" className="mt-14">
-                <h2 className="font-display text-[length:var(--text-h3)] font-semibold tracking-tight">
+              <hr className="case-study__divider" />
+              <RevealSection animation="fadeUp" className="case-study__section">
+                <h2 className="case-study__section-heading">
                   Links
                 </h2>
-                <div className="mt-4 flex flex-wrap gap-3">
+                <div className="case-study__links">
                   {project.liveUrl && (
                     <a
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-medium text-text no-underline transition-colors duration-normal hover:bg-bg-secondary"
+                      className="case-study__link"
                     >
-                      <ExternalLink className="h-4 w-4" />
+                      <ExternalLink className="case-study__link-icon" />
                       Live Demo
                     </a>
                   )}
@@ -155,9 +152,9 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-medium text-text no-underline transition-colors duration-normal hover:bg-bg-secondary"
+                      className="case-study__link"
                     >
-                      <Github className="h-4 w-4" />
+                      <Github className="case-study__link-icon" />
                       Source Code
                     </a>
                   )}
@@ -166,9 +163,9 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
                       href={project.npmUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-medium text-text no-underline transition-colors duration-normal hover:bg-bg-secondary"
+                      className="case-study__link"
                     >
-                      <Package className="h-4 w-4" />
+                      <Package className="case-study__link-icon" />
                       npm Package
                     </a>
                   )}
@@ -180,8 +177,8 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
 
         {/* Gallery */}
         {project.galleryImages && project.galleryImages.length > 0 && (
-          <RevealSection animation="fadeUp" className="mt-12">
-            <div className="grid gap-6 sm:grid-cols-2">
+          <RevealSection animation="fadeUp" className="case-study__gallery-reveal">
+            <div className="case-study__gallery">
               {project.galleryImages.map((item) => {
                 const img =
                   typeof item.image === 'object' && item.image !== null
@@ -189,18 +186,18 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
                     : null
                 if (!img || !img.url) return null
                 return (
-                  <figure key={item.id} className="overflow-hidden rounded-xl">
-                    <div className="relative aspect-video bg-bg-secondary">
+                  <figure key={item.id} className="case-study__figure">
+                    <div className="case-study__figure-frame">
                       <Image
                         src={img.url}
                         alt={img.alt || ''}
                         fill
-                        className="object-cover"
+                        className="case-study__figure-img"
                         sizes="(max-width: 640px) 100vw, 50vw"
                       />
                     </div>
                     {item.caption && (
-                      <figcaption className="mt-2 text-center text-sm text-text-secondary">
+                      <figcaption className="case-study__figcaption">
                         {item.caption}
                       </figcaption>
                     )}
@@ -212,7 +209,7 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
         )}
 
         {/* Navigation */}
-        <div className="max-w-3xl">
+        <div className="case-study__nav">
           <ProjectNav previous={previous} next={next} />
         </div>
       </div>

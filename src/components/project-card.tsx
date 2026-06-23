@@ -16,54 +16,54 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const hasLinks = project.liveUrl || project.githubUrl || project.npmUrl
 
   return (
-    <div className="group relative rounded-xl border border-border bg-surface p-6 transition-all duration-normal hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_8px_30px_-12px] hover:shadow-accent/10 sm:p-8">
+    <div className="project-card">
       {/* Hover arrow indicator */}
-      <div className="absolute right-6 top-6 flex h-8 w-8 items-center justify-center rounded-full bg-bg-secondary text-text-secondary opacity-0 transition-all duration-normal group-hover:opacity-100 group-hover:text-accent sm:right-8 sm:top-8">
-        <ArrowUpRight className="h-4 w-4" />
+      <div className="project-card__arrow">
+        <ArrowUpRight className="project-card__arrow-icon" />
       </div>
 
-      <div className="flex flex-col gap-6 lg:flex-row lg:gap-8">
+      <div className="project-card__body">
         {image && image.url && (
-          <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-bg-secondary lg:w-1/2">
+          <div className="project-card__media">
             <Image
               src={image.url}
               alt={image.alt || project.title}
               fill
-              className={`${image.mimeType === 'image/svg+xml' ? 'object-contain' : image.filename?.includes('minimal-motion') ? 'object-cover object-center' : 'object-cover object-top'} transition-transform duration-slow group-hover:scale-[1.03]`}
+              className={`${image.mimeType === 'image/svg+xml' ? 'project-card__image--contain' : image.filename?.includes('minimal-motion') ? 'project-card__image--cover-center' : 'project-card__image--cover-top'} project-card__image`}
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 50vw"
               {...(image.mimeType === 'image/svg+xml' && { unoptimized: true })}
             />
             {/* Subtle gradient overlay on hover */}
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 transition-opacity duration-normal group-hover:opacity-100" />
+            <div className="project-card__overlay" />
           </div>
         )}
 
-        <div className="flex flex-1 flex-col justify-center">
-          <div className="flex flex-wrap items-center gap-3">
-            <h3 className="font-display text-[length:var(--text-h3)] font-semibold text-text">
+        <div className="project-card__content">
+          <div className="project-card__header">
+            <h3 className="project-card__title">
               {/* Stretched link — makes entire card clickable */}
               <Link
                 href={`/projects/${project.slug}`}
-                className="no-underline text-inherit after:absolute after:inset-0"
+                className="project-card__link"
               >
                 {project.title}
               </Link>
             </h3>
             {project.badge && (
-              <span className="rounded-md bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
+              <span className="project-card__badge">
                 {project.badge}
               </span>
             )}
           </div>
 
-          <p className="mt-3 text-text-secondary">{project.description}</p>
+          <p className="project-card__description">{project.description}</p>
 
           {project.techStack && project.techStack.length > 0 && (
-            <div className="mt-4 flex flex-wrap gap-2">
+            <div className="project-card__tags">
               {project.techStack.map((item) => (
                 <span
                   key={item.id}
-                  className="rounded-md bg-bg-secondary px-2.5 py-1 text-xs text-text-secondary transition-colors duration-normal group-hover:bg-accent/5 group-hover:text-text-secondary"
+                  className="project-card__tag"
                 >
                   {item.technology}
                 </span>
@@ -73,15 +73,15 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
           {/* Action links — sit above the stretched link */}
           {hasLinks && (
-            <div className="relative z-10 mt-5 flex flex-wrap items-center gap-3">
+            <div className="project-card__actions">
               {project.liveUrl && (
                 <a
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-md bg-accent/10 px-3 py-1.5 text-xs font-medium text-accent no-underline transition-colors duration-normal hover:bg-accent/20"
+                  className="project-card__action project-card__action--accent"
                 >
-                  <ExternalLink className="h-3 w-3" />
+                  <ExternalLink className="project-card__action-icon" />
                   Live Demo
                 </a>
               )}
@@ -90,9 +90,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-md bg-bg-secondary px-3 py-1.5 text-xs font-medium text-text-secondary no-underline transition-colors duration-normal hover:text-text hover:bg-border"
+                  className="project-card__action"
                 >
-                  <Github className="h-3 w-3" />
+                  <Github className="project-card__action-icon" />
                   GitHub
                 </a>
               )}
@@ -101,9 +101,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
                   href={project.npmUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-md bg-bg-secondary px-3 py-1.5 text-xs font-medium text-text-secondary no-underline transition-colors duration-normal hover:text-text hover:bg-border"
+                  className="project-card__action"
                 >
-                  <Package className="h-3 w-3" />
+                  <Package className="project-card__action-icon" />
                   npm
                 </a>
               )}

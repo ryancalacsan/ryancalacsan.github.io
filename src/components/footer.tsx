@@ -21,32 +21,32 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border py-12">
-      <div className="wrapper flex flex-col items-center gap-6 sm:flex-row sm:justify-between">
-        <div className="flex items-center gap-4">
+    <footer className="footer">
+      <div className="wrapper footer__inner">
+        <div className="footer__social">
           {socialLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
               target={link.href.startsWith('mailto') ? undefined : '_blank'}
               rel={link.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-md text-text-secondary no-underline transition-colors duration-normal hover:text-text hover:bg-bg-secondary"
+              className="footer__social-link"
               aria-label={link.label}
             >
-              <link.icon className="h-[1.125rem] w-[1.125rem]" />
+              <link.icon className="footer__social-icon" />
             </a>
           ))}
         </div>
 
-        <div className="text-center text-sm text-text-secondary">
+        <div className="footer__meta">
           <p>&copy; {new Date().getFullYear()} Ryan Calacsan</p>
-          <p className="mt-1 text-xs text-text-secondary">
+          <p className="footer__credit">
             Built with Next.js &amp; Payload CMS
           </p>
         </div>
 
         <BackToTop>
-          <ArrowUp className="h-4 w-4" />
+          <ArrowUp className="footer__top-icon" />
         </BackToTop>
       </div>
     </footer>

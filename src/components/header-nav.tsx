@@ -18,10 +18,8 @@ export function HeaderNav({ children }: { children: React.ReactNode }) {
 
   return (
     <div
-      className={`transition-all duration-normal ${
-        scrolled
-          ? 'bg-bg/80 backdrop-blur-lg border-b border-border'
-          : 'bg-transparent'
+      className={`header-nav ${
+        scrolled ? 'header-nav--scrolled' : 'header-nav--transparent'
       }`}
     >
       {children}
