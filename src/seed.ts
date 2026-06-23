@@ -53,7 +53,38 @@ function bulletList(items: string[]) {
   }
 }
 
-function richText(children: ReturnType<typeof paragraph | typeof bulletList>[]) {
+function link(text: string, url: string) {
+  return {
+    type: 'link',
+    fields: { linkType: 'custom' as const, newTab: true, url },
+    children: [textNode(text)],
+    direction: 'ltr' as const,
+    format: '' as const,
+    indent: 0,
+    version: 3,
+  }
+}
+
+function paragraphNodes(children: object[]) {
+  return {
+    type: 'paragraph',
+    children,
+    direction: 'ltr' as const,
+    format: '' as const,
+    indent: 0,
+    version: 1,
+    textFormat: 0,
+    textStyle: '',
+  }
+}
+
+function richText(
+  children: Array<
+    | ReturnType<typeof paragraph>
+    | ReturnType<typeof bulletList>
+    | ReturnType<typeof paragraphNodes>
+  >,
+) {
   return {
     root: {
       type: 'root',
@@ -153,6 +184,65 @@ const projectsData = [
     image: { filename: 'printninja-architecture.svg', alt: 'PrintNinja system architecture diagram' },
   },
   {
+    title: 'Bespoke CSS',
+    slug: 'bespoke-css',
+    type: 'frontend' as const,
+    badge: 'Live Demo',
+    role: 'Designer & Developer',
+    year: 2026,
+    featured: true,
+    order: 2,
+    description:
+      'A small, accessible React component library built on hand-written SCSS and a single source of design tokens. Eight components, two themes, accessibility as a first principle, and a full test and CI pipeline.',
+    outcome:
+      'A component library and design system deployed on Vercel: eight accessible components, two themes built from one token layer, and WCAG 2.2 AA verified by an automated contrast check and by axe running on every Storybook story.',
+    challenge: richText([
+      paragraph(
+        'I wanted to show design-system craft without a utility framework. The aim was a small component library styled in hand-written SCSS with BEM, where one token layer is the single source of truth for color, type, spacing, radii, motion, and breakpoints.',
+      ),
+      paragraph(
+        'Accessibility had to be real rather than claimed, both themes had to come from the tokens alone, and the whole library had to be tested and gated in CI so the quality bar held on every change.',
+      ),
+    ]),
+    whatIBuilt: richText([
+      paragraph(
+        'A React and TypeScript library built with Vite and styled entirely in hand-written SCSS:',
+      ),
+      bulletList([
+        'Eight accessible components: Button, TextField, Modal, Checkbox, RadioGroup, Select (a custom ARIA listbox with type-ahead), Tabs (roving tabindex with a sliding indicator), and Tooltip. Each is keyboard-operable with correct ARIA and managed focus.',
+        'Two themes from one set of token roles. A light theme (Daylight) and a dark theme (Noir) switch by repointing semantic tokens with no component changes, and the system follows the OS color-scheme preference.',
+        'WCAG 2.2 AA verified, not assumed. A script checks every color pairing in both themes, and Storybook runs axe on every story.',
+        'An editorial visual identity: Fraunces for display, Hanken Grotesk for the UI, and Geist Mono for labels, with one iridescent accent.',
+        'Interaction tests drive the keyboard flows, visual regression snapshots cover both themes, and GitHub Actions runs the full suite on every push and pull request.',
+      ]),
+      paragraphNodes([
+        textNode(
+          'It deploys on Vercel from one GitHub-connected project, with the demo at the root and the component docs published as a ',
+        ),
+        link('Storybook site', 'https://bespoke-css.vercel.app/storybook/'),
+        textNode('.'),
+      ]),
+    ]),
+    techStack: [
+      'React',
+      'TypeScript',
+      'Vite',
+      'SCSS',
+      'BEM',
+      'Design Tokens',
+      'Storybook',
+      'Accessibility (WCAG 2.2 AA)',
+      'Vitest',
+      'Playwright',
+      'GitHub Actions',
+      'Vercel',
+    ],
+    liveUrl: 'https://bespoke-css.vercel.app',
+    githubUrl: 'https://github.com/ryancalacsan/bespoke-css',
+    npmUrl: undefined,
+    image: { filename: 'bespoke-css.png', alt: 'Bespoke CSS demo landing page in its dark Noir theme' },
+  },
+  {
     title: 'OutreachAI',
     slug: 'outreachai',
     type: 'fullstack' as const,
@@ -160,7 +250,7 @@ const projectsData = [
     role: 'Solo Developer',
     year: 2026,
     featured: true,
-    order: 2,
+    order: 3,
     description:
       'AI-powered patient outreach message generator for maternal and women\'s healthcare. Care coordinators select a patient, configure outreach parameters, and generate personalized messages across SMS, email, and in-app channels — with multiple variants, engagement predictions, and clinical reasoning.',
     outcome:
@@ -217,7 +307,7 @@ const projectsData = [
     role: 'Solo Developer',
     year: 2025,
     featured: true,
-    order: 2,
+    order: 4,
     description:
       'Quote builder for freelancers and contractors. Create quotes with real-time pricing, share via unique links, accept Stripe payments, and track revenue from a dashboard with analytics.',
     outcome:
@@ -265,7 +355,7 @@ const projectsData = [
     role: 'Solo Developer',
     year: 2026,
     featured: true,
-    order: 3,
+    order: 5,
     description:
       'An immersive, scroll-driven photo essay documenting a 9-mile kayak journey down the Chicago River. Originally published in Mountain Gazette (2024), reimagined as an interactive web experience.',
     outcome:
@@ -313,7 +403,7 @@ const projectsData = [
     role: 'Solo Developer',
     year: 2025,
     featured: true,
-    order: 4,
+    order: 6,
     description:
       'A typography-focused single-page experience with sophisticated micro-interactions. Demonstrates restraint, taste, and CSS mastery through variable font animations, magnetic hover effects, and smooth scroll-triggered reveals.',
     outcome:
@@ -360,7 +450,7 @@ const projectsData = [
     role: 'Solo Developer',
     year: 2025,
     featured: true,
-    order: 5,
+    order: 7,
     description:
       'CLI tool that validates print-ready PDF files for prepress requirements. Runs 8 automated checks including bleed, fonts, color space, resolution, and PDF/X compliance. Published to npm.',
     outcome:
