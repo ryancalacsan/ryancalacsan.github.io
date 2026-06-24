@@ -193,7 +193,7 @@ const projectsData = [
     featured: true,
     order: 2,
     description:
-      'A small, accessible React component library built on hand-written SCSS and a single source of design tokens. Eight components, two themes, accessibility as a first principle, and a full test and CI pipeline.',
+      'A small, accessible component library, presented as a technical spec sheet. Hand-written SCSS with BEM, design tokens as the single source of truth, eight components, two themes, all WCAG 2.2 AA. Tested, CI-gated, and deployed.',
     outcome:
       'A component library and design system deployed on Vercel: eight accessible components, two themes built from one token layer, and WCAG 2.2 AA verified by an automated contrast check and by axe running on every Storybook story.',
     challenge: richText([
@@ -210,9 +210,9 @@ const projectsData = [
       ),
       bulletList([
         'Eight accessible components: Button, TextField, Modal, Checkbox, RadioGroup, Select (a custom ARIA listbox with type-ahead), Tabs (roving tabindex with a sliding indicator), and Tooltip. Each is keyboard-operable with correct ARIA and managed focus.',
-        'Two themes from one set of token roles. A light theme (Daylight) and a dark theme (Noir) switch by repointing semantic tokens with no component changes, and the system follows the OS color-scheme preference.',
+        'Two themes from one set of token roles. A light "paper" theme and a dark "dev-mode" theme switch by repointing semantic tokens with no component changes, and the system follows the OS color-scheme preference.',
         'WCAG 2.2 AA verified, not assumed. A script checks every color pairing in both themes, and Storybook runs axe on every story.',
-        'An editorial visual identity: Fraunces for display, Hanken Grotesk for the UI, and Geist Mono for labels, with one iridescent accent.',
+        'A "Spec Sheet" visual identity: warm paper and ink with one construction-orange accent, drawn like a technical document, with grotesque and monospace type and near-square corners.',
         'Interaction tests drive the keyboard flows, visual regression snapshots cover both themes, and GitHub Actions runs the full suite on every push and pull request.',
       ]),
       paragraphNodes([
@@ -240,7 +240,7 @@ const projectsData = [
     liveUrl: 'https://bespoke-css.vercel.app',
     githubUrl: 'https://github.com/ryancalacsan/bespoke-css',
     npmUrl: undefined,
-    image: { filename: 'bespoke-css.png', alt: 'Bespoke CSS demo landing page in its dark Noir theme' },
+    image: { filename: 'bespoke-css.png', alt: 'Bespoke CSS demo presented as a technical spec sheet on warm paper with a construction-orange accent' },
   },
   {
     title: 'OutreachAI',
