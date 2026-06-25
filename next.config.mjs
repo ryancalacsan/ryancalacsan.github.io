@@ -45,6 +45,15 @@ const nextConfig = {
 
     return webpackConfig
   },
+  async redirects() {
+    return [
+      {
+        source: '/projects/bespoke-css',
+        destination: '/projects/caliper-ui',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 export default withPayload(nextConfig, { devBundleServerPackages: false })

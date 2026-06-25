@@ -18,6 +18,10 @@ function textNode(text: string, bold = false) {
   }
 }
 
+function codeText(text: string) {
+  return { ...textNode(text), format: 16 }
+}
+
 function paragraph(text: string) {
   return {
     type: 'paragraph',
@@ -184,18 +188,18 @@ const projectsData = [
     image: { filename: 'printninja-architecture.svg', alt: 'PrintNinja system architecture diagram' },
   },
   {
-    title: 'Bespoke CSS',
-    slug: 'bespoke-css',
+    title: 'Caliper UI',
+    slug: 'caliper-ui',
     type: 'frontend' as const,
-    badge: 'Live Demo',
+    badge: 'Published on npm',
     role: 'Designer & Developer',
     year: 2026,
     featured: true,
     order: 2,
     description:
-      'A small, accessible component library, presented as a technical spec sheet. Hand-written SCSS with BEM, design tokens as the single source of truth, eight components, two themes, all WCAG 2.2 AA. Tested, CI-gated, and deployed.',
+      'An accessible React component library and design system, published on npm. Hand-written SCSS with BEM, design tokens as the single source of truth, two themes, WCAG 2.2 AA. Built with a "Spec Sheet" technical-drawing identity.',
     outcome:
-      'A component library and design system deployed on Vercel: eight accessible components, two themes built from one token layer, and WCAG 2.2 AA verified by an automated contrast check and by axe running on every Storybook story.',
+      'An accessible React component library and design system, published on npm as @ryancalacsan/caliper-ui: eight components, two themes from one token layer, and WCAG 2.2 AA verified by an automated contrast check and axe on every Storybook story.',
     challenge: richText([
       paragraph(
         'I wanted to show design-system craft without a utility framework. The aim was a small component library styled in hand-written SCSS with BEM, where one token layer is the single source of truth for color, type, spacing, radii, motion, and breakpoints.',
@@ -206,20 +210,22 @@ const projectsData = [
     ]),
     whatIBuilt: richText([
       paragraph(
-        'A React and TypeScript library built with Vite and styled entirely in hand-written SCSS:',
+        'A React and TypeScript library, built with Vite and styled entirely in hand-written SCSS:',
       ),
       bulletList([
-        'Eight accessible components: Button, TextField, Modal, Checkbox, RadioGroup, Select (a custom ARIA listbox with type-ahead), Tabs (roving tabindex with a sliding indicator), and Tooltip. Each is keyboard-operable with correct ARIA and managed focus.',
-        'Two themes from one set of token roles. A light "paper" theme and a dark "dev-mode" theme switch by repointing semantic tokens with no component changes, and the system follows the OS color-scheme preference.',
+        'Published as an installable npm package (@ryancalacsan/caliper-ui), shipped as ESM with type declarations, RSC-ready (server-renderable where possible, with "use client" only where needed), and with self-contained CSS that inlines its fonts.',
+        'Eight accessible components: Button, TextField, Modal, Checkbox, RadioGroup, Select (a custom ARIA listbox), Tabs, and Tooltip. Each is keyboard-operable with correct ARIA and managed focus, and a layout and primitives layer is being added.',
+        'A "Spec Sheet" visual identity: warm paper and ink with one construction-orange accent, drawn like a technical document. Light and dark themes come from one token set, with no component changes between them.',
         'WCAG 2.2 AA verified, not assumed. A script checks every color pairing in both themes, and Storybook runs axe on every story.',
-        'A "Spec Sheet" visual identity: warm paper and ink with one construction-orange accent, drawn like a technical document, with grotesque and monospace type and near-square corners.',
-        'Interaction tests drive the keyboard flows, visual regression snapshots cover both themes, and GitHub Actions runs the full suite on every push and pull request.',
+        'Engineered like a real product: Vitest interaction tests, Playwright visual regression in both themes, GitHub Actions CI, Changesets-driven releases, and npm Trusted Publishing (OIDC with provenance, no stored secrets).',
       ]),
       paragraphNodes([
         textNode(
-          'It deploys on Vercel from one GitHub-connected project, with the demo at the root and the component docs published as a ',
+          'It deploys on Vercel from one GitHub-connected project, with the demo at the root and the component docs in ',
         ),
-        link('Storybook site', 'https://bespoke-css.vercel.app/storybook/'),
+        link('Storybook', 'https://caliper-ui.vercel.app/storybook/'),
+        textNode('. Install it with '),
+        codeText('npm i @ryancalacsan/caliper-ui'),
         textNode('.'),
       ]),
     ]),
@@ -235,12 +241,13 @@ const projectsData = [
       'Vitest',
       'Playwright',
       'GitHub Actions',
-      'Vercel',
+      'npm',
+      'Design System',
     ],
-    liveUrl: 'https://bespoke-css.vercel.app',
-    githubUrl: 'https://github.com/ryancalacsan/bespoke-css',
-    npmUrl: undefined,
-    image: { filename: 'bespoke-css.png', alt: 'Bespoke CSS demo presented as a technical spec sheet on warm paper with a construction-orange accent' },
+    liveUrl: 'https://caliper-ui.vercel.app',
+    githubUrl: 'https://github.com/ryancalacsan/caliper-ui',
+    npmUrl: 'https://www.npmjs.com/package/@ryancalacsan/caliper-ui',
+    image: { filename: 'caliper-ui.png', alt: 'Caliper UI demo presented as a technical spec sheet on warm paper with a construction-orange accent, with CALIPER on the side rail' },
   },
   {
     title: 'OutreachAI',
