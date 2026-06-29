@@ -15,8 +15,8 @@ export function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <button className="theme-toggle" aria-label="Toggle theme">
-        <span className="theme-toggle__icon" />
+      <button className="site-theme-toggle" aria-label="Toggle theme">
+        <span className="site-theme-toggle__icon" />
       </button>
     )
   }
@@ -24,13 +24,13 @@ export function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-      className="theme-toggle"
+      className="site-theme-toggle"
       aria-label={`Switch to ${resolvedTheme === 'dark' ? 'light' : 'dark'} mode`}
     >
       {resolvedTheme === 'dark' ? (
-        <Sun className="theme-toggle__icon" />
+        <Sun className="site-theme-toggle__icon" />
       ) : (
-        <Moon className="theme-toggle__icon" />
+        <Moon className="site-theme-toggle__icon" />
       )}
     </button>
   )

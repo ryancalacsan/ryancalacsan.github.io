@@ -1,47 +1,29 @@
 @use '../mixins' as *;
 
+// ---------------------------------------------------------------------------
+// Hero — "Spec Sheet" title block. Composed from Caliper's Frame / SheetHeader /
+// GridBackdrop / Stat / DimensionLine and styled with Caliper's spacing + type
+// tokens. The headline and the dimension line share a fit-content "measure" box
+// so the dimension annotation tracks the title width, the way the Caliper demo
+// measures its title box.
+// ---------------------------------------------------------------------------
+
 .hero {
   position: relative;
   display: flex;
   align-items: center;
   min-height: 100svh;
-  padding-top: 4rem;
+  padding-block: var(--space-4xl) var(--space-2xl);
+  overflow: hidden;
 
-  &__glow {
-    pointer-events: none;
+  // Blueprint grid sits behind the frame and fades toward the edges.
+  &__grid {
     position: absolute;
     inset: 0;
-  }
-
-  &__glow-blob {
-    position: absolute;
-    border-radius: var(--radius-full);
-
-    &--top {
-      top: -25%;
-      right: 0;
-      height: 80vh;
-      width: 60vw;
-      background-color: color-mix(in oklab, var(--color-accent) 6%, transparent);
-      filter: blur(120px);
-
-      @include dark {
-        background-color: color-mix(in oklab, var(--color-accent) 3%, transparent);
-      }
-    }
-
-    &--bottom {
-      bottom: -25%;
-      left: -25%;
-      height: 50vh;
-      width: 50vw;
-      background-color: color-mix(in oklab, var(--color-accent) 4%, transparent);
-      filter: blur(100px);
-
-      @include dark {
-        background-color: color-mix(in oklab, var(--color-accent) 2%, transparent);
-      }
-    }
+    pointer-events: none;
+    opacity: 0.6;
+    -webkit-mask-image: radial-gradient(120% 100% at 30% 30%, #000 35%, transparent 85%);
+    mask-image: radial-gradient(120% 100% at 30% 30%, #000 35%, transparent 85%);
   }
 
   &__inner {
@@ -49,23 +31,53 @@
     width: 100%;
   }
 
-  &__eyebrow {
-    margin-bottom: 1.5rem;
-    font-family: var(--font-display);
-    @include font-size(sm);
-    font-weight: 300;
-    text-transform: uppercase;
-    letter-spacing: 0.25em;
-    color: var(--color-text-secondary);
+  // Caliper Frame draws the crop-mark border; we add the interior padding.
+  &__frame {
+    background-color: color-mix(in srgb, var(--color-surface) 70%, transparent);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
   }
 
+  &__sheet {
+    padding: var(--space-sm) var(--space-lg);
+    border-bottom: var(--motif-rule-width, 1.5px) solid var(--color-border);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-wide, 0.04em);
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  &__sheet-id {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  &__sheet-no {
+    color: var(--color-text-subtle);
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-lg);
+    padding: var(--space-2xl);
+
+    @include bp(sm) {
+      padding: var(--space-3xl);
+    }
+  }
+
+  &__eyebrow {
+    margin: 0;
+  }
+
+  // Caliper's MeasureFrame owns the dashed box, crop marks and dimension line.
+  // The headline itself only needs the uppercase, line-by-line reveal treatment.
   &__title {
-    font-family: var(--font-display);
-    font-size: var(--text-display);
-    font-weight: 700;
-    line-height: 0.9;
-    letter-spacing: -0.04em;
-    color: var(--color-text);
+    text-transform: uppercase;
   }
 
   &__name-line {
@@ -78,52 +90,18 @@
   }
 
   &__lead {
-    margin-top: 2rem;
-    max-width: 32rem;
-    font-size: var(--text-body);
-    line-height: 1.625;
-    color: var(--color-text-secondary);
+    max-width: 34rem;
   }
 
   &__ctas {
-    margin-top: 2.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+    margin: 0;
   }
 
-  &__cta {
-    @include button-base;
-    padding-inline: 1.25rem;
-    padding-block: 0.625rem;
-    @include font-size(sm);
-    font-weight: 500;
-
-    &--primary {
-      @include button-accent;
-      gap: 0.5rem;
-
-      &:hover {
-        gap: 0.75rem;
-      }
-    }
-
-    &--secondary {
-      border: 1px solid var(--color-border);
-      color: var(--color-text);
-
-      &:hover {
-        border-color: var(--color-text-secondary);
-        background-color: var(--color-bg-secondary);
-      }
-    }
-  }
-
-  &__cta-arrow {
-    transition: transform var(--duration-normal) var(--ease);
-  }
-
-  &__cta--primary:hover &__cta-arrow {
-    transform: translateX(0.125rem);
+  // Caliper's StatGroup lays out the legend (flex + dividers); we just add the
+  // rule above it so it reads like a drawing's title-block strip.
+  &__stats {
+    width: 100%;
+    padding-top: var(--space-lg);
+    border-top: var(--motif-rule-width, 1.5px) solid var(--color-border);
   }
 }

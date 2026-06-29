@@ -1,28 +1,14 @@
 import React from 'react'
-import { Geist, Geist_Mono } from 'next/font/google'
-import localFont from 'next/font/local'
 import { ThemeProvider } from '@/components/theme-provider'
 import { LenisProvider } from '@/components/lenis-provider'
+import { SkipLink, BackToTop } from '@ryancalacsan/caliper-ui'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
+// Caliper UI first so the portfolio's globals can still override it. Caliper
+// also supplies (and inlines) the type system — Hanken Grotesk + Geist Mono —
+// so the site no longer loads its own fonts.
+import '@ryancalacsan/caliper-ui/styles.css'
 import '../globals.scss'
-
-const geistSans = Geist({
-  subsets: ['latin'],
-  variable: '--font-geist-sans',
-})
-
-const geistMono = Geist_Mono({
-  subsets: ['latin'],
-  variable: '--font-geist-mono',
-})
-
-const clashGrotesk = localFont({
-  src: '../../fonts/ClashGrotesk-Variable.woff2',
-  variable: '--font-clash-grotesk',
-  display: 'swap',
-  weight: '200 700',
-})
 
 import type { Metadata, Viewport } from 'next'
 
@@ -66,27 +52,22 @@ export const metadata: Metadata = {
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${clashGrotesk.variable}`}
-      suppressHydrationWarning
-    >
+    <html lang="en" suppressHydrationWarning>
       <body>
         <ThemeProvider
-          attribute="class"
+          attribute={['class', 'data-theme']}
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
           <LenisProvider>
-            <a href="#main-content" className="skip-link">
-              Skip to content
-            </a>
+            <SkipLink href="#main-content">Skip to content</SkipLink>
             <Header />
             <main id="main-content" tabIndex={-1}>
               {children}
             </main>
             <Footer />
+            <BackToTop label="Back to top" />
           </LenisProvider>
         </ThemeProvider>
       </body>

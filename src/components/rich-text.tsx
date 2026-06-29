@@ -2,14 +2,13 @@ import { RichText as PayloadRichText } from '@payloadcms/richtext-lexical/react'
 
 interface RichTextProps {
   data: Record<string, unknown>
-  className?: string
 }
 
-export function RichText({ data, className }: RichTextProps) {
+// Renders the lexical nodes directly (no wrapper) so they become direct children
+// of Caliper's <Prose>, which supplies the typographic flow spacing.
+export function RichText({ data }: RichTextProps) {
   return (
-    <div className={className}>
-      {/* @ts-expect-error — Payload RichText accepts SerializedEditorState */}
-      <PayloadRichText data={data} />
-    </div>
+    // @ts-expect-error — Payload RichText accepts SerializedEditorState
+    <PayloadRichText data={data} disableContainer />
   )
 }

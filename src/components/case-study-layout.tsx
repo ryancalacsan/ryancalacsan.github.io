@@ -1,5 +1,19 @@
 import Image from 'next/image'
-import { ExternalLink, Github, Package } from 'lucide-react'
+import { ExternalLink, Github, Package, Target } from 'lucide-react'
+import {
+  Container,
+  Heading,
+  Eyebrow,
+  Text,
+  Badge,
+  Prose,
+  Callout,
+  Frame,
+  AspectRatio,
+  Divider,
+  Inline,
+  Button,
+} from '@ryancalacsan/caliper-ui'
 import type { Project, Media } from '@/payload-types'
 import { RichText } from './rich-text'
 import { ProjectNav } from './project-nav'
@@ -23,153 +37,156 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
     typeof project.featuredImage === 'object' && project.featuredImage !== null
       ? (project.featuredImage as Media)
       : null
+  const isSvg = featuredImage?.mimeType === 'image/svg+xml'
+  const isCenter = featuredImage?.filename?.includes('minimal-motion')
 
   return (
     <article className="case-study">
-      <div className="wrapper">
+      <Container size="lg">
         {/* Hero */}
         <RevealSection animation="fadeUp" className="case-study__hero">
-          <div className="case-study__meta">
-            <span className="case-study__type">
-              {typeLabels[project.type] || project.type}
-            </span>
-            {project.role && (
-              <span className="case-study__meta-text">{project.role}</span>
-            )}
-            <span className="case-study__meta-text">{project.year}</span>
-          </div>
+          <Eyebrow tone="muted" className="case-study__meta">
+            {typeLabels[project.type] || project.type}
+            {project.role ? ` · ${project.role}` : ''} · {project.year}
+          </Eyebrow>
 
-          <h1 className="case-study__title">
+          <Heading level={1} size="4xl" className="case-study__title">
             {project.title}
-          </h1>
+          </Heading>
 
           {project.badge && (
-            <p className="case-study__badge">{project.badge}</p>
+            <Badge tone="accent" className="case-study__badge">
+              {project.badge}
+            </Badge>
           )}
         </RevealSection>
 
         {/* Outcome */}
         {project.outcome && (
           <RevealSection animation="fadeUp" className="case-study__outcome" delay={0.1}>
-            <div className="case-study__outcome-box">
-              <h2 className="case-study__outcome-label">
-                Key Outcome
-              </h2>
-              <p className="case-study__outcome-text">{project.outcome}</p>
-            </div>
+            <Callout
+              tone="accent"
+              title="Key Outcome"
+              icon={<Target size={18} aria-hidden="true" />}
+            >
+              <Text as="p" size="md">
+                {project.outcome}
+              </Text>
+            </Callout>
           </RevealSection>
         )}
 
-        {/* Featured Image */}
-        {featuredImage && featuredImage.url && (
+        {/* Featured image */}
+        {featuredImage?.url && (
           <RevealSection animation="fadeUp" className="case-study__featured" delay={0.15}>
-            <div className="case-study__featured-frame">
-              <Image
-                src={featuredImage.url}
-                alt={featuredImage.alt || project.title}
-                fill
-                className={featuredImage.mimeType === 'image/svg+xml' ? 'case-study__featured-img case-study__featured-img--contain' : `case-study__featured-img case-study__featured-img--cover ${featuredImage.filename?.includes('minimal-motion') ? 'case-study__featured-img--center' : 'case-study__featured-img--top'}`}
-                sizes="(max-width: 1152px) 100vw, 1152px"
-                priority
-                {...(featuredImage.mimeType === 'image/svg+xml' && { unoptimized: true })}
-              />
-            </div>
+            <Frame className="case-study__featured-frame">
+              <AspectRatio
+                ratio={16 / 9}
+                className={`case-study__shot${isSvg ? ' case-study__shot--contain' : isCenter ? ' case-study__shot--center' : ''}`}
+              >
+                <Image
+                  src={featuredImage.url}
+                  alt={featuredImage.alt || project.title}
+                  fill
+                  sizes="(max-width: 960px) 100vw, 960px"
+                  priority
+                  {...(isSvg && { unoptimized: true })}
+                />
+              </AspectRatio>
+            </Frame>
           </RevealSection>
         )}
 
         {/* Content */}
         <div className="case-study__content">
-          {/* Challenge */}
           {project.challenge && (
             <RevealSection animation="fadeUp" className="case-study__section">
-              <h2 className="case-study__section-heading">
+              <Heading level={2} size="xl" className="case-study__section-heading">
                 The Challenge
-              </h2>
-              <RichText
-                data={project.challenge as unknown as Record<string, unknown>}
-                className="case-study__prose prose-custom"
-              />
+              </Heading>
+              <Prose>
+                <RichText data={project.challenge as unknown as Record<string, unknown>} />
+              </Prose>
             </RevealSection>
           )}
 
-          {/* What I Built */}
           {project.whatIBuilt && (
             <>
-              <hr className="case-study__divider" />
+              <Divider className="case-study__divider" />
               <RevealSection animation="fadeUp" className="case-study__section">
-                <h2 className="case-study__section-heading">
+                <Heading level={2} size="xl" className="case-study__section-heading">
                   What I Built
-                </h2>
-                <RichText
-                  data={project.whatIBuilt as unknown as Record<string, unknown>}
-                  className="case-study__prose prose-custom"
-                />
+                </Heading>
+                <Prose>
+                  <RichText data={project.whatIBuilt as unknown as Record<string, unknown>} />
+                </Prose>
               </RevealSection>
             </>
           )}
 
-          {/* Tech Stack */}
           {project.techStack && project.techStack.length > 0 && (
             <>
-              <hr className="case-study__divider" />
+              <Divider className="case-study__divider" />
               <RevealSection animation="fadeUp" className="case-study__section">
-                <h2 className="case-study__section-heading">
+                <Heading level={2} size="xl" className="case-study__section-heading">
                   Tech Stack
-                </h2>
-                <div className="case-study__tags">
+                </Heading>
+                <Inline gap="2xs" wrap className="case-study__tags">
                   {project.techStack.map((item) => (
-                    <span key={item.id} className="case-study__tag">
+                    <Badge key={item.id} tone="neutral">
                       {item.technology}
-                    </span>
+                    </Badge>
                   ))}
-                </div>
+                </Inline>
               </RevealSection>
             </>
           )}
 
-          {/* Links */}
           {(project.liveUrl || project.githubUrl || project.npmUrl) && (
             <>
-              <hr className="case-study__divider" />
+              <Divider className="case-study__divider" />
               <RevealSection animation="fadeUp" className="case-study__section">
-                <h2 className="case-study__section-heading">
+                <Heading level={2} size="xl" className="case-study__section-heading">
                   Links
-                </h2>
-                <div className="case-study__links">
+                </Heading>
+                <Inline gap="sm" wrap>
                   {project.liveUrl && (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="case-study__link"
+                    <Button
+                      asChild
+                      variant="primary"
+                      size="sm"
+                      leadingIcon={<ExternalLink size={15} aria-hidden="true" />}
                     >
-                      <ExternalLink className="case-study__link-icon" />
-                      Live Demo
-                    </a>
+                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                        Live Demo
+                      </a>
+                    </Button>
                   )}
                   {project.githubUrl && (
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="case-study__link"
+                    <Button
+                      asChild
+                      variant="secondary"
+                      size="sm"
+                      leadingIcon={<Github size={15} aria-hidden="true" />}
                     >
-                      <Github className="case-study__link-icon" />
-                      Source Code
-                    </a>
+                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                        Source Code
+                      </a>
+                    </Button>
                   )}
                   {project.npmUrl && (
-                    <a
-                      href={project.npmUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="case-study__link"
+                    <Button
+                      asChild
+                      variant="secondary"
+                      size="sm"
+                      leadingIcon={<Package size={15} aria-hidden="true" />}
                     >
-                      <Package className="case-study__link-icon" />
-                      npm Package
-                    </a>
+                      <a href={project.npmUrl} target="_blank" rel="noopener noreferrer">
+                        npm Package
+                      </a>
+                    </Button>
                   )}
-                </div>
+                </Inline>
               </RevealSection>
             </>
           )}
@@ -184,22 +201,23 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
                   typeof item.image === 'object' && item.image !== null
                     ? (item.image as Media)
                     : null
-                if (!img || !img.url) return null
+                if (!img?.url) return null
                 return (
                   <figure key={item.id} className="case-study__figure">
-                    <div className="case-study__figure-frame">
-                      <Image
-                        src={img.url}
-                        alt={img.alt || ''}
-                        fill
-                        className="case-study__figure-img"
-                        sizes="(max-width: 640px) 100vw, 50vw"
-                      />
-                    </div>
+                    <Frame>
+                      <AspectRatio ratio={16 / 9} className="case-study__shot">
+                        <Image
+                          src={img.url}
+                          alt={img.alt || ''}
+                          fill
+                          sizes="(max-width: 640px) 100vw, 50vw"
+                        />
+                      </AspectRatio>
+                    </Frame>
                     {item.caption && (
-                      <figcaption className="case-study__figcaption">
+                      <Text as="figcaption" size="sm" tone="muted" className="case-study__figcaption">
                         {item.caption}
-                      </figcaption>
+                      </Text>
                     )}
                   </figure>
                 )
@@ -212,7 +230,7 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
         <div className="case-study__nav">
           <ProjectNav previous={previous} next={next} />
         </div>
-      </div>
+      </Container>
     </article>
   )
 }

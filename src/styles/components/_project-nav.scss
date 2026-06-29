@@ -1,20 +1,23 @@
 @use '../mixins' as *;
 
 .project-nav {
-  margin-top: 4rem;
-  border-top: 1px solid var(--color-border);
+  border-top: var(--motif-rule-width, 1.5px) solid var(--color-border-strong);
   padding-top: 2rem;
 
   &__row {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1rem;
   }
 
   &__link {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide, 0.04em);
     color: var(--color-text-secondary);
     text-decoration: none;
     @include font-size(sm);
@@ -28,6 +31,7 @@
   &__arrow {
     width: 1rem;
     height: 1rem;
+    flex: none;
     transition: transform var(--duration-normal) var(--ease);
   }
 
@@ -45,6 +49,9 @@
   }
 
   &__back-link {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide, 0.04em);
     color: var(--color-text-secondary);
     text-decoration: none;
     @include font-size(sm);

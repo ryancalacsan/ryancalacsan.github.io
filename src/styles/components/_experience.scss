@@ -4,42 +4,13 @@
   position: relative;
   padding-block: var(--spacing-section);
 
-  &__glow {
-    pointer-events: none;
-    position: absolute;
-    inset: 0;
-  }
-
-  &__glow-blob {
-    position: absolute;
-    left: -25%;
-    top: 25%;
-    height: 60vh;
-    width: 50vw;
-    border-radius: var(--radius-full);
-    background-color: color-mix(in oklab, var(--color-accent) 6%, transparent);
-    filter: blur(100px);
-
-    @include dark {
-      background-color: color-mix(in oklab, var(--color-accent) 2%, transparent);
-    }
-  }
-
   &__inner {
     position: relative;
   }
 
-  &__heading {
-    font-family: var(--font-display);
-    font-size: var(--text-h2);
-    font-weight: 500;
-    letter-spacing: -0.025em;
-  }
-
   &__card {
-    margin-top: 2.5rem;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-xl);
+    border: var(--motif-rule-width, 1.5px) solid var(--color-border);
+    border-radius: var(--radius-lg);
     background-color: var(--color-surface);
     padding: 1.5rem;
 
@@ -54,11 +25,13 @@
     align-items: flex-start;
     justify-content: space-between;
     gap: 1rem;
+    padding-bottom: 1.25rem;
+    border-bottom: var(--motif-rule-width, 1.5px) solid var(--color-border);
   }
 
   &__role {
     font-family: var(--font-display);
-    font-size: var(--text-h3);
+    font-size: var(--text-xl);
     font-weight: 600;
   }
 
@@ -67,13 +40,10 @@
   }
 
   &__year {
-    border-radius: var(--radius-md);
-    background-color: var(--color-bg-secondary);
-    padding-inline: 0.75rem;
-    padding-block: 0.25rem;
+    font-family: var(--font-mono);
     @include font-size(sm);
-    font-weight: 500;
-    color: var(--color-text-secondary);
+    letter-spacing: var(--tracking-wide, 0.04em);
+    color: var(--color-text-subtle);
   }
 
   &__intro {
@@ -85,12 +55,14 @@
     margin-top: 2rem;
   }
 
+  // Mono "drawing annotation" labels.
   &__group-title {
-    @include font-size(sm);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--color-text-secondary);
+    letter-spacing: var(--tracking-wide, 0.08em);
+    color: var(--color-text-subtle);
   }
 
   &__group-text {
@@ -112,14 +84,14 @@
     color: var(--color-text-secondary);
   }
 
+  // Square tick instead of a dot — reads as a checklist on a spec sheet.
   &__dot {
-    margin-top: 0.375rem;
+    margin-top: 0.5rem;
     display: block;
-    height: 0.375rem;
-    width: 0.375rem;
+    height: 0.4rem;
+    width: 0.4rem;
     flex-shrink: 0;
-    border-radius: var(--radius-full);
-    background-color: var(--color-accent);
+    background-color: var(--color-signal);
   }
 
   &__tags {
@@ -127,12 +99,5 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-  }
-
-  &__tag {
-    @include tag;
-    padding-inline: 0.75rem;
-    padding-block: 0.25rem;
-    @include font-size(sm);
   }
 }

@@ -1,4 +1,5 @@
 import { Mail, ArrowRight, Github, Linkedin } from 'lucide-react'
+import { Container, Eyebrow, Heading, Text } from '@ryancalacsan/caliper-ui'
 import { RevealSection } from '../reveal-section'
 
 const emailAddress = 'calacsancode@gmail.com'
@@ -23,19 +24,19 @@ export function Contact() {
       className="contact"
       id="contact"
     >
-      {/* Ambient gradient */}
-      <div className="contact__glow">
-        <div className="contact__glow-blob" />
-      </div>
-
-      <div className="wrapper contact__inner">
-        <h2 className="contact__heading">
-          Get in Touch
-        </h2>
-        <p className="contact__lead">
+      <Container size="xl" className="contact__inner">
+        <header className="section-head section-head--center">
+          <Eyebrow tone="accent" className="section-head__index">
+            05 / Contact
+          </Eyebrow>
+          <Heading level={2} size="3xl" className="section-head__title">
+            Get in Touch
+          </Heading>
+        </header>
+        <Text as="p" size="lg" tone="muted" className="contact__lead">
           I&apos;m currently looking for full-stack or frontend engineering roles.
-          Feel free to reach out — I&apos;d love to hear from you.
-        </p>
+          Feel free to reach out. I&apos;d love to hear from you.
+        </Text>
 
         <a
           href={`mailto:${emailAddress}`}
@@ -60,7 +61,7 @@ export function Contact() {
             </a>
           ))}
         </div>
-      </div>
+      </Container>
     </RevealSection>
   )
 }

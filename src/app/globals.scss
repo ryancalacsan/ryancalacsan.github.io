@@ -9,18 +9,16 @@
 @use '../styles/tokens';
 @use '../styles/reset';
 @use '../styles/base';
-@use '../styles/prose';
 @use '../styles/animations';
 
 // Components — site chrome
-@use '../styles/components/header';
-@use '../styles/components/header-nav';
+@use '../styles/components/site-header';
 @use '../styles/components/mobile-menu';
 @use '../styles/components/theme-toggle';
-@use '../styles/components/back-to-top';
 @use '../styles/components/footer';
 
 // Components — home sections
+@use '../styles/components/section-head';
 @use '../styles/components/hero';
 @use '../styles/components/experience';
 @use '../styles/components/projects';

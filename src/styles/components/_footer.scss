@@ -1,25 +1,19 @@
 @use '../mixins' as *;
 
 .footer {
-  border-top: 1px solid var(--color-border);
-  padding-block: 3rem;
+  border-top: var(--motif-rule-width, 1.5px) solid var(--color-border-strong);
+  padding-block: 2.5rem;
 
   &__inner {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.25rem;
 
     @include bp(sm) {
       flex-direction: row;
       justify-content: space-between;
     }
-  }
-
-  &__social {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
   }
 
   &__social-link {
@@ -30,22 +24,20 @@
   &__social-icon {
     width: 1.125rem;
     height: 1.125rem;
+    flex: none;
   }
 
   &__meta {
     text-align: center;
-    color: var(--color-text-secondary);
-    @include font-size(sm);
+
+    @include bp(sm) {
+      text-align: right;
+    }
   }
 
-  &__credit {
-    margin-top: 0.25rem;
-    color: var(--color-text-secondary);
-    @include font-size(xs);
-  }
-
-  &__top-icon {
-    width: 1rem;
-    height: 1rem;
+  // Spec Sheet meta lines read as drawing annotations.
+  &__mono {
+    font-family: var(--font-mono);
+    letter-spacing: 0.02em;
   }
 }

@@ -1,0 +1,28 @@
+@use '../mixins' as *;
+
+// ---------------------------------------------------------------------------
+// Section header — shared "drawing title block" used across home sections.
+// Mono index label (Caliper Eyebrow) over a display heading, with a baseline
+// rule, so each section reads like a numbered sheet.
+// ---------------------------------------------------------------------------
+
+.section-head {
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+  padding-bottom: 1.25rem;
+  border-bottom: var(--motif-rule-width, 1.5px) solid var(--color-border);
+
+  &__index {
+    margin-bottom: 0.75rem;
+  }
+
+  &__title {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+
+  // Centered variant (Contact).
+  &--center {
+    text-align: center;
+  }
+}

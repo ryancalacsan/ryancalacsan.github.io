@@ -1,3 +1,4 @@
+import { Container, Eyebrow, Heading, Badge } from '@ryancalacsan/caliper-ui'
 import { RevealSection } from '../reveal-section'
 import { RevealStagger, RevealStaggerItem } from '../reveal-stagger'
 
@@ -31,15 +32,15 @@ export function Experience() {
       className="experience"
       id="experience"
     >
-      {/* Ambient gradient */}
-      <div className="experience__glow">
-        <div className="experience__glow-blob" />
-      </div>
-
-      <div className="wrapper experience__inner">
-        <h2 className="experience__heading">
-          Professional Experience
-        </h2>
+      <Container size="xl" className="experience__inner">
+        <header className="section-head">
+          <Eyebrow tone="accent" className="section-head__index">
+            01 / Experience
+          </Eyebrow>
+          <Heading level={2} size="3xl" className="section-head__title">
+            Professional Experience
+          </Heading>
+        </header>
 
         <div className="experience__card">
           <div className="experience__card-header">
@@ -95,17 +96,14 @@ export function Experience() {
             </h4>
             <div className="experience__tags">
               {techStack.map((tech) => (
-                <span
-                  key={tech}
-                  className="experience__tag"
-                >
+                <Badge key={tech} tone="neutral">
                   {tech}
-                </span>
+                </Badge>
               ))}
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </RevealSection>
   )
 }

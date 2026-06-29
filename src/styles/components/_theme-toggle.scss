@@ -1,11 +1,15 @@
 @use '../mixins' as *;
 
-.theme-toggle {
+// Namespaced to avoid colliding with Caliper UI's own `.theme-toggle`
+// (next-themes is our theme source of truth, so we keep this bespoke toggle).
+.site-theme-toggle {
   @include icon-button;
   position: relative;
+  border: 0;
 
   &__icon {
     width: 1.125rem;
     height: 1.125rem;
+    flex: none;
   }
 }

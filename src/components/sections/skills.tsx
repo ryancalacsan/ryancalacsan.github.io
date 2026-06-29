@@ -1,3 +1,4 @@
+import { Container, Eyebrow, Heading, Badge } from '@ryancalacsan/caliper-ui'
 import { RevealSection } from '../reveal-section'
 import { RevealStagger, RevealStaggerItem } from '../reveal-stagger'
 
@@ -27,14 +28,15 @@ export function Skills() {
       className="skills"
       id="skills"
     >
-      {/* Ambient gradient */}
-      <div className="skills__glow">
-        <div className="skills__glow-blob" />
-      </div>
-      <div className="wrapper skills__inner">
-        <h2 className="skills__heading">
-          Technical Skills
-        </h2>
+      <Container size="xl" className="skills__inner">
+        <header className="section-head">
+          <Eyebrow tone="accent" className="section-head__index">
+            04 / Skills
+          </Eyebrow>
+          <Heading level={2} size="3xl" className="section-head__title">
+            Technical Skills
+          </Heading>
+        </header>
 
         <RevealStagger className="skills__grid">
           {skillCategories.map((category) => (
@@ -45,19 +47,16 @@ export function Skills() {
                 </h3>
                 <div className="skills__pills">
                   {category.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="skills__pill"
-                    >
+                    <Badge key={skill} tone="neutral">
                       {skill}
-                    </span>
+                    </Badge>
                   ))}
                 </div>
               </div>
             </RevealStaggerItem>
           ))}
         </RevealStagger>
-      </div>
+      </Container>
     </RevealSection>
   )
 }

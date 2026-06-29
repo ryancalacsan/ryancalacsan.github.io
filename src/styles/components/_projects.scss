@@ -3,25 +3,15 @@
 .projects {
   padding-block: var(--spacing-section);
 
-  &__heading {
-    font-family: var(--font-display);
-    font-size: var(--text-h2);
-    font-weight: 500;
-    letter-spacing: -0.025em;
-  }
-
+  // Grid spacing/columns come from Caliper's Grid; nothing extra needed here.
   &__grid {
-    margin-top: 2.5rem;
-    display: grid;
-    gap: 1.5rem;
-  }
-
-  &__empty {
-    color: var(--color-text-secondary);
+    align-items: start;
   }
 
   &__empty-link {
     color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
 
     &:hover {
       color: var(--color-accent-hover);

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { Container, Eyebrow, Heading } from '@ryancalacsan/caliper-ui'
 import { RevealSection } from '../reveal-section'
 
 export function About() {
@@ -8,10 +9,15 @@ export function About() {
       className="about"
       id="about"
     >
-      <div className="wrapper">
-        <h2 className="about__heading">
-          About Me
-        </h2>
+      <Container size="xl">
+        <header className="section-head">
+          <Eyebrow tone="accent" className="section-head__index">
+            03 / About
+          </Eyebrow>
+          <Heading level={2} size="3xl" className="section-head__title">
+            About Me
+          </Heading>
+        </header>
 
         <div className="about__grid">
           <div className="about__text">
@@ -67,7 +73,7 @@ export function About() {
             />
           </div>
         </div>
-      </div>
+      </Container>
     </RevealSection>
   )
 }

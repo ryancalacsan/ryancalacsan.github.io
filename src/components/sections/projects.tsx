@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { getPayload } from 'payload'
 import config from '@payload-config'
+import { Container, Grid, Heading, Eyebrow, Text } from '@ryancalacsan/caliper-ui'
 import { RevealSection } from '../reveal-section'
 import { ProjectCard } from '../project-card'
 
@@ -13,32 +14,33 @@ export async function Projects() {
   })
 
   return (
-    <RevealSection
-      animation="fadeUp"
-      className="projects"
-      id="projects"
-    >
-      <div className="wrapper">
-        <h2 className="projects__heading">
-          Featured Projects
-        </h2>
+    <RevealSection animation="fadeUp" id="projects" className="projects">
+      <Container size="xl">
+        <header className="section-head">
+          <Eyebrow tone="accent" className="section-head__index">
+            02 / Selected Work
+          </Eyebrow>
+          <Heading level={2} size="3xl" className="section-head__title">
+            Featured Projects
+          </Heading>
+        </header>
 
-        <div className="projects__grid">
-          {projects.length > 0 ? (
-            projects.map((project) => (
+        {projects.length > 0 ? (
+          <Grid minItemWidth="340px" gap="lg" className="projects__grid">
+            {projects.map((project) => (
               <ProjectCard key={project.id} project={project} />
-            ))
-          ) : (
-            <p className="projects__empty">
-              Projects coming soon. Add them via the{' '}
-              <Link href="/admin" className="projects__empty-link">
-                admin panel
-              </Link>
-              .
-            </p>
-          )}
-        </div>
-      </div>
+            ))}
+          </Grid>
+        ) : (
+          <Text tone="muted">
+            Projects coming soon. Add them via the{' '}
+            <Link href="/admin" className="projects__empty-link">
+              admin panel
+            </Link>
+            .
+          </Text>
+        )}
+      </Container>
     </RevealSection>
   )
 }
