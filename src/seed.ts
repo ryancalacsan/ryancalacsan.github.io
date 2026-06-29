@@ -197,9 +197,9 @@ const projectsData = [
     featured: true,
     order: 2,
     description:
-      'An accessible React component library and design system, published on npm. Hand-written SCSS with BEM, design tokens as the single source of truth, two themes, WCAG 2.2 AA. Built with a "Spec Sheet" technical-drawing identity.',
+      'An accessible React component library and design system, published on npm. 38 components from a single token layer, hand-written SCSS with BEM, two themes, WCAG 2.2 AA. Built with a "Spec Sheet" technical-drawing identity.',
     outcome:
-      'An accessible React component library and design system, published on npm as @ryancalacsan/caliper-ui: eight components, two themes from one token layer, and WCAG 2.2 AA verified by an automated contrast check and axe on every Storybook story.',
+      'An accessible React component library and design system, published on npm as @ryancalacsan/caliper-ui: 38 components built from one token layer, two themes switched by a data attribute, and WCAG 2.2 AA verified by an automated contrast check and axe on every Storybook story. This portfolio is built with it.',
     challenge: richText([
       paragraph(
         'I wanted to show design-system craft without a utility framework. The aim was a small component library styled in hand-written SCSS with BEM, where one token layer is the single source of truth for color, type, spacing, radii, motion, and breakpoints.',
@@ -214,8 +214,8 @@ const projectsData = [
       ),
       bulletList([
         'Published as an installable npm package (@ryancalacsan/caliper-ui), shipped as ESM with type declarations, RSC-ready (server-renderable where possible, with "use client" only where needed), and with self-contained CSS that inlines its fonts.',
-        'Eight accessible components: Button, TextField, Modal, Checkbox, RadioGroup, Select (a custom ARIA listbox), Tabs, and Tooltip. Each is keyboard-operable with correct ARIA and managed focus, and a layout and primitives layer is being added.',
-        'A "Spec Sheet" visual identity: warm paper and ink with one construction-orange accent, drawn like a technical document. Light and dark themes come from one token set, with no component changes between them.',
+        '38 accessible components across primitives, layout, forms, overlays, and the Spec Sheet drawing motifs. Interactive parts like Modal, Select (a custom ARIA listbox), Tabs, and Tooltip are keyboard-operable with correct ARIA and managed focus.',
+        'A "Spec Sheet" visual identity: warm paper and ink with one construction-orange accent, drawn like a technical document. Light and dark themes come from one token set and switch by a data attribute, with no component changes between them.',
         'WCAG 2.2 AA verified, not assumed. A script checks every color pairing in both themes, and Storybook runs axe on every story.',
         'Engineered like a real product: Vitest interaction tests, Playwright visual regression in both themes, GitHub Actions CI, Changesets-driven releases, and npm Trusted Publishing (OIDC with provenance, no stored secrets).',
       ]),
