@@ -147,7 +147,7 @@ const projectsData = [
     description:
       "Built the company's entire modern technology stack from scratch as the sole engineer. PrintNinja is a custom printing company serving self-publishers and game makers.",
     outcome:
-      'Built a 200,000+ line Configure-Price-Quote platform from scratch as the sole engineer, replacing manual quoting processes and legacy PHP systems.',
+      'Built a full Configure-Price-Quote platform from scratch as the sole engineer, replacing manual quoting processes and legacy PHP systems.',
     challenge: richText([
       paragraph(
         'Inherited an environment with no version control, fragmented contractor code, and significant technical debt. Needed to build a Configure-Price-Quote (CPQ) platform to replace manual quoting processes while migrating critical business logic from legacy PHP systems.',
@@ -161,7 +161,7 @@ const projectsData = [
         'As the sole engineer, I designed, built, and deployed the entire platform from the ground up:',
       ),
       bulletList([
-        '200,000+ line full-stack platform using Next.js, React, TypeScript, and PostgreSQL',
+        'Full-stack platform built with Next.js, React, TypeScript, and PostgreSQL',
         'Real-time pricing engine handling 500+ variables across 4 product lines with LRU caching',
         'Stripe payment integration with webhook processing',
         'Salesforce CRM sync with 80+ custom field mappings across 10 modules',
@@ -170,8 +170,8 @@ const projectsData = [
       ]),
     ]),
     techStack: [
-      'Next.js 15',
-      'React 19',
+      'Next.js',
+      'React',
       'TypeScript',
       'PostgreSQL',
       'Drizzle ORM',
@@ -288,12 +288,12 @@ const projectsData = [
       ]),
     ]),
     techStack: [
-      'Next.js 16',
-      'React 19',
+      'Next.js',
+      'React',
       'TypeScript',
       'FastAPI',
       'Python',
-      'Tailwind CSS v4',
+      'Tailwind CSS',
       'shadcn/ui',
       'Claude API',
       'Gemini API',
@@ -390,7 +390,7 @@ const projectsData = [
       ]),
     ]),
     techStack: [
-      'Next.js 15',
+      'Next.js',
       'TypeScript',
       'Framer Motion',
       'Lenis',
@@ -437,7 +437,7 @@ const projectsData = [
       ]),
     ]),
     techStack: [
-      'Next.js 15',
+      'Next.js',
       'TypeScript',
       'Framer Motion',
       'Lenis',
@@ -508,7 +508,7 @@ const siteSettingsData = {
       "I'm a full-stack engineer based in Chicago who builds web applications with a focus on clean architecture and delivering real business value.",
     ),
     paragraph(
-      'Most recently, I served as Principal Engineer at PrintNinja, where I built a 200,000+ line Configure-Price-Quote platform from scratch as the sole engineer. I joined as their first in-house engineer, inheriting an environment with no version control and significant technical debt from previous contractors. I introduced modern engineering practices, migrated critical business logic from legacy PHP systems, and built a platform handling complex pricing with 500+ variables, payment processing, and CRM integration.',
+      'Most recently, I served as Principal Engineer at PrintNinja, where I built a full Configure-Price-Quote platform from scratch as the sole engineer. I joined as their first in-house engineer, inheriting an environment with no version control and significant technical debt from previous contractors. I introduced modern engineering practices, migrated critical business logic from legacy PHP systems, and built a platform handling complex pricing with 500+ variables, payment processing, and CRM integration.',
     ),
     paragraph(
       'Before transitioning to software engineering, I spent 15 years in photography and studio management. That experience gave me strong project ownership skills and an eye for user experience.',
