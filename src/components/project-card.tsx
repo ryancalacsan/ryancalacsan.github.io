@@ -53,7 +53,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             {typeLabels[project.type] || project.type} · {project.year}
           </Eyebrow>
           {project.badge && (
-            <Badge tone="accent" shape="square">
+            <Badge tone="accent">
               {project.badge}
             </Badge>
           )}
@@ -113,7 +113,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       {project.techStack && project.techStack.length > 0 && (
         <Inline gap="2xs" wrap className="project-card__tags">
           {project.techStack.map((item) => (
-            <Badge key={item.id} tone="neutral" shape="square">
+            <Badge key={item.id} tone="neutral">
               {item.technology}
             </Badge>
           ))}

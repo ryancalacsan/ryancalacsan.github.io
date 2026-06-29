@@ -96,7 +96,7 @@ export function Experience() {
             </h4>
             <div className="experience__tags">
               {techStack.map((tech) => (
-                <Badge key={tech} tone="neutral" shape="square">
+                <Badge key={tech} tone="neutral">
                   {tech}
                 </Badge>
               ))}

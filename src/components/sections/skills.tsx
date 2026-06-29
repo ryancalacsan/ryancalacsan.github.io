@@ -51,7 +51,7 @@ export function Skills() {
                 </h3>
                 <div className="skills__pills">
                   {category.skills.map((skill) => (
-                    <Badge key={skill} tone="neutral" shape="square">
+                    <Badge key={skill} tone="neutral">
                       {skill}
                     </Badge>
                   ))}

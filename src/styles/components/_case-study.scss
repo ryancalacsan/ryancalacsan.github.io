@@ -8,8 +8,20 @@
 // ---------------------------------------------------------------------------
 
 .case-study {
+  position: relative;
+  isolation: isolate;
   padding-top: 7rem;
   padding-bottom: 4rem;
+
+  // Continuous dotted backdrop, layered behind the article content.
+  > .dot-grid {
+    z-index: 0;
+  }
+
+  > :not(.dot-grid) {
+    position: relative;
+    z-index: 1;
+  }
 
   // --- Hero ---------------------------------------------------------------
   &__hero {

@@ -42,6 +42,7 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
 
   return (
     <article className="case-study">
+      <div className="dot-grid" aria-hidden="true" />
       <Container size="lg">
         {/* Hero */}
         <RevealSection animation="fadeUp" className="case-study__hero">
@@ -55,7 +56,7 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
           </Heading>
 
           {project.badge && (
-            <Badge tone="accent" shape="square" className="case-study__badge">
+            <Badge tone="accent" className="case-study__badge">
               {project.badge}
             </Badge>
           )}
@@ -134,7 +135,7 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
                 </Heading>
                 <Inline gap="2xs" wrap className="case-study__tags">
                   {project.techStack.map((item) => (
-                    <Badge key={item.id} tone="neutral" shape="square">
+                    <Badge key={item.id} tone="neutral">
                       {item.technology}
                     </Badge>
                   ))}

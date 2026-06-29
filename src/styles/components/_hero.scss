@@ -76,7 +76,13 @@
 
   // Caliper's MeasureFrame owns the dashed box, crop marks and dimension line.
   // The name reads in regular capitalization ("Ryan Calacsan"); the Spec Sheet
-  // motif stays uppercase elsewhere. The headline only needs the reveal layers.
+  // motif stays uppercase elsewhere.
+  // Caliper's display size caps at 5.25rem; the hero name wants more presence,
+  // so bump it with a larger fluid clamp (kept mobile-safe inside MeasureFrame).
+  &__title {
+    font-size: clamp(3rem, 11vw, 7rem);
+  }
+
   &__name-line {
     display: block;
     overflow: hidden;

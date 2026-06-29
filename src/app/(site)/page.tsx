@@ -9,11 +9,15 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <Experience />
-      <Projects />
-      <About />
-      <Skills />
-      <Contact />
+      {/* Continuous dotted backdrop behind the content sheets (01–05). */}
+      <div className="home-sections">
+        <div className="dot-grid" aria-hidden="true" />
+        <Experience />
+        <Projects />
+        <About />
+        <Skills />
+        <Contact />
+      </div>
     </>
   )
 }
