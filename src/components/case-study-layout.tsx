@@ -55,7 +55,7 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
           </Heading>
 
           {project.badge && (
-            <Badge tone="accent" className="case-study__badge">
+            <Badge tone="accent" shape="square" className="case-study__badge">
               {project.badge}
             </Badge>
           )}
@@ -82,6 +82,7 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
             <Frame className="case-study__featured-frame">
               <AspectRatio
                 ratio={16 / 9}
+                fit={isSvg ? 'contain' : 'cover'}
                 className={`case-study__shot${isSvg ? ' case-study__shot--contain' : isCenter ? ' case-study__shot--center' : ''}`}
               >
                 <Image
@@ -133,7 +134,7 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
                 </Heading>
                 <Inline gap="2xs" wrap className="case-study__tags">
                   {project.techStack.map((item) => (
-                    <Badge key={item.id} tone="neutral">
+                    <Badge key={item.id} tone="neutral" shape="square">
                       {item.technology}
                     </Badge>
                   ))}

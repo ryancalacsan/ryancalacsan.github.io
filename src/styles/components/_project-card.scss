@@ -2,32 +2,14 @@
 
 // ---------------------------------------------------------------------------
 // Project card — portfolio-specific composite built on Caliper's Card.
-// Card owns the frame/media/body/footer chrome; this block adds the stretched
-// link, image fit, and a hover lift.
+// Caliper's `fill` (equal height + footer pin) and `interactive` (hover, focus
+// ring, footer click layering) handle the card mechanics; the stretched title
+// link comes from Caliper's <Link stretch>. This block only styles the image
+// fit and the title/action text.
 // ---------------------------------------------------------------------------
 
 .project-card {
-  position: relative;
-  // Fill the stretched grid cell so cards in a row are equal height.
-  height: 100%;
-  transition: border-color var(--duration-normal) var(--ease),
-    transform var(--duration-normal) var(--ease),
-    box-shadow var(--duration-normal) var(--ease);
-
-  &:hover {
-    border-color: var(--color-border-strong);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-  }
-
-  // Let Caliper's card body grow so the footer (Live / Source / npm) pins to
-  // the bottom and aligns across cards. (Caliper Card has no native fill mode
-  // yet — tracked in the gaps list.)
-  .card__body {
-    flex: 1;
-  }
-
-  // Image fit overrides for AspectRatio's default object-fit: cover.
+  // Image treatment for the AspectRatio media (fit is set on the component).
   &__shot {
     background-color: var(--color-primary-bg);
 
@@ -43,7 +25,6 @@
       background-color: var(--color-surface-raised);
 
       img {
-        object-fit: contain;
         padding: 0.5rem;
       }
     }
@@ -53,25 +34,16 @@
     margin: 0;
   }
 
-  // Stretched link: covers the whole card so any click opens the case study.
+  // Neutralize Caliper Link's accent color/underline for the title; keep the
+  // stretch overlay it provides.
   &__link {
     color: var(--color-text);
     text-decoration: none;
     transition: color var(--duration-normal) var(--ease);
 
-    &::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-    }
-
     &:hover {
       color: var(--color-accent);
-    }
-
-    &:focus-visible {
-      outline: 2px solid var(--color-focus-ring);
-      outline-offset: 3px;
+      text-decoration: none;
     }
   }
 
@@ -81,12 +53,6 @@
 
   &__tags {
     margin-top: 0.25rem;
-  }
-
-  // Footer actions sit above the stretched link so they stay clickable.
-  &__actions {
-    position: relative;
-    z-index: 1;
   }
 
   &__action {

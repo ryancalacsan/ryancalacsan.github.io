@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import Link from 'next/link'
+import NextLink from 'next/link'
 import { ExternalLink, Github, Package } from 'lucide-react'
-import { Card, AspectRatio, Heading, Text, Eyebrow, Badge, Inline } from '@ryancalacsan/caliper-ui'
+import { Card, AspectRatio, Heading, Text, Eyebrow, Badge, Inline, Link } from '@ryancalacsan/caliper-ui'
 import type { Project, Media } from '@/payload-types'
 
 const typeLabels: Record<string, string> = {
@@ -27,11 +27,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <Card
+      fill
+      interactive
       className="project-card"
       media={
         image?.url ? (
           <AspectRatio
             ratio={16 / 9}
+            fit={isSvg ? 'contain' : 'cover'}
             className={`project-card__shot${isSvg ? ' project-card__shot--contain' : isCenter ? ' project-card__shot--center' : ''}`}
           >
             <Image
@@ -49,7 +52,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <Eyebrow tone="muted">
             {typeLabels[project.type] || project.type} · {project.year}
           </Eyebrow>
-          {project.badge && <Badge tone="accent">{project.badge}</Badge>}
+          {project.badge && (
+            <Badge tone="accent" shape="square">
+              {project.badge}
+            </Badge>
+          )}
         </Inline>
       }
       footer={
@@ -93,9 +100,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
       }
     >
       <Heading level={3} size="lg" className="project-card__title">
-        {/* Stretched link makes the whole card open the case study */}
-        <Link href={`/projects/${project.slug}`} className="project-card__link">
-          {project.title}
+        {/* Caliper interactive Card + stretched Link makes the whole card open the case study */}
+        <Link asChild stretch underline="hover" className="project-card__link">
+          <NextLink href={`/projects/${project.slug}`}>{project.title}</NextLink>
         </Link>
       </Heading>
 
@@ -106,7 +113,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       {project.techStack && project.techStack.length > 0 && (
         <Inline gap="2xs" wrap className="project-card__tags">
           {project.techStack.map((item) => (
-            <Badge key={item.id} tone="neutral">
+            <Badge key={item.id} tone="neutral" shape="square">
               {item.technology}
             </Badge>
           ))}

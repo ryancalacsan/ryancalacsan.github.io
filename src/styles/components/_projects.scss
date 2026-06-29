@@ -3,11 +3,8 @@
 .projects {
   padding-block: var(--spacing-section);
 
-  // Grid spacing/columns come from Caliper's Grid. Stretch so every card in a
-  // row matches the tallest one (see _project-card for the footer pin).
-  &__grid {
-    align-items: stretch;
-  }
+  // Grid spacing/columns come from Caliper's Grid (which already stretches rows);
+  // Caliper's <Card fill> gives equal-height cards with pinned footers.
 
   &__empty-link {
     color: var(--color-accent);
