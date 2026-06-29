@@ -37,7 +37,7 @@ export function Hero() {
           <div className="hero__body">
             <div className="hero-fade-up" style={{ animationDelay: '0.2s' }}>
               <Eyebrow tone="muted" className="hero__eyebrow">
-                Full-Stack Engineer / Chicago
+                Front-End &amp; Full-Stack Engineer / Chicago
               </Eyebrow>
             </div>
 
@@ -60,9 +60,10 @@ export function Hero() {
 
             <div className="hero-fade-up" style={{ animationDelay: '0.7s' }}>
               <Text as="p" size="lg" tone="muted" className="hero__lead">
-                I built a 200,000+ line enterprise platform from scratch as the sole
-                engineer. Real-time pricing engines, payment processing, CRM
-                integration. Built to last and measured to the pixel.
+                I build accessible, design-led interfaces and ship the full stack
+                behind them. I designed and published Caliper UI, the component
+                library this site runs on, and built an enterprise platform end to
+                end as the sole engineer.
               </Text>
             </div>
 
@@ -85,9 +86,9 @@ export function Hero() {
 
             <div className="hero-fade-up" style={{ animationDelay: '1.05s' }}>
               <StatGroup dividers className="hero__stats">
-                <Stat label="Shipped" value="200K+" />
-                <Stat label="Role" value="Sole Eng" />
-                <Stat label="Access" value="WCAG AA" accent />
+                <Stat label="Shipped" value="npm + prod" />
+                <Stat label="Access" value="WCAG 2.2 AA" />
+                <Stat label="Perf" value="100" accent />
               </StatGroup>
             </div>
           </div>

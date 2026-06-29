@@ -143,7 +143,7 @@ const projectsData = [
     role: 'Principal Engineer',
     year: 2025,
     featured: true,
-    order: 1,
+    order: 2,
     description:
       "Built the company's entire modern technology stack from scratch as the sole engineer. PrintNinja is a custom printing company serving self-publishers and game makers.",
     outcome:
@@ -195,7 +195,7 @@ const projectsData = [
     role: 'Designer & Developer',
     year: 2026,
     featured: true,
-    order: 2,
+    order: 1,
     description:
       'An accessible React component library and design system, published on npm. 38 components from a single token layer, hand-written SCSS with BEM, two themes, WCAG 2.2 AA. Built with a "Spec Sheet" technical-drawing identity.',
     outcome:
@@ -247,7 +247,7 @@ const projectsData = [
     liveUrl: 'https://caliper-ui.vercel.app',
     githubUrl: 'https://github.com/ryancalacsan/caliper-ui',
     npmUrl: 'https://www.npmjs.com/package/@ryancalacsan/caliper-ui',
-    image: { filename: 'caliper-ui.png', alt: 'Caliper UI demo presented as a technical spec sheet on warm paper with a construction-orange accent, with CALIPER on the side rail' },
+    image: { filename: 'caliper-ui.png', alt: 'Caliper UI demo shown as a technical spec sheet on warm paper with a construction-orange accent: 38 components, two themes, WCAG 2.2 AA' },
   },
   {
     title: 'OutreachAI',
@@ -259,29 +259,29 @@ const projectsData = [
     featured: true,
     order: 3,
     description:
-      'AI-powered patient outreach message generator for maternal and women\'s healthcare. Care coordinators select a patient, configure outreach parameters, and generate personalized messages across SMS, email, and in-app channels — with multiple variants, engagement predictions, and clinical reasoning.',
+      'AI-powered patient outreach message generator for maternal and women\'s healthcare. Care coordinators select a patient, configure outreach parameters, and generate personalized messages across SMS, email, and in-app channels, each with multiple variants, engagement predictions, and clinical reasoning.',
     outcome:
-      'Built a full-stack AI application with dual backends (Next.js + FastAPI), live LLM streaming from Claude and Gemini, and Docker containerization — generating personalized patient outreach across SMS, email, and in-app channels with engagement predictions.',
+      'Built a full-stack AI application with dual backends (Next.js + FastAPI), live LLM streaming from Claude and Gemini, and Docker containerization. It generates personalized patient outreach across SMS, email, and in-app channels with engagement predictions.',
     challenge: richText([
       paragraph(
         'Care coordinators in maternal and women\'s healthcare need to send personalized outreach messages to patients across multiple channels. Messages must account for clinical context, risk factors, care team information, and lifecycle stage. Manual message crafting is time-intensive and inconsistent.',
       ),
       paragraph(
-        'I wanted to build an application that leverages LLMs to generate channel-appropriate messages with multiple variants, engagement scoring, and clinical reasoning — while supporting multiple AI providers and backend implementations.',
+        'I wanted to build an application that uses LLMs to generate channel-appropriate messages with multiple variants, engagement scoring, and clinical reasoning, while supporting multiple AI providers and backend implementations.',
       ),
     ]),
     whatIBuilt: richText([
       paragraph(
-        'A full-stack application with two independent backend implementations — a Next.js API route (TypeScript) and a FastAPI service (Python) — both providing the same streaming endpoint:',
+        'A full-stack application with two independent backend implementations, a Next.js API route (TypeScript) and a FastAPI service (Python), both providing the same streaming endpoint:',
       ),
       bulletList([
         'Patient-aware generation with 4 realistic profiles including clinical context, risk factors, and interaction history',
         'Multi-channel output (SMS, email, in-app) with A/B/C variant generation and channel-appropriate formatting',
         'Engagement scoring with predicted likelihood (high/medium/low) and clinical reasoning for each variant',
         'Live LLM streaming via Server-Sent Events from both Next.js ReadableStream and FastAPI sse-starlette',
-        'Dual backend architecture — Next.js TypeScript API route and FastAPI Python service with identical behavior',
+        'Dual backend architecture: Next.js TypeScript API route and FastAPI Python service with identical behavior',
         'Docker Compose containerization running both services together',
-        'Demo mode with smart fallback (exact match → goal-match → tone-match → generic) — fully functional without API keys',
+        'Demo mode with smart fallback (exact match → goal-match → tone-match → generic), fully functional without API keys',
         'Rate limiting, access code gating, input validation, and response validation at the API boundary',
         'Responsive design with desktop sidebar layout and mobile bottom sheet drawer',
         '135 Next.js tests (Vitest) + 56 Python tests (pytest) with CI via GitHub Actions',
@@ -318,13 +318,13 @@ const projectsData = [
     description:
       'Quote builder for freelancers and contractors. Create quotes with real-time pricing, share via unique links, accept Stripe payments, and track revenue from a dashboard with analytics.',
     outcome:
-      'Full-stack SaaS application with real-time pricing, Stripe payment processing, and an analytics dashboard — built as a solo developer.',
+      'Full-stack SaaS application with real-time pricing, Stripe payment processing, and an analytics dashboard, built as a solo developer.',
     challenge: richText([
       paragraph(
         'Freelancers and contractors often rely on spreadsheets, email threads, or manual invoicing to manage client quotes. This process is error-prone, looks unprofessional, and makes it difficult to track revenue or follow up on pending quotes.',
       ),
       paragraph(
-        'I wanted to build a purpose-built tool that lets freelancers create professional quotes quickly, share them with clients via unique links, and get paid — all from a single dashboard.',
+        'I wanted to build a purpose-built tool that lets freelancers create professional quotes quickly, share them with clients via unique links, and get paid, all from a single dashboard.',
       ),
     ]),
     whatIBuilt: richText([
@@ -386,7 +386,7 @@ const projectsData = [
         'Optimized image loading with blur-up placeholders and lazy loading',
         'Responsive design adapting from desktop parallax to mobile-optimized layouts',
         'Reduced motion support for accessibility (prefers-reduced-motion)',
-        'Performance optimized — Lighthouse 90+ despite image-heavy content',
+        'Performance optimized for Lighthouse 90+ despite image-heavy content',
       ]),
     ]),
     techStack: [
@@ -400,7 +400,7 @@ const projectsData = [
     liveUrl: 'https://chicago-current.vercel.app',
     githubUrl: 'https://github.com/ryancalacsan/chicago-current',
     npmUrl: undefined,
-    image: { filename: 'chicago-current.png', alt: 'Chicago Current — scroll-driven photo essay of a kayak journey down the Chicago River' },
+    image: { filename: 'chicago-current.png', alt: 'Chicago Current, scroll-driven photo essay of a kayak journey down the Chicago River' },
   },
   {
     title: 'Minimal Motion Gallery',
@@ -417,7 +417,7 @@ const projectsData = [
       'A typography-focused frontend showcase demonstrating CSS mastery, variable font animations, and sophisticated motion design.',
     challenge: richText([
       paragraph(
-        'Most portfolio projects focus on functionality. I wanted to build something that demonstrates a different kind of skill — an eye for design, restraint, and the ability to craft polished micro-interactions that feel intentional rather than decorative.',
+        'Most portfolio projects focus on functionality. I wanted to build something that demonstrates a different kind of skill: an eye for design, restraint, and the ability to craft polished micro-interactions that feel intentional rather than decorative.',
       ),
       paragraph(
         'The challenge was to create a single-page experience where every animation serves a purpose, typography is the primary design element, and the overall feel communicates craft and taste.',
@@ -464,7 +464,7 @@ const projectsData = [
       'Open-source CLI tool published on npm that automates prepress PDF validation with 8 automated checks and CI pipeline support.',
     challenge: richText([
       paragraph(
-        'Print professionals and self-publishers frequently submit PDF files that fail prepress requirements — missing bleed, wrong color space, low resolution images, or non-embedded fonts. These issues cause costly reprints and production delays.',
+        'Print professionals and self-publishers frequently submit PDF files that fail prepress requirements like missing bleed, wrong color space, low resolution images, or non-embedded fonts. These issues cause costly reprints and production delays.',
       ),
       paragraph(
         'Existing prepress tools are expensive desktop applications. I wanted to build a fast, free, command-line tool that could validate print-ready PDFs and integrate into CI pipelines for automated checking.',
@@ -511,7 +511,7 @@ const siteSettingsData = {
       'Most recently, I served as Principal Engineer at PrintNinja, where I built a 200,000+ line Configure-Price-Quote platform from scratch as the sole engineer. I joined as their first in-house engineer, inheriting an environment with no version control and significant technical debt from previous contractors. I introduced modern engineering practices, migrated critical business logic from legacy PHP systems, and built a platform handling complex pricing with 500+ variables, payment processing, and CRM integration.',
     ),
     paragraph(
-      'Before transitioning to software engineering, I spent 15 years in photography and studio management — experience that gave me strong project ownership skills and an eye for user experience.',
+      'Before transitioning to software engineering, I spent 15 years in photography and studio management. That experience gave me strong project ownership skills and an eye for user experience.',
     ),
     paragraph('Currently open to full-stack or frontend roles, preferably remote.'),
   ]),

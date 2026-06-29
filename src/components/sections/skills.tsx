@@ -5,19 +5,23 @@ import { RevealStagger, RevealStaggerItem } from '../reveal-stagger'
 const skillCategories = [
   {
     name: 'Frontend',
-    skills: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'SCSS', 'BEM', 'CSS Animations', 'HTML5', 'CSS3', 'Accessibility (WCAG 2.2 AA)'],
+    skills: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Semantic HTML', 'CSS', 'SCSS', 'BEM', 'Accessibility (WCAG 2.2 AA)', 'Framer Motion', 'Tailwind CSS'],
   },
   {
-    name: 'Backend',
+    name: 'Design Systems',
+    skills: ['Design Tokens', 'Component Libraries', 'Storybook', 'Theming', 'Figma (Dev Mode)'],
+  },
+  {
+    name: 'Backend & CMS',
     skills: ['Node.js', 'PostgreSQL', 'Drizzle ORM', 'Payload CMS', 'REST APIs', 'Server Actions', 'Zod', 'Redis'],
   },
   {
-    name: 'Infrastructure',
-    skills: ['Docker', 'Vercel', 'Supabase', 'Nginx', 'Turborepo', 'Git', 'GitHub Actions', 'Vitest'],
+    name: 'Tooling & Testing',
+    skills: ['Git', 'GitHub Actions', 'Docker', 'Vercel', 'Vitest', 'Playwright', 'Turborepo', 'AI-Assisted Development'],
   },
   {
     name: 'Integrations',
-    skills: ['Stripe', 'Salesforce', 'Clerk Auth', 'ShipStation', 'UPS', 'Rackspace Cloud Files'],
+    skills: ['Stripe', 'Salesforce', 'Clerk Auth', 'ShipStation', 'UPS'],
   },
 ]
 

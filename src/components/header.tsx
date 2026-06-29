@@ -8,7 +8,7 @@ export function Header() {
   return (
     <AppHeader sticky condenseAfter={20}>
       <Container size="xl" className="site-header__inner">
-        <Link href="/" className="site-header__logo" aria-label="Ryan Calacsan — home">
+        <Link href="/" className="site-header__logo" aria-label="Ryan Calacsan, home">
           <span aria-hidden="true">RC</span>
           <span className="site-header__logo-mark">/</span>
         </Link>

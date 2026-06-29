@@ -22,9 +22,9 @@ export function About() {
         <div className="about__grid">
           <div className="about__text">
             <p>
-              I&apos;m a full-stack engineer based in Chicago who builds web
-              applications with a focus on clean architecture and delivering real
-              business value.
+              I&apos;m a front-end and full-stack engineer based in Chicago. I care
+              most about accessible, design-led interfaces and the systems that
+              keep them consistent and maintainable.
             </p>
 
             {/* Photo inline on mobile only */}
@@ -39,26 +39,28 @@ export function About() {
             </div>
 
             <p>
+              I design and publish Caliper UI, my own accessible React component
+              library and design system. It&apos;s hand-written SCSS and BEM, driven
+              by design tokens, ships two themes, and meets WCAG 2.2 AA. This site
+              is built with it.
+            </p>
+            <p>
               Most recently, I served as Principal Engineer at PrintNinja, where I
-              built a 200,000+ line Configure-Price-Quote platform from scratch as
-              the sole engineer. I joined as their first in-house engineer,
-              inheriting an environment with no version control and significant
-              technical debt from previous contractors. I introduced modern
-              engineering practices, migrated critical business logic from legacy
-              PHP systems, and built a platform handling complex pricing with 500+
+              built a full Configure-Price-Quote platform from scratch as the sole
+              engineer. I joined as their first in-house engineer, inheriting an
+              environment with no version control and significant technical debt
+              from previous contractors. I introduced modern engineering practices,
+              migrated critical business logic from legacy PHP systems, and built
+              the platform&apos;s front-end alongside complex pricing with 500+
               variables, payment processing, and CRM integration.
             </p>
             <p>
               Before transitioning to software engineering, I spent 15 years in
-              photography and studio management — experience that gave me strong
+              photography and studio management. That experience gave me strong
               project ownership skills and an eye for user experience.
             </p>
-            <p>
-              This site is hand-built. The styles are hand-written SCSS with
-              BEM naming, not a utility framework.
-            </p>
             <p className="about__cta">
-              Currently open to full-stack or frontend roles, preferably remote.
+              Currently open to front-end or full-stack roles, preferably remote.
             </p>
           </div>
 

@@ -3,8 +3,8 @@ import { RevealSection } from '../reveal-section'
 import { RevealStagger, RevealStaggerItem } from '../reveal-stagger'
 
 const techStack = [
-  'Next.js 15',
-  'React 19',
+  'Next.js',
+  'React',
   'TypeScript',
   'PostgreSQL',
   'Drizzle ORM',
@@ -17,7 +17,7 @@ const techStack = [
 ]
 
 const achievements = [
-  '200,000+ line full-stack platform using Next.js, React, TypeScript, and PostgreSQL',
+  "Built the platform's React, Next.js, and TypeScript front-end, from the CPQ dashboard to the quoting and configuration workflows",
   'Real-time pricing engine handling 500+ variables across 4 product lines with LRU caching',
   'Stripe payment integration with webhook processing',
   'Salesforce CRM sync with 80+ custom field mappings across 10 modules',

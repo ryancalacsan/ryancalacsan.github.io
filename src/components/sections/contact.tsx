@@ -34,7 +34,7 @@ export function Contact() {
           </Heading>
         </header>
         <Text as="p" size="lg" tone="muted" className="contact__lead">
-          I&apos;m currently looking for full-stack or frontend engineering roles.
+          I&apos;m currently looking for front-end or full-stack engineering roles.
           Feel free to reach out. I&apos;d love to hear from you.
         </Text>
 

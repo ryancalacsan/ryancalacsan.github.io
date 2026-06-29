@@ -25,14 +25,14 @@ export const metadata: Metadata = {
     template: '%s | Ryan Calacsan',
   },
   description:
-    'Full-Stack Engineer based in Chicago. Building enterprise platforms with Next.js, TypeScript, and PostgreSQL.',
+    'Front-end and full-stack engineer in Chicago. I build accessible, design-led interfaces and the systems behind them, and publish Caliper UI, my own React component library and design system.',
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: 'Ryan Calacsan',
     description:
-      'Full-Stack Engineer based in Chicago. Building enterprise platforms with Next.js, TypeScript, and PostgreSQL.',
+      'Front-end and full-stack engineer in Chicago. I build accessible, design-led interfaces and the systems behind them, and publish Caliper UI, my own React component library and design system.',
     url: 'https://www.ryancalacsan.dev',
     siteName: 'Ryan Calacsan',
     locale: 'en_US',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Ryan Calacsan',
     description:
-      'Full-Stack Engineer based in Chicago. Building enterprise platforms with Next.js, TypeScript, and PostgreSQL.',
+      'Front-end and full-stack engineer in Chicago. I build accessible, design-led interfaces and the systems behind them, and publish Caliper UI, my own React component library and design system.',
   },
   robots: {
     index: true,
