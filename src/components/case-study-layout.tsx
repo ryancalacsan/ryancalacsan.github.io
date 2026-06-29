@@ -13,6 +13,7 @@ import {
   Divider,
   Inline,
   Button,
+  GridBackdrop,
 } from '@ryancalacsan/caliper-ui'
 import type { Project, Media } from '@/payload-types'
 import { RichText } from './rich-text'
@@ -42,7 +43,7 @@ export function CaseStudyLayout({ project, previous, next }: CaseStudyLayoutProp
 
   return (
     <article className="case-study">
-      <div className="dot-grid" aria-hidden="true" />
+      <GridBackdrop variant="dots" size="grid" className="dot-grid" aria-hidden="true" />
       <Container size="lg">
         {/* Hero */}
         <RevealSection animation="fadeUp" className="case-study__hero">

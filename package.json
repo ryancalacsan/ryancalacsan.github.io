@@ -22,7 +22,7 @@
     "@payloadcms/richtext-lexical": "3.85.1",
     "@payloadcms/storage-vercel-blob": "3.85.1",
     "@payloadcms/ui": "3.85.1",
-    "@ryancalacsan/caliper-ui": "^0.9.0",
+    "@ryancalacsan/caliper-ui": "^0.10.0",
     "cross-env": "^7.0.3",
     "graphql": "^16.8.1",
     "lenis": "^1.3.17",

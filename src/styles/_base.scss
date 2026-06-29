@@ -51,17 +51,14 @@ main:focus {
 // (Caliper's <Prose> now sets its own list markers, so the reset no longer needs
 //  a portfolio-side fix.)
 
-// Dotted grid backdrop (decorative). Matches Caliper's grid rhythm + line color
-// but as dots, echoing the Caliper demo's textured sections. Rendered as an
-// absolute first child of a container that layers it behind content (see
-// .home-sections / .case-study). Fades gently into the boundaries above/below.
-// (Caliper's GridBackdrop is line-only; a dots variant is on the gaps list.)
+// Positions + fades Caliper's <GridBackdrop variant="dots"> behind page content.
+// Caliper renders the dots (rhythm + theme-aware color); this only handles the
+// absolute placement, opacity, and the edge fade. Layered via .home-sections /
+// .case-study (see below).
 .dot-grid {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background-image: radial-gradient(var(--color-grid-line) 1.25px, transparent 1.25px);
-  background-size: var(--motif-grid, 2rem) var(--motif-grid, 2rem);
   opacity: 0.7;
   -webkit-mask-image: linear-gradient(to bottom, transparent, #000 5%, #000 95%, transparent);
   mask-image: linear-gradient(to bottom, transparent, #000 5%, #000 95%, transparent);
