@@ -101,7 +101,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
     >
       <Heading level={3} size="lg" className="project-card__title">
         {/* Caliper interactive Card + stretched Link makes the whole card open the case study */}
-        <Link asChild stretch underline="hover" className="project-card__link">
+        <Link asChild stretch tone="inherit" underline="none" className="project-card__link">
           <NextLink href={`/projects/${project.slug}`}>{project.title}</NextLink>
         </Link>
       </Heading>

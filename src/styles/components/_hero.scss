@@ -75,11 +75,8 @@
   }
 
   // Caliper's MeasureFrame owns the dashed box, crop marks and dimension line.
-  // The headline itself only needs the uppercase, line-by-line reveal treatment.
-  &__title {
-    text-transform: uppercase;
-  }
-
+  // The name reads in regular capitalization ("Ryan Calacsan"); the Spec Sheet
+  // motif stays uppercase elsewhere. The headline only needs the reveal layers.
   &__name-line {
     display: block;
     overflow: hidden;

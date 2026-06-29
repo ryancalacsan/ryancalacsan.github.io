@@ -34,16 +34,13 @@
     margin: 0;
   }
 
-  // Neutralize Caliper Link's accent color/underline for the title; keep the
-  // stretch overlay it provides.
+  // Caliper's <Link tone="inherit" underline="none" stretch> handles color,
+  // underline and the overlay; we only add the hover affordance on the title.
   &__link {
-    color: var(--color-text);
-    text-decoration: none;
     transition: color var(--duration-normal) var(--ease);
 
     &:hover {
       color: var(--color-accent);
-      text-decoration: none;
     }
   }
 
