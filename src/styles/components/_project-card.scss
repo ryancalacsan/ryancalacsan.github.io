@@ -8,6 +8,8 @@
 
 .project-card {
   position: relative;
+  // Fill the stretched grid cell so cards in a row are equal height.
+  height: 100%;
   transition: border-color var(--duration-normal) var(--ease),
     transform var(--duration-normal) var(--ease),
     box-shadow var(--duration-normal) var(--ease);
@@ -16,6 +18,13 @@
     border-color: var(--color-border-strong);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
+  }
+
+  // Let Caliper's card body grow so the footer (Live / Source / npm) pins to
+  // the bottom and aligns across cards. (Caliper Card has no native fill mode
+  // yet — tracked in the gaps list.)
+  .card__body {
+    flex: 1;
   }
 
   // Image fit overrides for AspectRatio's default object-fit: cover.
