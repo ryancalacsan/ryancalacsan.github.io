@@ -197,9 +197,9 @@ const projectsData = [
     featured: true,
     order: 1,
     description:
-      'An accessible React component library and design system, published on npm. 41 components from a single token layer, hand-written SCSS with BEM, two themes, WCAG 2.2 AA. Built with a "Spec Sheet" technical-drawing identity.',
+      'A production React component library and design system, published on npm: 41 components from one token layer, hand-written SCSS with BEM, two themes, WCAG 2.2 AA, and zero runtime dependencies. Design tokens stay in sync between code and Figma. Built in a "Spec Sheet" technical-drawing identity.',
     outcome:
-      'An accessible React component library and design system, published on npm as @ryancalacsan/caliper-ui: 41 components built from one token layer, two themes switched by a data attribute, and WCAG 2.2 AA verified by an automated contrast check and axe on every Storybook story. This portfolio is built with it.',
+      'A production React component library and design system, published on npm as @ryancalacsan/caliper-ui: 41 components from one token layer, two themes switched by a data attribute, zero runtime dependencies, and WCAG 2.2 AA verified by an automated contrast check and axe on every Storybook story. Its design tokens sync between code and Figma via W3C DTCG. This portfolio is built with it.',
     challenge: richText([
       paragraph(
         'I wanted to show design-system craft without a utility framework. The aim was a small component library styled in hand-written SCSS with BEM, where one token layer is the single source of truth for color, type, spacing, radii, motion, and breakpoints.',
@@ -213,10 +213,11 @@ const projectsData = [
         'A React and TypeScript library, built with Vite and styled entirely in hand-written SCSS:',
       ),
       bulletList([
-        'Published as an installable npm package (@ryancalacsan/caliper-ui), shipped as ESM with type declarations, RSC-ready (server-renderable where possible, with "use client" only where needed), and with self-contained CSS that inlines its fonts.',
-        '41 accessible components across primitives, layout, forms, overlays, and the Spec Sheet drawing motifs. Interactive parts like Modal, Select (a custom ARIA listbox), Tabs, and Tooltip are keyboard-operable with correct ARIA and managed focus.',
+        'Published as an installable npm package (@ryancalacsan/caliper-ui), shipped as ESM with type declarations, RSC-ready (server-renderable where possible, with "use client" only where needed), self-contained CSS that inlines its fonts, and zero runtime dependencies (React is the only peer dependency).',
+        '41 accessible components across actions and forms, overlays, layout, typography, content and data display, navigation, and the Spec Sheet drawing motifs. Interactive parts like Modal, Select (a custom ARIA listbox), Tabs, and Tooltip use real semantic elements, focus traps, and full ARIA wiring with managed focus.',
         'A "Spec Sheet" visual identity: warm paper and ink with one construction-orange accent, drawn like a technical document. Light and dark themes come from one token set and switch by a data attribute, with no component changes between them.',
-        'WCAG 2.2 AA verified, not assumed. A script checks every color pairing in both themes, and Storybook runs axe on every story.',
+        'Design tokens authored in W3C DTCG format as the single source of truth, generating both the CSS and a Figma variable library (light and dark as Figma modes), with drift detection in CI.',
+        'WCAG 2.2 AA verified, not assumed. A script checks every color pairing in both themes, Storybook runs axe on every story, and prefers-reduced-motion is respected throughout.',
         'Engineered like a real product: Vitest interaction tests, Playwright visual regression in both themes, GitHub Actions CI, Changesets-driven releases, and npm Trusted Publishing (OIDC with provenance, no stored secrets).',
       ]),
       paragraphNodes([
@@ -236,6 +237,7 @@ const projectsData = [
       'SCSS',
       'BEM',
       'Design Tokens',
+      'Figma',
       'Storybook',
       'Accessibility (WCAG 2.2 AA)',
       'Vitest',
