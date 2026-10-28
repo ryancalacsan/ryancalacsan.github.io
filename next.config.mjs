@@ -2,6 +2,8 @@ import { withPayload } from '@payloadcms/next/withPayload'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Stop `next dev` from writing an AGENTS.md when it detects an AI coding agent.
+  agentRules: false,
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
