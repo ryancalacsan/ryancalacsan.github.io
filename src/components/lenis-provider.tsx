@@ -2,9 +2,10 @@
 
 import { useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
+import type Lenis from 'lenis'
 
 export function LenisProvider({ children }: { children: React.ReactNode }) {
-  const lenisRef = useRef<any>(null)
+  const lenisRef = useRef<Lenis | null>(null)
   const pathname = usePathname()
 
   useEffect(() => {
